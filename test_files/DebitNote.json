@@ -1,0 +1,153 @@
+[
+  {
+    "id": "DN-2026-001",
+    "issueDate": "2026-01-23",
+    "dueDate": "2026-02-23",
+    "documentCurrencyCode": "GBP",
+    "document_type": "383",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "SUP003",
+      "partyName": "London Trading Co",
+      "postalAddress": {
+        "streetName": "Piccadilly Street",
+        "buildingNumber": "123",
+        "cityName": "London",
+        "postalZone": "W1D 7AD",
+        "countrySubentity": null,
+        "identificationCode": "GB"
+      },
+      "contact": {
+        "telephone": "+44-20-7946-0958",
+        "telefax": "+44-20-7946-0959",
+        "electronicMail": "sales@londontrading.co.uk"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "GB123456789",
+          "taxSchemeID": "VAT"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "London Trading Company",
+          "companyID": "GB123456789"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "CUST003",
+      "partyName": "Manchester Retail Ltd",
+      "postalAddress": {
+        "streetName": "Deansgate",
+        "buildingNumber": "456",
+        "cityName": "Manchester",
+        "postalZone": "M1 7AB",
+        "countrySubentity": null,
+        "identificationCode": "GB"
+      },
+      "contact": {
+        "telephone": "+44-161-228-1234",
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "GB987654321",
+          "taxSchemeID": "VAT"
+        }
+      ],
+      "partyLegalEntities": []
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "INV-2026-002",
+      "salespersonID": "MARK_JOHNSON",
+      "SalesOrderID": "SO-2026-1003",
+      "customerReference": "CUST003",
+      "issueDate": "2026-01-15"
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "INV-2026-002",
+        "documentTypeCode": "Invoice",
+        "issueDate": "2026-01-15"
+      }
+    ],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": null,
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": null,
+      "financialInstitutionBranch": null,
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "Additional charge due to late delivery",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": 2.5
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 75.0,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 500.0,
+            "taxAmount": 75.0,
+            "taxPercent": 15.0,
+            "taxSchemeID": "VAT"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 500.0,
+      "taxExclusiveAmount": 500.0,
+      "taxInclusiveAmount": 575.0,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 500.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 575.0
+    },
+    "globalAllowanceCharges": [
+      {
+        "chargeIndicator": true,
+        "allowanceReasonCode": "LATE",
+        "amount": 500.0,
+        "description": "Late delivery penalty charge"
+      }
+    ],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Late Delivery Charge",
+          "description": "Penalty for delivery beyond agreed date",
+          "sellersItemIdentification_id": "CHARGE-LATE",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": "EA",
+        "priceAmount": 500.0,
+        "lineExtensionAmount": 500.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 0.95
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      }
+    ]
+  }
+]

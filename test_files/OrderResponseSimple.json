@@ -1,0 +1,126 @@
+[
+  {
+    "id": "ORDERSIMPLERESP-2026-001",
+    "issueDate": "2026-01-31",
+    "dueDate": null,
+    "documentCurrencyCode": "USD",
+    "document_type": "221",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "VEND-SIMPLE",
+      "partyName": "Quick Distributor Ltd",
+      "postalAddress": {
+        "streetName": "Fast Lane",
+        "buildingNumber": "999",
+        "cityName": "Portland",
+        "postalZone": "97201",
+        "countrySubentity": "OR",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-503-555-1234",
+        "telefax": null,
+        "electronicMail": "orders@quickdist.com"
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "accountingCustomerParty": {
+      "id": "BUYER-SIMPLE",
+      "partyName": "Small Business Retailer",
+      "postalAddress": {
+        "streetName": "Main Street",
+        "buildingNumber": "123",
+        "cityName": "Portland",
+        "postalZone": "97201",
+        "countrySubentity": "OR",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-503-555-5678",
+        "telefax": null,
+        "electronicMail": "owner@smallbusiness.com"
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "QUICKORDER-2026-001",
+      "salespersonID": null,
+      "SalesOrderID": null,
+      "customerReference": "BUYER-SIMPLE",
+      "issueDate": "2026-01-30"
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "QUICKORDER-2026-001",
+        "documentTypeCode": "Order",
+        "issueDate": "2026-01-30"
+      }
+    ],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": null,
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": null,
+      "financialInstitutionBranch": null,
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "Simple Response - Approved",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 500.0,
+      "taxExclusiveAmount": 500.0,
+      "taxInclusiveAmount": null,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 500.0
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Office Supplies Bundle",
+          "description": "Basic office supplies - APPROVED",
+          "sellersItemIdentification_id": "BUNDLE-OFFICE",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": 1.0,
+        "unitCode": "BUNDLE",
+        "priceAmount": 500.0,
+        "lineExtensionAmount": 500.0,
+        "orderReference_id": "QUICKORDER-2026-001",
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [
+      {
+        "type": "ACCEPTANCE",
+        "content": "Order APPROVED and ready for fulfillment",
+        "location": "header",
+        "confidence": 1.0
+      }
+    ],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      }
+    ]
+  }
+]

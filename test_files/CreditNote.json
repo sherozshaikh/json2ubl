@@ -1,0 +1,163 @@
+[
+  {
+    "id": "CN-2026-001",
+    "issueDate": "2026-01-22",
+    "dueDate": "2026-02-22",
+    "documentCurrencyCode": "USD",
+    "document_type": "381",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "SUP002",
+      "partyName": "Tech Solutions Ltd",
+      "postalAddress": {
+        "streetName": "999 Innovation Drive",
+        "buildingNumber": "999",
+        "cityName": "Boston",
+        "postalZone": "02101",
+        "countrySubentity": "MA",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-617-555-1234",
+        "telefax": "+1-617-555-1235",
+        "electronicMail": "support@techsolutions.com"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "12-3456789",
+          "taxSchemeID": "FED"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Tech Solutions Ltd.",
+          "companyID": "12-3456789"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "CUST002",
+      "partyName": "Enterprise Systems Inc",
+      "postalAddress": {
+        "streetName": "200 Corporate Plaza",
+        "buildingNumber": "200",
+        "additionalStreetName": "Floor 10",
+        "cityName": "Dallas",
+        "postalZone": "75201",
+        "countrySubentity": "TX",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-214-555-4321",
+        "telefax": null,
+        "electronicMail": "accounts@enterprisesys.com"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "45-6789012",
+          "taxSchemeID": "FED"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Enterprise Systems Inc.",
+          "companyID": "45-6789012"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "INV-2026-001",
+      "salespersonID": "JANE_SMITH",
+      "SalesOrderID": "SO-2026-1002",
+      "customerReference": "CUST002",
+      "issueDate": "2026-01-10"
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "INV-2026-001",
+        "documentTypeCode": "Invoice",
+        "issueDate": "2026-01-10"
+      }
+    ],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": null,
+    "paymentMeans": {
+      "paymentMeansCode": "42",
+      "payeeFinancialAccount_id": "1234567890",
+      "financialInstitutionBranch": {
+        "id": "CHASE0002",
+        "name": "JPMorgan Chase",
+        "branchName": "Boston Downtown"
+      },
+      "remit_to_email": "accounting@techsolutions.com"
+    },
+    "paymentTerms": {
+      "note": "Credit to original invoice Net 30",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": -100.0,
+        "taxSubtotals": [
+          {
+            "taxableAmount": -1000.0,
+            "taxAmount": -100.0,
+            "taxPercent": 10.0,
+            "taxSchemeID": "VAT"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": -1000.0,
+      "taxExclusiveAmount": -1000.0,
+      "taxInclusiveAmount": -1100.0,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": -1100.0
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Software License Refund",
+          "description": "Annual software license return - defective copy",
+          "sellersItemIdentification_id": "LIC-SOFT-2026",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": -1.0,
+        "orderedQuantity": null,
+        "unitCode": "EA",
+        "priceAmount": 1000.0,
+        "lineExtensionAmount": -1000.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 0.99
+      }
+    ],
+    "annotations": [
+      {
+        "type": "NOTE",
+        "content": "Return reason: Product defect found during installation",
+        "location": "body",
+        "confidence": 1.0
+      }
+    ],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      }
+    ]
+  }
+]

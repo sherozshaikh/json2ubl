@@ -1,0 +1,153 @@
+[
+  {
+    "id": "ORDERCHANGE-2026-001",
+    "issueDate": "2026-01-29",
+    "dueDate": null,
+    "documentCurrencyCode": "USD",
+    "document_type": "227",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "VEND001",
+      "partyName": "Wholesale Distributor Inc",
+      "postalAddress": {
+        "streetName": "Distribution Road",
+        "buildingNumber": "1500",
+        "cityName": "Los Angeles",
+        "postalZone": "90001",
+        "countrySubentity": "CA",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-213-555-1234",
+        "telefax": null,
+        "electronicMail": "sales@wholesaledistr.com"
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "accountingCustomerParty": {
+      "id": "BUYER-CHANGE",
+      "partyName": "Office Supply Retailer",
+      "postalAddress": {
+        "streetName": "Retail Plaza",
+        "buildingNumber": "600",
+        "cityName": "Denver",
+        "postalZone": "80202",
+        "countrySubentity": "CO",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-303-555-5678",
+        "telefax": null,
+        "electronicMail": "procurement@officesupply.com"
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "ORDER-2026-001",
+      "salespersonID": null,
+      "SalesOrderID": null,
+      "customerReference": "BUYER-CHANGE",
+      "issueDate": "2026-01-27"
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "ORDER-2026-001",
+        "documentTypeCode": "Order",
+        "issueDate": "2026-01-27"
+      }
+    ],
+    "shipVia": "Expedited Ground",
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": "DELIVERY-NEW",
+        "description": "Alternative Warehouse Location",
+        "address": {
+          "streetName": "New Warehouse Avenue",
+          "buildingNumber": "500",
+          "cityName": "Boulder",
+          "postalZone": "80301",
+          "countrySubentity": "CO",
+          "identificationCode": "US"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "Office Supply Retailer",
+        "contact": null
+      },
+      "sourcePage": 1
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "31",
+      "payeeFinancialAccount_id": null,
+      "financialInstitutionBranch": null,
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "Updated terms: increased delivery speed",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 1500.0,
+      "taxExclusiveAmount": 1500.0,
+      "taxInclusiveAmount": null,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 250.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 1750.0
+    },
+    "globalAllowanceCharges": [
+      {
+        "chargeIndicator": true,
+        "allowanceReasonCode": "EXPEDITED",
+        "amount": 250.0,
+        "description": "Expedited shipping charge"
+      }
+    ],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Office Chairs - Ergonomic (UPDATED QUANTITY)",
+          "description": "High-back ergonomic office chair - quantity reduced from 50 to 30",
+          "sellersItemIdentification_id": "CHAIR-ERGO-01",
+          "pack": "Carton",
+          "size": "One size",
+          "weight": "15 kg each",
+          "itemInstances": []
+        },
+        "invoicedQuantity": 30.0,
+        "orderedQuantity": 30.0,
+        "unitCode": "EA",
+        "priceAmount": 50.0,
+        "lineExtensionAmount": 1500.0,
+        "orderReference_id": "ORDER-2026-001",
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 0.95
+      }
+    ],
+    "annotations": [
+      {
+        "type": "NOTE",
+        "content": "Change Summary: Reduced quantity from 50 to 30 units, changed delivery location to Boulder",
+        "location": "header",
+        "confidence": 1.0
+      }
+    ],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      }
+    ]
+  }
+]

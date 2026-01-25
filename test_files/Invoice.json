@@ -1,0 +1,341 @@
+[
+  {
+    "id": "INV-2026-001",
+    "issueDate": "2026-01-20",
+    "dueDate": "2026-02-20",
+    "documentCurrencyCode": "USD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "SUP001",
+      "partyName": "Global Electronics Inc",
+      "postalAddress": {
+        "streetName": "456 Industrial Blvd",
+        "buildingNumber": "456",
+        "cityName": "San Francisco",
+        "postalZone": "94105",
+        "countrySubentity": "CA",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-415-555-0123",
+        "telefax": "+1-415-555-0124",
+        "electronicMail": "sales@globalelectronics.com"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "98-7654321",
+          "taxSchemeID": "FED"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Global Electronics Inc.",
+          "companyID": "98-7654321"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "CUST001",
+      "partyName": "Tech Retail Corp",
+      "postalAddress": {
+        "streetName": "789 Market Street",
+        "buildingNumber": "789",
+        "additionalStreetName": "Suite 500",
+        "cityName": "New York",
+        "postalZone": "10001",
+        "countrySubentity": "NY",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-212-555-9876",
+        "telefax": null,
+        "electronicMail": "procurement@techretail.com"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "12-3456789",
+          "taxSchemeID": "FED"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Tech Retail Corporation",
+          "companyID": "12-3456789"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "PO-2026-1001",
+      "salespersonID": "JOHN_DOE",
+      "SalesOrderID": "SO-2026-1001",
+      "customerReference": "CUST001",
+      "issueDate": "2026-01-15"
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "PO-2026-1001",
+        "documentTypeCode": "PurchaseOrder",
+        "issueDate": "2026-01-15"
+      }
+    ],
+    "shipVia": "FedEx Ground",
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": "SHIP001",
+        "description": "Main Distribution Center",
+        "address": {
+          "streetName": "123 Logistics Way",
+          "buildingNumber": "123",
+          "additionalStreetName": null,
+          "cityName": "Newark",
+          "postalZone": "07102",
+          "countrySubentity": "NJ",
+          "identificationCode": "US"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "Tech Retail Corp",
+        "contact": {
+          "name": "Jane Smith",
+          "telephone": "+1-212-555-9876"
+        }
+      },
+      "sourcePage": 1
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "42",
+      "payeeFinancialAccount_id": "4000123456789012",
+      "financialInstitutionBranch": {
+        "id": "BOFA0001",
+        "name": "Bank of America",
+        "branchName": "San Francisco Main"
+      },
+      "remit_to_email": "accounts@globalelectronics.com"
+    },
+    "paymentTerms": {
+      "note": "Net 30 days from invoice date",
+      "settlementDiscountPercent": 2.0,
+      "penaltySurchargePercent": 1.5
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 125.50,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 1255.0,
+            "taxAmount": 125.50,
+            "taxPercent": 10.0,
+            "taxSchemeID": "VAT"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 1255.0,
+      "taxExclusiveAmount": 1255.0,
+      "taxInclusiveAmount": 1380.50,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 1380.50
+    },
+    "globalAllowanceCharges": [
+      {
+        "chargeIndicator": false,
+        "allowanceReasonCode": "BULK",
+        "amount": 50.0,
+        "description": "Bulk order discount"
+      }
+    ],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Laptop Computer Model X500",
+          "description": "High-performance laptop with 16GB RAM and 512GB SSD",
+          "sellersItemIdentification_id": "LAPTOP-X500-BLK",
+          "pack": "Unit",
+          "size": "15.6 inch",
+          "weight": "2.1 kg",
+          "itemInstances": []
+        },
+        "invoicedQuantity": 5.0,
+        "orderedQuantity": 5.0,
+        "unitCode": "EA",
+        "priceAmount": 899.99,
+        "lineExtensionAmount": 4499.95,
+        "orderReference_id": "PO-2026-1001",
+        "allowanceCharges": [
+          {
+            "chargeIndicator": false,
+            "allowanceReasonCode": "VOLUME",
+            "amount": 224.99,
+            "description": "Volume discount"
+          }
+        ],
+        "sourcePage": 1,
+        "confidence": 0.99
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "Wireless Mouse",
+          "description": "Ergonomic wireless mouse with 2.4GHz connection",
+          "sellersItemIdentification_id": "MOUSE-WL-001",
+          "pack": null,
+          "size": "Standard",
+          "weight": "0.1 kg",
+          "itemInstances": []
+        },
+        "invoicedQuantity": 10.0,
+        "orderedQuantity": 10.0,
+        "unitCode": "EA",
+        "priceAmount": 25.50,
+        "lineExtensionAmount": 255.0,
+        "orderReference_id": "PO-2026-1001",
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 0.98
+      }
+    ],
+    "annotations": [
+      {
+        "type": "NOTE",
+        "content": "Please verify serial numbers upon receipt",
+        "location": "header",
+        "confidence": 1.0
+      }
+    ],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      },
+      {
+        "field": "issueDate",
+        "page": 1
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "INV-2026-002-EDGE",
+    "issueDate": "2026-01-25",
+    "dueDate": null,
+    "documentCurrencyCode": "EUR",
+    "document_type": "Invoice",
+    "page_count_text": "1 of 1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "Minimal Supplier Ltd",
+      "postalAddress": {
+        "streetName": "Minimal Street",
+        "buildingNumber": null,
+        "cityName": "Berlin",
+        "postalZone": "10115",
+        "countrySubentity": null,
+        "identificationCode": "DE"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "accountingCustomerParty": {
+      "id": "CUST-EDGE",
+      "partyName": "Edge Case Customer",
+      "postalAddress": {
+        "streetName": "Long Street Name With Special Characters @ # $ %",
+        "buildingNumber": "999",
+        "additionalStreetName": "Complex Address Line",
+        "cityName": "São Paulo",
+        "postalZone": "01311-100",
+        "countrySubentity": "SP",
+        "identificationCode": "BR"
+      },
+      "contact": {
+        "telephone": "+55 11 3333-3333",
+        "telefax": null,
+        "electronicMail": "contact@edgecustomer.com.br"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "12.345.678/0001-90",
+          "taxSchemeID": "CNPJ"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Edge Case Customer Ltda.",
+          "companyID": null
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": null,
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": null,
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": null,
+      "financialInstitutionBranch": null,
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": null,
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 99.99,
+      "taxExclusiveAmount": 99.99,
+      "taxInclusiveAmount": null,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": null,
+      "payableAmount": 99.99
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Special Character Test: 中文/Français/Ελληνικά",
+          "description": "Item with unicode and special chars: ™®©℗€¥",
+          "sellersItemIdentification_id": "SKU#2026-ΨΩΩ-特",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 99.99,
+        "lineExtensionAmount": 99.99,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 0.75
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": []
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "SBI-2026-001",
+    "issueDate": "2026-01-25",
+    "dueDate": "2026-02-25",
+    "documentCurrencyCode": "EUR",
+    "document_type": "389",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "BUYER001",
+      "partyName": "Large Retail Chain EU",
+      "postalAddress": {
+        "streetName": "Grand Avenue 999",
+        "buildingNumber": "999",
+        "cityName": "Amsterdam",
+        "postalZone": "1012 KK",
+        "countrySubentity": null,
+        "identificationCode": "NL"
+      },
+      "contact": {
+        "telephone": "+31-20-1234567",
+        "telefax": null,
+        "electronicMail": "billing@largechaineu.com"
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "NL123456789B01",
+          "taxSchemeID": "VAT"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Large Retail Chain EU B.V.",
+          "companyID": "NL123456789B01"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "SUPPLIER-SBI",
+      "partyName": "Fashion Supplier GmbH",
+      "postalAddress": {
+        "streetName": "Frankfurter Allee",
+        "buildingNumber": "100",
+        "cityName": "Berlin",
+        "postalZone": "10369",
+        "countrySubentity": null,
+        "identificationCode": "DE"
+      },
+      "contact": {
+        "telephone": "+49-30-555-1234",
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "DE123456789",
+          "taxSchemeID": "VAT"
+        }
+      ],
+      "partyLegalEntities": []
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "PO-SBI-2026-001",
+      "salespersonID": null,
+      "SalesOrderID": null,
+      "customerReference": "SUPPLIER-SBI",
+      "issueDate": "2026-01-20"
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": "Rail",
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": "2026-01-24",
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": "DISTRIBUTION-EU",
+        "description": "Amsterdam Distribution Hub",
+        "address": {
+          "streetName": "Port Authority Road",
+          "buildingNumber": "50",
+          "cityName": "Amsterdam",
+          "postalZone": "1012 KK",
+          "countrySubentity": null,
+          "identificationCode": "NL"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "Large Retail Chain EU",
+        "contact": {
+          "name": "Jan de Vries",
+          "telephone": "+31-20-9876543"
+        }
+      },
+      "sourcePage": 1
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": null,
+      "financialInstitutionBranch": null,
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "Overdue invoice - Net 30 from delivery",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 1104.0,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 5520.0,
+            "taxAmount": 1104.0,
+            "taxPercent": 20.0,
+            "taxSchemeID": "VAT"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 5520.0,
+      "taxExclusiveAmount": 5520.0,
+      "taxInclusiveAmount": 6624.0,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 6624.0
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "Women's Winter Collection 2026",
+          "description": "Assorted winter clothing - jackets, sweaters, pants",
+          "sellersItemIdentification_id": "WINTER-COL-2026",
+          "pack": "Mixed cartons",
+          "size": "XS-XXXL",
+          "weight": "500 kg",
+          "itemInstances": []
+        },
+        "invoicedQuantity": 500.0,
+        "orderedQuantity": 500.0,
+        "unitCode": "PCE",
+        "priceAmount": 11.04,
+        "lineExtensionAmount": 5520.0,
+        "orderReference_id": "PO-SBI-2026-001",
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 0.98
+      }
+    ],
+    "annotations": [
+      {
+        "type": "NOTE",
+        "content": "Self-billed invoice issued by buyer per trading agreement",
+        "location": "header",
+        "confidence": 1.0
+      }
+    ],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "ORDERCANCEL-2026-001",
+    "issueDate": "2026-01-28",
+    "dueDate": null,
+    "documentCurrencyCode": "USD",
+    "document_type": "230",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": "VEND001",
+      "partyName": "Wholesale Distributor Inc",
+      "postalAddress": {
+        "streetName": "Distribution Road",
+        "buildingNumber": "1500",
+        "cityName": "Los Angeles",
+        "postalZone": "90001",
+        "countrySubentity": "CA",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-213-555-1234",
+        "telefax": null,
+        "electronicMail": "sales@wholesaledistr.com"
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "accountingCustomerParty": {
+      "id": "BUYER-CANCEL",
+      "partyName": "Office Supply Retailer",
+      "postalAddress": {
+        "streetName": "Retail Plaza",
+        "buildingNumber": "600",
+        "cityName": "Denver",
+        "postalZone": "80202",
+        "countrySubentity": "CO",
+        "identificationCode": "US"
+      },
+      "contact": {
+        "telephone": "+1-303-555-5678",
+        "telefax": null,
+        "electronicMail": "procurement@officesupply.com"
+      },
+      "partyTaxSchemes": [],
+      "partyLegalEntities": []
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "ORDER-2026-001",
+      "salespersonID": null,
+      "SalesOrderID": null,
+      "customerReference": "BUYER-CANCEL",
+      "issueDate": "2026-01-27"
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "ORDER-2026-001",
+        "documentTypeCode": "Order",
+        "issueDate": "2026-01-27"
+      }
+    ],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": null,
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": null,
+      "financialInstitutionBranch": null,
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "Order cancellation - no payment due",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 0.0,
+      "taxExclusiveAmount": 0.0,
+      "taxInclusiveAmount": null,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 0.0
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [],
+    "annotations": [
+      {
+        "type": "NOTE",
+        "content": "Cancellation Reason: Budget cuts due to Q1 financial review",
+        "location": "header",
+        "confidence": 1.0
+      }
+    ],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      }
+    ]
+  }
+]
