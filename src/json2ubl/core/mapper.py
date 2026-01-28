@@ -1,102 +1,104 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
+
 from pydantic import ValidationError
 
 from ..config import get_logger
-from ..exceptions import MappingError, DocumentTypeError
+from ..exceptions import DocumentTypeError, MappingError
 from ..models import (
-    UblDocument,
-    Party,
     Address,
-    Contact,
-    PartyTaxScheme,
-    PartyLegalEntity,
-    Item,
-    ItemInstance,
-    InvoiceLine,
-    TaxTotal,
-    TaxSubtotal,
-    LegalMonetaryTotal,
     AllowanceCharge,
-    OrderReference,
-    PaymentMeans,
-    PaymentTerms,
+    Annotation,
+    Contact,
     Delivery,
     DeliveryLocation,
     DocumentReference,
-    Annotation,
     FieldSourceMap,
+    InvoiceLine,
+    Item,
+    ItemInstance,
+    LegalMonetaryTotal,
+    OrderReference,
+    Party,
+    PartyLegalEntity,
+    PartyTaxScheme,
+    PaymentMeans,
+    PaymentTerms,
+    TaxSubtotal,
+    TaxTotal,
+    UblDocument,
 )
+from .schema_field_extractor import SchemaFieldExtractor
 
 logger = get_logger(__name__)
 
 # Map UBL numeric type codes to document type strings
 # Per UBL 2.1 spec - UNCL 1001 Invoice Type Code
 NUMERIC_TYPE_TO_DOCUMENT_TYPE = {
-    "1" : "Catalogue",
-    "10" : "ContractNotice",
-    "11" : "PriorInformationNotice",
-    "129" : "CatalogueRequest",
-    "140" : "Forecast",
-    "141" : "ForecastRevision",
-    "142" : "InventoryReport",
-    "143" : "ProductActivity",
-    "144" : "RetailEvent",
-    "145" : "StockAvailabilityReport",
-    "146" : "TradeItemLocationProfile",
-    "147" : "TransportProgressStatus",
-    "148" : "TransportProgressStatusRequest",
-    "149" : "TransportServiceDescription",
-    "15" : "ContractAwardNotice",
-    "150" : "TransportServiceDescriptionRequest",
-    "17" : "CallForTenders",
-    "170" : "CataloguePricingUpdate",
-    "171" : "CatalogueItemSpecificationUpdate",
-    "172" : "CatalogueDeletion",
-    "21" : "ItemInformationRequest",
-    "220" : "Order",
-    "221" : "OrderResponseSimple",
-    "227" : "OrderChange",
-    "230" : "OrderCancellation",
-    "231" : "OrderResponse",
-    "232" : "FulfilmentCancellation",
-    "24" : "AwardedNotification",
-    "25" : "UnawardedNotification",
-    "271" : "PackingList",
-    "310" : "RequestForQuotation",
-    "311" : "ApplicationResponse",
-    "312" : "DocumentStatus",
-    "313" : "DocumentStatusRequest",
-    "315" : "Quotation",
-    "325" : "Statement",
-    "326" : "UtilityStatement",
-    "380" : "Invoice",
-    "381" : "CreditNote",
-    "383" : "DebitNote",
-    "389" : "SelfBilledInvoice",
-    "396" : "SelfBilledCreditNote",
-    "42" : "TransportationStatus",
-    "43" : "TransportationStatusRequest",
-    "430" : "RemittanceAdvice",
-    "447" : "GuaranteeCertificate",
-    "45" : "TenderReceipt",
-    "50" : "Tender",
-    "54" : "TendererQualification",
-    "55" : "TendererQualificationResponse",
-    "6" : "CertificateOfOrigin",
-    "610" : "ForwardingInstructions",
-    "632" : "DespatchAdvice",
-    "633" : "ReceiptAdvice",
-    "635" : "InstructionForReturns",
-    "705" : "BillOfLading",
-    "71" : "Reminder",
-    "716" : "Waybill",
-    "744" : "GoodsItemItinerary",
-    "76" : "TransportExecutionPlanRequest",
-    "77" : "TransportExecutionPlan",
-    "780" : "FreightInvoice",
-    "916" : "AttachedDocument",
-    "92" : "ExceptionCriteria",
-    "93" : "ExceptionNotification"
+    "1": "Catalogue",
+    "10": "ContractNotice",
+    "11": "PriorInformationNotice",
+    "129": "CatalogueRequest",
+    "140": "Forecast",
+    "141": "ForecastRevision",
+    "142": "InventoryReport",
+    "143": "ProductActivity",
+    "144": "RetailEvent",
+    "145": "StockAvailabilityReport",
+    "146": "TradeItemLocationProfile",
+    "147": "TransportProgressStatus",
+    "148": "TransportProgressStatusRequest",
+    "149": "TransportServiceDescription",
+    "15": "ContractAwardNotice",
+    "150": "TransportServiceDescriptionRequest",
+    "17": "CallForTenders",
+    "170": "CataloguePricingUpdate",
+    "171": "CatalogueItemSpecificationUpdate",
+    "172": "CatalogueDeletion",
+    "21": "ItemInformationRequest",
+    "220": "Order",
+    "221": "OrderResponseSimple",
+    "227": "OrderChange",
+    "230": "OrderCancellation",
+    "231": "OrderResponse",
+    "232": "FulfilmentCancellation",
+    "24": "AwardedNotification",
+    "25": "UnawardedNotification",
+    "271": "PackingList",
+    "310": "RequestForQuotation",
+    "311": "ApplicationResponse",
+    "312": "DocumentStatus",
+    "313": "DocumentStatusRequest",
+    "315": "Quotation",
+    "325": "Statement",
+    "326": "UtilityStatement",
+    "380": "Invoice",
+    "381": "CreditNote",
+    "383": "DebitNote",
+    "389": "SelfBilledInvoice",
+    "396": "SelfBilledCreditNote",
+    "42": "TransportationStatus",
+    "43": "TransportationStatusRequest",
+    "430": "RemittanceAdvice",
+    "447": "GuaranteeCertificate",
+    "45": "TenderReceipt",
+    "50": "Tender",
+    "54": "TendererQualification",
+    "55": "TendererQualificationResponse",
+    "6": "CertificateOfOrigin",
+    "610": "ForwardingInstructions",
+    "632": "DespatchAdvice",
+    "633": "ReceiptAdvice",
+    "635": "InstructionForReturns",
+    "705": "BillOfLading",
+    "71": "Reminder",
+    "716": "Waybill",
+    "744": "GoodsItemItinerary",
+    "76": "TransportExecutionPlanRequest",
+    "77": "TransportExecutionPlan",
+    "780": "FreightInvoice",
+    "916": "AttachedDocument",
+    "92": "ExceptionCriteria",
+    "93": "ExceptionNotification",
 }
 
 DOCUMENT_TYPE_TO_CLASS = {
@@ -164,95 +166,119 @@ DOCUMENT_TYPE_TO_CLASS = {
     "FreightInvoice": UblDocument,
     "AttachedDocument": UblDocument,
     "ExceptionCriteria": UblDocument,
-    "ExceptionNotification": UblDocument
+    "ExceptionNotification": UblDocument,
 }
 
 
 class JsonMapper:
-    """Map JSON objects to Pydantic models with schema awareness."""
+    """Map JSON objects to Pydantic models using schema-based extraction."""
 
     def __init__(self, schema_metadata: Dict[str, Any] | None = None):
         self.schema_metadata = schema_metadata or {}
+        self.field_extractor = SchemaFieldExtractor()
 
-    def map_json_to_document(self, raw: Dict[str, Any]) -> UblDocument:
-        """Convert raw JSON dict to UblDocument."""
+    def map_json_to_document(self, raw: Dict[str, Any]) -> Tuple[UblDocument, List[str]]:
+        """
+        Convert raw JSON dict to UblDocument using schema-based validation.
+
+        Args:
+            raw: Raw JSON dictionary
+
+        Returns:
+            Tuple of (UblDocument, dropped_fields_list)
+
+        Raises:
+            DocumentTypeError: If document_type is missing
+            MappingError: If required fields are missing or validation fails
+        """
         doc_type_raw = raw.get("document_type")
         if not doc_type_raw:
             raise DocumentTypeError("Missing 'document_type' field")
 
         try:
             # Convert numeric type codes (380, 381, etc.) to document type strings
-            # If numeric code provided, map it; otherwise use as-is
             doc_type = NUMERIC_TYPE_TO_DOCUMENT_TYPE.get(str(doc_type_raw), str(doc_type_raw))
             logger.debug(f"Mapped document_type '{doc_type_raw}' -> '{doc_type}'")
 
-            # Validate and extract required fields
-            invoice_id = (raw.get("id", "") or "").strip()
+            # Validate JSON fields against schema and extract only valid fields
+            cleaned_json, dropped_fields = self.field_extractor.validate_json_against_schema(
+                raw, doc_type
+            )
+
+            # Validate and extract required fields from cleaned JSON
+            invoice_id = (cleaned_json.get("id", "") or "").strip()
             if not invoice_id:
                 raise MappingError("Missing or empty 'id' field (invoice identifier required)")
 
-            issue_date = (raw.get("issueDate", "") or "").strip()
+            issue_date = (cleaned_json.get("issueDate", "") or "").strip()
             if not issue_date:
                 raise MappingError("Missing or empty 'issueDate' field")
 
-            # Map basic fields
+            # Map basic fields from cleaned JSON
             doc = UblDocument(
                 id=invoice_id,
                 issue_date=issue_date,
-                due_date=raw.get("dueDate"),
-                document_currency_code=raw.get("documentCurrencyCode"),
+                due_date=cleaned_json.get("dueDate"),
+                document_currency_code=cleaned_json.get("documentCurrencyCode"),
                 document_type=doc_type,
-                page_count_text=raw.get("page_count_text"),
-                ship_via=raw.get("shipVia"),
-                job_reference=raw.get("jobReference"),
+                page_count_text=cleaned_json.get("page_count_text"),
+                ship_via=cleaned_json.get("shipVia"),
+                job_reference=cleaned_json.get("jobReference"),
             )
 
-            # Map parties
-            doc.accounting_supplier_party = self._map_party(raw.get("accountingSupplierParty"))
-            doc.accounting_customer_party = self._map_party(raw.get("accountingCustomerParty"))
-            doc.payee_party = self._map_party(raw.get("payeeParty"))
-            doc.originator_party = self._map_party(raw.get("originatorParty"))
+            # Map parties from cleaned JSON
+            doc.accounting_supplier_party = self._map_party(
+                cleaned_json.get("accountingSupplierParty")
+            )
+            doc.accounting_customer_party = self._map_party(
+                cleaned_json.get("accountingCustomerParty")
+            )
+            doc.payee_party = self._map_party(cleaned_json.get("payeeParty"))
+            doc.originator_party = self._map_party(cleaned_json.get("originatorParty"))
 
-            # Map references and terms
-            doc.order_reference = self._map_order_reference(raw.get("orderReference"))
-            doc.payment_means = self._map_payment_means(raw.get("paymentMeans"))
-            doc.payment_terms = self._map_payment_terms(raw.get("paymentTerms"))
-            doc.delivery = self._map_delivery(raw.get("delivery"))
+            # Map references and terms from cleaned JSON
+            doc.order_reference = self._map_order_reference(cleaned_json.get("orderReference"))
+            doc.payment_means = self._map_payment_means(cleaned_json.get("paymentMeans"))
+            doc.payment_terms = self._map_payment_terms(cleaned_json.get("paymentTerms"))
+            doc.delivery = self._map_delivery(cleaned_json.get("delivery"))
 
-            # Map financial
-            doc.tax_total = self._map_tax_total(raw.get("taxTotal"), doc.document_currency_code)
+            # Map financial from cleaned JSON
+            doc.tax_total = self._map_tax_total(
+                cleaned_json.get("taxTotal"), doc.document_currency_code
+            )
             doc.legal_monetary_total = self._map_legal_monetary_total(
-                raw.get("legalMonetaryTotal"), doc.document_currency_code
+                cleaned_json.get("legalMonetaryTotal"), doc.document_currency_code
             )
 
-            # Map lines
+            # Map lines from cleaned JSON
             doc.invoice_lines = self._map_invoice_lines(
-                raw.get("invoiceLines"), doc.document_currency_code
+                cleaned_json.get("invoiceline"), doc.document_currency_code
             )
 
-            # Map allowances/charges
+            # Map allowances/charges from cleaned JSON
             doc.allowance_charges = self._map_allowance_charges(
-                raw.get("globalAllowanceCharges"), doc.document_currency_code
+                cleaned_json.get("globalAllowanceCharges"), doc.document_currency_code
             )
 
-            # Map document references
+            # Map document references from cleaned JSON
             doc.document_references = self._map_document_references(
-                raw.get("additionalDocumentReferences")
+                cleaned_json.get("additionalDocumentReferences")
             )
 
             # Map metadata (not for UBL XML)
-            doc.annotations = self._map_annotations(raw.get("annotations"))
-            doc.field_source_map = self._map_field_source_map(raw.get("fieldSourceMap"))
+            doc.annotations = self._map_annotations(cleaned_json.get("annotations"))
+            doc.field_source_map = self._map_field_source_map(cleaned_json.get("fieldSourceMap"))
 
-            return doc
+            return doc, dropped_fields
+
         except ValidationError as e:
             logger.error(f"Validation error mapping JSON: {e}")
-            raise MappingError(f"Failed to map JSON to document: {e}")
+            raise MappingError(f"Failed to map JSON to document: {e}") from e
         except MappingError:
             raise
         except Exception as e:
             logger.error(f"Unexpected error in mapping: {e}")
-            raise MappingError(f"Unexpected mapping error: {e}")
+            raise MappingError(f"Unexpected mapping error: {e}") from e
 
     def _map_party(self, raw: Dict[str, Any] | None) -> Party | None:
         """Map party object."""
@@ -271,6 +297,39 @@ class JsonMapper:
                 contact=self._map_contact(raw.get("contact")),
                 tax_schemes=self._map_tax_schemes(raw.get("partyTaxSchemes")),
                 legal_entities=self._map_legal_entities(raw.get("partyLegalEntities")),
+            )
+        except Exception as e:
+            logger.warning(f"Failed to map party: {e}")
+            return None
+
+        try:
+            # Handle nested party structure (schema-driven)
+            party_data = raw.get("party", raw)  # Fall back to raw if no nested party
+
+            # Extract from nested arrays if present
+            party_id = party_data.get("id")
+            if not party_id and party_data.get("partyIdentification"):
+                party_id = party_data["partyIdentification"][0].get("id")
+
+            party_name = party_data.get("partyName")
+            if (
+                not party_name
+                and party_data.get("partyName")
+                and isinstance(party_data.get("partyName"), list)
+            ):
+                party_name = party_data["partyName"][0].get("name")
+
+            return Party(
+                id=party_id,
+                registration_name=party_data.get("registrationName"),
+                party_name=party_name,
+                supplier_assigned_account_id=party_data.get("supplierAssignedAccountID"),
+                company_id=party_data.get("companyID"),
+                abn=party_data.get("abn"),
+                address=self._map_address(party_data.get("postalAddress")),
+                contact=self._map_contact(party_data.get("contact")),
+                tax_schemes=self._map_tax_schemes(party_data.get("partyTaxScheme")),
+                legal_entities=self._map_legal_entities(party_data.get("partyLegalEntity")),
             )
         except Exception as e:
             logger.warning(f"Failed to map party: {e}")

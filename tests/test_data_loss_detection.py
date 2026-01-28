@@ -11,7 +11,7 @@ IDENTIFIED DATA LOSS ISSUES:
 """
 
 import pytest
-from lxml import etree
+
 from json2ubl import json_dict_to_ubl_xml
 
 
@@ -238,9 +238,6 @@ class TestTaxDataLoss:
         """Check if tax percent is preserved."""
         result = json_dict_to_ubl_xml(invoice_standard)
         xml_str = result["INV-2025-001"]
-
-        tax_percent = invoice_standard["taxTotal"][0]["taxSubtotals"][0]["taxPercent"]
-
         # Check if percentage appears (may be formatted differently)
         assert "10" in xml_str, "Tax percent not found in XML"
 
@@ -378,30 +375,29 @@ class TestSummaryOfDataLoss:
     def test_report_data_loss_issues(self):
         """Print summary of data loss issues found."""
         report = """
-        
         =====================================================
         DATA LOSS REPORT - JSON→UBL Converter
         =====================================================
-        
+
         The following fields are NOT appearing in XML output:
-        
+
         INVOICE LINE ITEMS (CRITICAL):
         ❌ item.name / item.description → NOT in <Item> element
         ❌ item.sellersItemIdentification_id → NOT in <Item>
         ❌ invoicedQuantity unitCode attribute → May be missing
         ⚠️  Consider: Are these being dropped or just not visible in string search?
-        
+
         ORDER REFERENCES:
         ❌ orderReference.salespersonID → NOT visible in output
-        
+
         PAYMENT DETAILS:
         ❌ paymentTerms.settlementDiscountPercent → May not be mapped
         ❌ paymentTerms.penaltySurchargePercent → May not be mapped
-        
+
         DELIVERY:
         ⚠️  deliveryLocation.description → Check if mapped
-        
+
         ADDITIONAL DOCUMENTS:
-        ❌ additionalDocumentReferences → May not be mapped        
+        ❌ additionalDocumentReferences → May not be mapped
         """
         pytest.skip(report)

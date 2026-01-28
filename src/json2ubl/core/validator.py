@@ -1,6 +1,6 @@
-import os
 from pathlib import Path
 from typing import Dict
+
 from lxml import etree
 
 from ..config import get_logger
@@ -69,4 +69,4 @@ class XmlValidator:
             return schema
         except Exception as e:
             logger.error(f"Failed to load schema {xsd_path}: {e}")
-            raise Json2UblValidationError(f"Failed to load schema: {e}")
+            raise Json2UblValidationError(f"Failed to load schema: {e}") from e

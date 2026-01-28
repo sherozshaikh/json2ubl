@@ -10,6 +10,70 @@ logger = get_logger(__name__)
 PACKAGE_DIR = Path(__file__).parent
 
 
+def _ensure_schema_cache_exists() -> None:
+    """
+    Check if schema cache exists and is valid; regenerate if missing or corrupted.
+
+    This is called on module import to ensure caches are available for
+    schema-based field validation. If cache is missing, invalid, or has empty
+    elements, it will be regenerated from XSD files.
+    """
+    cache_dir = PACKAGE_DIR / "schemas" / "cache"
+
+    try:
+        # Check if cache directory exists and has cache files
+        if not cache_dir.exists() or not any(cache_dir.glob("*_schema_cache.json")):
+            logger.warning("Schema cache not found. Generating from XSD files...")
+            from .core.schema_cache_builder import SchemaCacheBuilder
+
+            builder = SchemaCacheBuilder()
+            builder.build_all_caches()
+            logger.info("Schema cache generated successfully")
+            return
+
+        # Check if cache files are valid (have non-empty elements)
+        cache_files = list(cache_dir.glob("*_schema_cache.json"))
+        for cache_file in cache_files:
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    cache_data = __import__("json").load(f)
+                    # Check if elements are empty
+                    if not cache_data.get("elements"):
+                        logger.warning(
+                            f"Schema cache {cache_file.name} has empty elements. Regenerating..."
+                        )
+                        from .core.schema_cache_builder import SchemaCacheBuilder
+
+                        builder = SchemaCacheBuilder()
+                        builder.build_all_caches()
+                        logger.info("Schema cache regenerated successfully")
+                        return
+            except Exception as e:
+                logger.warning(f"Error reading cache file {cache_file.name}: {e}. Regenerating...")
+                from .core.schema_cache_builder import SchemaCacheBuilder
+
+                builder = SchemaCacheBuilder()
+                builder.build_all_caches()
+                logger.info("Schema cache regenerated successfully")
+                return
+
+    except Exception as e:
+        logger.warning(f"Schema cache initialization failed: {e}. Attempting to regenerate...")
+        try:
+            from .core.schema_cache_builder import SchemaCacheBuilder
+
+            builder = SchemaCacheBuilder()
+            builder.build_all_caches()
+            logger.info("Schema cache regenerated successfully")
+        except Exception as regen_error:
+            logger.error(f"Failed to regenerate schema cache: {regen_error}")
+            raise
+
+
+# Initialize schema cache on module import
+_ensure_schema_cache_exists()
+
+
 def _load_config(config_path: str | None = None) -> UblConfig:
     """Load configuration from YAML file or use defaults."""
     if config_path:

@@ -1,7 +1,7 @@
 import json
-import os
 from pathlib import Path
-from typing import Any, Dict, List, Set
+from typing import Any, Dict
+
 from lxml import etree
 
 from .config import get_logger
@@ -26,7 +26,7 @@ class SchemaBuilder:
     def build_all(self) -> Dict[str, Any]:
         """Parse all main document XSDs and build metadata registry."""
         maindoc_dir = self.schema_root / "maindoc"
-        
+
         if not maindoc_dir.exists():
             logger.error(f"Schema directory not found: {maindoc_dir}")
             raise FileNotFoundError(f"Schema root missing: {maindoc_dir}")
@@ -49,18 +49,18 @@ class SchemaBuilder:
         try:
             tree = etree.parse(str(xsd_path))
             root = tree.getroot()
-            
+
             # Find root element definition for this document
             root_elem_name = doc_name
             root_elem = self._find_element_def(root, root_elem_name)
-            
+
             if root_elem is None:
                 logger.warning(f"Root element {root_elem_name} not found in {xsd_path.name}")
                 return
 
             # Extract all valid child elements
             valid_children = self._extract_element_children(root_elem, root)
-            
+
             self.metadata[doc_name] = {
                 "xsd_file": xsd_path.name,
                 "root_element": root_elem_name,
@@ -78,33 +78,37 @@ class SchemaBuilder:
                 return elem
         return None
 
-    def _extract_element_children(self, elem: etree._Element, root: etree._Element) -> Dict[str, Dict[str, Any]]:
+    def _extract_element_children(
+        self, elem: etree._Element, root: etree._Element
+    ) -> Dict[str, Dict[str, Any]]:
         """Extract all valid child elements and their properties."""
         children = {}
-        
+
         # Find complex type definition
         complex_type_name = elem.get("type")
         if complex_type_name:
             complex_type = self._resolve_type(complex_type_name, root)
             if complex_type is not None:
                 children = self._extract_sequence_elements(complex_type, root)
-        
+
         return children
 
     def _resolve_type(self, type_name: str, root: etree._Element) -> etree._Element | None:
         """Resolve type reference to actual type definition."""
         # Strip namespace prefix if present
         local_name = type_name.split(":")[-1] if ":" in type_name else type_name
-        
+
         for ctype in root.findall(".//xs:complexType[@name]", NSMAP):
             if ctype.get("name") == local_name:
                 return ctype
         return None
 
-    def _extract_sequence_elements(self, complex_type: etree._Element, root: etree._Element) -> Dict[str, Dict[str, Any]]:
+    def _extract_sequence_elements(
+        self, complex_type: etree._Element, root: etree._Element
+    ) -> Dict[str, Dict[str, Any]]:
         """Extract all elements from xs:sequence."""
         children = {}
-        
+
         sequence = complex_type.find(".//xs:sequence", NSMAP)
         if sequence is None:
             return children
@@ -147,7 +151,7 @@ class SchemaBuilder:
         """Get metadata from cache or build fresh."""
         if cache_path is None:
             cache_path = Path(schema_root) / ".schema_metadata.json"
-        
+
         cached = SchemaBuilder.load_cache(cache_path)
         if cached:
             return cached

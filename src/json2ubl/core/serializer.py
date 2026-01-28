@@ -1,28 +1,24 @@
+from typing import Any, Dict
+
 from lxml import etree
-from typing import Any, Dict, List, Optional
 
 from ..config import get_logger
-from ..exceptions import ValidationError as Json2UblValidationError
 from ..models import (
-    UblDocument,
     Address,
-    Contact,
-    Party,
-    PartyLegalEntity,
-    PartyTaxScheme,
-    Item,
-    ItemInstance,
-    InvoiceLine,
-    TaxTotal,
-    TaxSubtotal,
-    LegalMonetaryTotal,
     AllowanceCharge,
+    Contact,
+    Delivery,
+    DocumentReference,
+    InvoiceLine,
+    Item,
+    LegalMonetaryTotal,
     OrderReference,
+    Party,
     PaymentMeans,
     PaymentTerms,
-    Delivery,
-    DeliveryLocation,
-    DocumentReference,
+    TaxSubtotal,
+    TaxTotal,
+    UblDocument,
 )
 
 logger = get_logger(__name__)

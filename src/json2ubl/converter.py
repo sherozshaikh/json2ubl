@@ -1,16 +1,14 @@
-import json
 import gc
+import json
 from pathlib import Path
 from typing import Any, Dict, List
 
 from lxml import etree
 
 from .config import UblConfig, get_logger
-from .exceptions import MappingError, ValidationError as Json2UblValidationError
 from .core.mapper import JsonMapper
 from .core.serializer import XmlSerializer
 from .core.validator import XmlValidator
-from .models import UblDocument
 
 logger = get_logger(__name__)
 
@@ -35,10 +33,18 @@ class Json2UblConverter:
             {invoice_id: xml_string}
         """
         try:
-            logger.info(f"Converting invoice {invoice_dict.get('id')} to UBL XML")
+            invoice_id = invoice_dict.get("id", "UNKNOWN")
+            logger.info(f"Processing Invoice: {invoice_id}")
 
-            # Map JSON to Pydantic model
-            doc = self.mapper.map_json_to_document(invoice_dict)
+            # Map JSON to Pydantic model (returns tuple with dropped fields)
+            doc, dropped_fields = self.mapper.map_json_to_document(invoice_dict)
+
+            # Log dropped fields at middleware point (Option A: Per-Document Summary)
+            if dropped_fields:
+                doc_type = doc.document_type or "Invoice"
+                logger.warning(f"Dropped fields from input JSON (not in UBL-{doc_type}-2.1.xsd):")
+                for field in dropped_fields:
+                    logger.warning(f"  - {field}")
 
             # Serialize to XML
             root = self.serializer.serialize(doc)
@@ -55,7 +61,7 @@ class Json2UblConverter:
             ).decode("utf-8")
 
             result = {doc.id: xml_string}
-            logger.info(f"Successfully converted invoice {doc.id}")
+            logger.info(f"Successfully processed Invoice: {doc.id}")
 
             del doc, root
             gc.collect()

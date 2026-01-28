@@ -1,0 +1,1066 @@
+{
+  "_document_type_mapping": {
+    "1": "Catalogue",
+    "10": "ContractNotice",
+    "11": "PriorInformationNotice",
+    "129": "CatalogueRequest",
+    "140": "Forecast",
+    "141": "ForecastRevision",
+    "142": "InventoryReport",
+    "143": "ProductActivity",
+    "144": "RetailEvent",
+    "145": "StockAvailabilityReport",
+    "146": "TradeItemLocationProfile",
+    "147": "TransportProgressStatus",
+    "148": "TransportProgressStatusRequest",
+    "149": "TransportServiceDescription",
+    "15": "ContractAwardNotice",
+    "150": "TransportServiceDescriptionRequest",
+    "17": "CallForTenders",
+    "170": "CataloguePricingUpdate",
+    "171": "CatalogueItemSpecificationUpdate",
+    "172": "CatalogueDeletion",
+    "21": "ItemInformationRequest",
+    "220": "Order",
+    "221": "OrderResponseSimple",
+    "227": "OrderChange",
+    "230": "OrderCancellation",
+    "231": "OrderResponse",
+    "232": "FulfilmentCancellation",
+    "24": "AwardedNotification",
+    "25": "UnawardedNotification",
+    "271": "PackingList",
+    "310": "RequestForQuotation",
+    "311": "ApplicationResponse",
+    "312": "DocumentStatus",
+    "313": "DocumentStatusRequest",
+    "315": "Quotation",
+    "325": "Statement",
+    "326": "UtilityStatement",
+    "380": "Invoice",
+    "381": "CreditNote",
+    "383": "DebitNote",
+    "389": "SelfBilledInvoice",
+    "396": "SelfBilledCreditNote",
+    "42": "TransportationStatus",
+    "43": "TransportationStatusRequest",
+    "430": "RemittanceAdvice",
+    "447": "GuaranteeCertificate",
+    "45": "TenderReceipt",
+    "50": "Tender",
+    "54": "TendererQualification",
+    "55": "TendererQualificationResponse",
+    "6": "CertificateOfOrigin",
+    "610": "ForwardingInstructions",
+    "632": "DespatchAdvice",
+    "633": "ReceiptAdvice",
+    "635": "InstructionForReturns",
+    "705": "BillOfLading",
+    "71": "Reminder",
+    "716": "Waybill",
+    "744": "GoodsItemItinerary",
+    "76": "TransportExecutionPlanRequest",
+    "77": "TransportExecutionPlan",
+    "780": "FreightInvoice",
+    "916": "AttachedDocument",
+    "92": "ExceptionCriteria",
+    "93": "ExceptionNotification"
+  },
+  "elements": {
+    "ublextensions": {
+      "type": "ext:UBLExtensions",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "ublversionid": {
+      "type": "cbc:UBLVersionID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "customizationid": {
+      "type": "cbc:CustomizationID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "profileid": {
+      "type": "cbc:ProfileID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "profileexecutionid": {
+      "type": "cbc:ProfileExecutionID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "id": {
+      "type": "cbc:ID",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "uuid": {
+      "type": "cbc:UUID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "name": {
+      "type": "cbc:Name",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "issuedate": {
+      "type": "cbc:IssueDate",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "issuetime": {
+      "type": "cbc:IssueTime",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "note": {
+      "type": "cbc:Note",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded"
+    },
+    "description": {
+      "type": "cbc:Description",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded"
+    },
+    "pricingupdaterequestindicator": {
+      "type": "cbc:PricingUpdateRequestIndicator",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "itemupdaterequestindicator": {
+      "type": "cbc:ItemUpdateRequestIndicator",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "linecountnumeric": {
+      "type": "cbc:LineCountNumeric",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "validityperiod": {
+      "type": "cac:ValidityPeriod",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "startdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "starttime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "enddate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "durationmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "descriptioncode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "signature": {
+      "type": "cac:Signature",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "validationdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validationtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validatorid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "canonicalizationmethod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "signaturemethod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "signatoryparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "digitalsignatureattachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "originaldocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "receiverparty": {
+      "type": "cac:ReceiverParty",
+      "minOccurs": "1",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "markcareindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markattentionindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "websiteuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "logoreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endpointid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "industryclassificationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partyidentification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partyname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "language": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postaladdress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "physicallocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partytaxscheme": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partylegalentity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "contact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "person": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "agentparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "serviceproviderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "powerofattorney": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "financialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "providerparty": {
+      "type": "cac:ProviderParty",
+      "minOccurs": "1",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "markcareindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markattentionindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "websiteuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "logoreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endpointid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "industryclassificationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partyidentification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partyname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "language": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postaladdress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "physicallocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partytaxscheme": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partylegalentity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "contact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "person": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "agentparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "serviceproviderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "powerofattorney": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "financialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "sellersupplierparty": {
+      "type": "cac:SellerSupplierParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "datasendingcapability": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "despatchcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "sellercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "contractorcustomerparty": {
+      "type": "cac:ContractorCustomerParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "supplierassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliverycontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "buyercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "requestedcataloguereference": {
+      "type": "cac:RequestedCatalogueReference",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "revisiondate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "revisiontime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "previousversionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "referencedcontract": {
+      "type": "cac:ReferencedContract",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "nominationdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "nominationtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contracttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contracttype": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contractdocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "nominationperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contractualdelivery": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "tradingterms": {
+      "type": "cac:TradingTerms",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "information": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "reference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "applicableaddress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "documentreference": {
+      "type": "cac:DocumentReference",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "copyindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttype": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "xpath": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "languageid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "localecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentstatuscode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentdescription": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "attachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "resultofverification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "applicableterritoryaddress": {
+      "type": "cac:ApplicableTerritoryAddress",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "addresstypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "addressformatcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postbox": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "floor": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "room": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "streetname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalstreetname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "blockname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "buildingname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "buildingnumber": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "inhousemail": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "department": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markattention": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markcare": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "plotidentification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "citysubdivisionname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "cityname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postalzone": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "countrysubentity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "countrysubentitycode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "region": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "district": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "timezoneoffset": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "addressline": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "country": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "locationcoordinate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "requestedlanguage": {
+      "type": "cac:RequestedLanguage",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "name": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "localecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "requestedclassificationscheme": {
+      "type": "cac:RequestedClassificationScheme",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "lastrevisiondate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "lastrevisiontime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "name": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "agencyid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "agencyname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "uri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "schemeuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "languageid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "classificationcategory": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "cataloguerequestline": {
+      "type": "cac:CatalogueRequestLine",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "contractsubdivision": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "linevalidityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "requireditemlocationquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "item": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        }
+      }
+    }
+  }
+}

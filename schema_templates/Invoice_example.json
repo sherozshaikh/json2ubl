@@ -1,0 +1,330 @@
+{
+  "document_type": "380",
+  "ublVersionID": "2.1",
+  "ublextensions": {},
+  "ublversionid": "DOC-2026-001",
+  "customizationid": "DOC-2026-001",
+  "profileid": "DOC-2026-001",
+  "profileexecutionid": "DOC-2026-001",
+  "id": "DOC-2026-001",
+  "uuid": "DOC-2026-001",
+  "issuedate": "2026-01-20",
+  "duedate": "2026-02-20",
+  "invoicetypecode": "SAMPLE",
+  "documentcurrencycode": "SAMPLE",
+  "taxcurrencycode": "SAMPLE",
+  "pricingcurrencycode": "SAMPLE",
+  "paymentcurrencycode": "SAMPLE",
+  "paymentalternativecurrencycode": "SAMPLE",
+  "accountingcostcode": "SAMPLE",
+  "invoiceperiod": [
+    {
+      "descriptioncode": [
+        "Sample Description"
+      ],
+      "description": [
+        "Sample Description"
+      ]
+    }
+  ],
+  "orderreference": {
+    "id": "DOC-2026-001",
+    "salesorderid": "DOC-2026-001",
+    "uuid": "DOC-2026-001",
+    "issuedate": "2026-01-20",
+    "ordertypecode": "SAMPLE"
+  },
+  "billingreference": [
+    {}
+  ],
+  "despatchdocumentreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20",
+      "documenttypecode": "SAMPLE",
+      "languageid": "DOC-2026-001",
+      "localecode": "SAMPLE",
+      "versionid": "DOC-2026-001",
+      "documentstatuscode": "SAMPLE",
+      "documentdescription": [
+        "Sample Description"
+      ],
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "receiptdocumentreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20",
+      "documenttypecode": "SAMPLE",
+      "languageid": "DOC-2026-001",
+      "localecode": "SAMPLE",
+      "versionid": "DOC-2026-001",
+      "documentstatuscode": "SAMPLE",
+      "documentdescription": [
+        "Sample Description"
+      ],
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "statementdocumentreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20",
+      "documenttypecode": "SAMPLE",
+      "languageid": "DOC-2026-001",
+      "localecode": "SAMPLE",
+      "versionid": "DOC-2026-001",
+      "documentstatuscode": "SAMPLE",
+      "documentdescription": [
+        "Sample Description"
+      ],
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "originatordocumentreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20",
+      "documenttypecode": "SAMPLE",
+      "languageid": "DOC-2026-001",
+      "localecode": "SAMPLE",
+      "versionid": "DOC-2026-001",
+      "documentstatuscode": "SAMPLE",
+      "documentdescription": [
+        "Sample Description"
+      ],
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "contractdocumentreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20",
+      "documenttypecode": "SAMPLE",
+      "languageid": "DOC-2026-001",
+      "localecode": "SAMPLE",
+      "versionid": "DOC-2026-001",
+      "documentstatuscode": "SAMPLE",
+      "documentdescription": [
+        "Sample Description"
+      ],
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "additionaldocumentreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20",
+      "documenttypecode": "SAMPLE",
+      "languageid": "DOC-2026-001",
+      "localecode": "SAMPLE",
+      "versionid": "DOC-2026-001",
+      "documentstatuscode": "SAMPLE",
+      "documentdescription": [
+        "Sample Description"
+      ],
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "projectreference": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "issuedate": "2026-01-20"
+    }
+  ],
+  "signature": [
+    {
+      "id": "DOC-2026-001",
+      "validationdate": "DOC-2026-001",
+      "validationtime": "DOC-2026-001",
+      "validatorid": "DOC-2026-001"
+    }
+  ],
+  "accountingsupplierparty": {
+    "customerassignedaccountid": "DOC-2026-001",
+    "additionalaccountid": [
+      "DOC-2026-001"
+    ]
+  },
+  "accountingcustomerparty": {
+    "customerassignedaccountid": "DOC-2026-001",
+    "supplierassignedaccountid": "DOC-2026-001",
+    "additionalaccountid": [
+      "DOC-2026-001"
+    ]
+  },
+  "payeeparty": {
+    "logoreferenceid": "DOC-2026-001",
+    "endpointid": "DOC-2026-001",
+    "industryclassificationcode": "SAMPLE",
+    "partyidentification": [
+      "DOC-2026-001"
+    ],
+    "partyname": [
+      "Sample Company"
+    ],
+    "serviceproviderparty": [
+      "DOC-2026-001"
+    ]
+  },
+  "buyercustomerparty": {
+    "customerassignedaccountid": "DOC-2026-001",
+    "supplierassignedaccountid": "DOC-2026-001",
+    "additionalaccountid": [
+      "DOC-2026-001"
+    ]
+  },
+  "sellersupplierparty": {
+    "customerassignedaccountid": "DOC-2026-001",
+    "additionalaccountid": [
+      "DOC-2026-001"
+    ]
+  },
+  "taxrepresentativeparty": {
+    "logoreferenceid": "DOC-2026-001",
+    "endpointid": "DOC-2026-001",
+    "industryclassificationcode": "SAMPLE",
+    "partyidentification": [
+      "DOC-2026-001"
+    ],
+    "partyname": [
+      "Sample Company"
+    ],
+    "serviceproviderparty": [
+      "DOC-2026-001"
+    ]
+  },
+  "delivery": [
+    {
+      "id": "DOC-2026-001",
+      "quantity": 5,
+      "minimumquantity": 5,
+      "maximumquantity": 5,
+      "releaseid": "DOC-2026-001",
+      "trackingid": "DOC-2026-001"
+    }
+  ],
+  "deliveryterms": {
+    "id": "DOC-2026-001",
+    "lossriskresponsibilitycode": "SAMPLE",
+    "amount": 1000.0
+  },
+  "paymentmeans": [
+    {
+      "id": "DOC-2026-001",
+      "paymentmeanscode": "SAMPLE",
+      "paymentduedate": "2026-02-20",
+      "paymentchannelcode": "SAMPLE",
+      "instructionid": "DOC-2026-001",
+      "paymentid": [
+        "DOC-2026-001"
+      ]
+    }
+  ],
+  "paymentterms": [
+    {
+      "id": "DOC-2026-001",
+      "paymentmeansid": [
+        "DOC-2026-001"
+      ],
+      "prepaidpaymentreferenceid": "DOC-2026-001",
+      "referenceeventcode": "SAMPLE",
+      "settlementdiscountpercent": 10.0,
+      "penaltysurchargepercent": 10.0,
+      "paymentpercent": 10.0,
+      "amount": 1000.0,
+      "settlementdiscountamount": 1000.0,
+      "penaltyamount": 1000.0,
+      "paymentduedate": "2026-02-20",
+      "installmentduedate": "2026-02-20",
+      "validityperiod": "DOC-2026-001"
+    }
+  ],
+  "prepaidpayment": [
+    {
+      "id": "DOC-2026-001",
+      "paidamount": "DOC-2026-001",
+      "paiddate": "DOC-2026-001",
+      "paidtime": "DOC-2026-001",
+      "instructionid": "DOC-2026-001"
+    }
+  ],
+  "allowancecharge": [
+    {
+      "id": "DOC-2026-001",
+      "allowancechargereasoncode": "SAMPLE",
+      "prepaidindicator": "DOC-2026-001",
+      "amount": 1000.0,
+      "baseamount": 1000.0,
+      "accountingcostcode": "SAMPLE",
+      "perunitamount": 1000.0
+    }
+  ],
+  "taxexchangerate": {
+    "sourcecurrencycode": "SAMPLE",
+    "targetcurrencycode": "SAMPLE",
+    "exchangemarketid": "DOC-2026-001",
+    "mathematicoperatorcode": "SAMPLE"
+  },
+  "pricingexchangerate": {
+    "sourcecurrencycode": "SAMPLE",
+    "targetcurrencycode": "SAMPLE",
+    "exchangemarketid": "DOC-2026-001",
+    "mathematicoperatorcode": "SAMPLE"
+  },
+  "paymentexchangerate": {
+    "sourcecurrencycode": "SAMPLE",
+    "targetcurrencycode": "SAMPLE",
+    "exchangemarketid": "DOC-2026-001",
+    "mathematicoperatorcode": "SAMPLE"
+  },
+  "paymentalternativeexchangerate": {
+    "sourcecurrencycode": "SAMPLE",
+    "targetcurrencycode": "SAMPLE",
+    "exchangemarketid": "DOC-2026-001",
+    "mathematicoperatorcode": "SAMPLE"
+  },
+  "taxtotal": [
+    {
+      "taxamount": 1000.0,
+      "roundingamount": 1000.0,
+      "taxevidenceindicator": "DOC-2026-001"
+    }
+  ],
+  "withholdingtaxtotal": [
+    {
+      "taxamount": 1000.0,
+      "roundingamount": 1000.0,
+      "taxevidenceindicator": "DOC-2026-001"
+    }
+  ],
+  "legalmonetarytotal": {
+    "lineextensionamount": 1000.0,
+    "taxexclusiveamount": 1000.0,
+    "taxinclusiveamount": 1000.0,
+    "allowancetotalamount": 1000.0,
+    "chargetotalamount": 1000.0,
+    "prepaidamount": "DOC-2026-001",
+    "payableroundingamount": 1000.0,
+    "payableamount": 1000.0,
+    "payablealternativeamount": 1000.0
+  },
+  "invoiceline": [
+    {
+      "id": "DOC-2026-001",
+      "uuid": "DOC-2026-001",
+      "invoicedquantity": 5,
+      "lineextensionamount": 1000.0,
+      "accountingcostcode": "SAMPLE",
+      "paymentpurposecode": "SAMPLE"
+    }
+  ]
+}

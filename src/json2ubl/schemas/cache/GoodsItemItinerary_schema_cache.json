@@ -1,0 +1,1549 @@
+{
+  "_document_type_mapping": {
+    "1": "Catalogue",
+    "10": "ContractNotice",
+    "11": "PriorInformationNotice",
+    "129": "CatalogueRequest",
+    "140": "Forecast",
+    "141": "ForecastRevision",
+    "142": "InventoryReport",
+    "143": "ProductActivity",
+    "144": "RetailEvent",
+    "145": "StockAvailabilityReport",
+    "146": "TradeItemLocationProfile",
+    "147": "TransportProgressStatus",
+    "148": "TransportProgressStatusRequest",
+    "149": "TransportServiceDescription",
+    "15": "ContractAwardNotice",
+    "150": "TransportServiceDescriptionRequest",
+    "17": "CallForTenders",
+    "170": "CataloguePricingUpdate",
+    "171": "CatalogueItemSpecificationUpdate",
+    "172": "CatalogueDeletion",
+    "21": "ItemInformationRequest",
+    "220": "Order",
+    "221": "OrderResponseSimple",
+    "227": "OrderChange",
+    "230": "OrderCancellation",
+    "231": "OrderResponse",
+    "232": "FulfilmentCancellation",
+    "24": "AwardedNotification",
+    "25": "UnawardedNotification",
+    "271": "PackingList",
+    "310": "RequestForQuotation",
+    "311": "ApplicationResponse",
+    "312": "DocumentStatus",
+    "313": "DocumentStatusRequest",
+    "315": "Quotation",
+    "325": "Statement",
+    "326": "UtilityStatement",
+    "380": "Invoice",
+    "381": "CreditNote",
+    "383": "DebitNote",
+    "389": "SelfBilledInvoice",
+    "396": "SelfBilledCreditNote",
+    "42": "TransportationStatus",
+    "43": "TransportationStatusRequest",
+    "430": "RemittanceAdvice",
+    "447": "GuaranteeCertificate",
+    "45": "TenderReceipt",
+    "50": "Tender",
+    "54": "TendererQualification",
+    "55": "TendererQualificationResponse",
+    "6": "CertificateOfOrigin",
+    "610": "ForwardingInstructions",
+    "632": "DespatchAdvice",
+    "633": "ReceiptAdvice",
+    "635": "InstructionForReturns",
+    "705": "BillOfLading",
+    "71": "Reminder",
+    "716": "Waybill",
+    "744": "GoodsItemItinerary",
+    "76": "TransportExecutionPlanRequest",
+    "77": "TransportExecutionPlan",
+    "780": "FreightInvoice",
+    "916": "AttachedDocument",
+    "92": "ExceptionCriteria",
+    "93": "ExceptionNotification"
+  },
+  "elements": {
+    "ublextensions": {
+      "type": "ext:UBLExtensions",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "ublversionid": {
+      "type": "cbc:UBLVersionID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "customizationid": {
+      "type": "cbc:CustomizationID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "profileid": {
+      "type": "cbc:ProfileID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "profileexecutionid": {
+      "type": "cbc:ProfileExecutionID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "id": {
+      "type": "cbc:ID",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "copyindicator": {
+      "type": "cbc:CopyIndicator",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "uuid": {
+      "type": "cbc:UUID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "issuedate": {
+      "type": "cbc:IssueDate",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "issuetime": {
+      "type": "cbc:IssueTime",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "note": {
+      "type": "cbc:Note",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded"
+    },
+    "versionid": {
+      "type": "cbc:VersionID",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "transportexecutionplanreferenceid": {
+      "type": "cbc:TransportExecutionPlanReferenceID",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "signature": {
+      "type": "cac:Signature",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "validationdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validationtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validatorid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "canonicalizationmethod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "signaturemethod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "signatoryparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "digitalsignatureattachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "originaldocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "senderparty": {
+      "type": "cac:SenderParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "markcareindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markattentionindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "websiteuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "logoreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endpointid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "industryclassificationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partyidentification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partyname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "language": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postaladdress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "physicallocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partytaxscheme": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partylegalentity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "contact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "person": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "agentparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "serviceproviderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "powerofattorney": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "financialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "receiverparty": {
+      "type": "cac:ReceiverParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "markcareindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markattentionindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "websiteuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "logoreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endpointid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "industryclassificationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partyidentification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partyname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "language": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postaladdress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "physicallocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partytaxscheme": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partylegalentity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "contact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "person": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "agentparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "serviceproviderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "powerofattorney": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "financialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "referencedconsignment": {
+      "type": "cac:ReferencedConsignment",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "carrierassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "consigneeassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "consignorassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "freightforwarderassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "brokerassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contractedcarrierassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "performingcarrierassignedid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "summarydescription": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "totalinvoiceamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "declaredcustomsvalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "tariffdescription": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "tariffcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "insurancepremiumamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "grossweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "netweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "netnetweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "chargeableweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "grossvolumemeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "netvolumemeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "loadinglengthmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "remarks": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "hazardousriskindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "animalfoodindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "humanfoodindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "livestockindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "bulkcargoindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "containerizedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "generalcargoindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "specialsecurityindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "thirdpartypayerindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "carrierserviceinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "customsclearanceserviceinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "forwarderserviceinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "specialserviceinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "sequenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "shippingprioritylevelcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "handlingcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "handlinginstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "information": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "totalgoodsitemquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "totaltransporthandlingunitquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "insurancevalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "declaredforcarriagevalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "declaredstatisticsvalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "freeonboardvalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "specialinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "splitconsignmentindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliveryinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "consignmentquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "consolidatableindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "haulageinstructions": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "loadingsequenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "childconsignmentquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "totalpackagesquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "consolidatedshipment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "customsdeclaration": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "requestedpickuptransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "requesteddeliverytransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "plannedpickuptransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "planneddeliverytransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "status": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "childconsignment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "consigneeparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "exporterparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "consignorparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "importerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "carrierparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "freightforwarderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "notifyparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "originaldespatchparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "finaldeliveryparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "performingcarrierparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "substitutecarrierparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "logisticsoperatorparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "transportadvisorparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "hazardousitemnotificationparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "insuranceparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "mortgageholderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "billofladingholderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "originaldeparturecountry": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "finaldestinationcountry": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "transitcountry": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "transportcontract": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "transportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "originaldespatchtransportationservice": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "finaldeliverytransportationservice": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliveryterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "collectpaymentterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "disbursementpaymentterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "prepaidpaymentterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "freightallowancecharge": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "extraallowancecharge": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "maincarriageshipmentstage": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "precarriageshipmentstage": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "oncarriageshipmentstage": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "transporthandlingunit": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "firstarrivalportlocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "lastexitportlocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "referencedtransportequipment": {
+      "type": "cac:ReferencedTransportEquipment",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "referencedconsignmentid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "transportequipmenttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "providertypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "ownertypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "sizetypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "dispositioncode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "fullnessindicationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "refrigerationonindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "information": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "returnabilityindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "legalstatusindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "airflowpercent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "humiditypercent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "animalfoodapprovedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "humanfoodapprovedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "dangerousgoodsapprovedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "refrigeratedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "characteristics": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "damageremarks": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "specialtransportrequirements": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "grossweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "grossvolumemeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "tareweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "trackingdevicecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "powerindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "traceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "measurementdimension": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "transportequipmentseal": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "minimumtemperature": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "maximumtemperature": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "providerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "loadingproofparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "supplierparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "ownerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "operatingparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "loadinglocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "unloadinglocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "storagelocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "positioningtransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "quarantinetransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "deliverytransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "pickuptransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "handlingtransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "loadingtransportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "transportevent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "applicabletransportmeans": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "haulagetradingterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "hazardousgoodstransit": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "packagedtransporthandlingunit": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "serviceallowancecharge": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "freightallowancecharge": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "attachedtransportequipment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "delivery": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "pickup": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "despatch": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "shipmentdocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "containedintransportequipment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "package": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "goodsitem": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "referencedpackage": {
+      "type": "cac:ReferencedPackage",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "quantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "returnablematerialindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "packagelevelcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "packagingtypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "packingmaterial": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "traceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "containedpackage": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "containingtransportequipment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "goodsitem": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "measurementdimension": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "deliveryunit": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "delivery": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "pickup": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "despatch": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "referencedgoodsitem": {
+      "type": "cac:ReferencedGoodsItem",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "sequencenumberid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "hazardousriskindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "declaredcustomsvalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "declaredforcarriagevalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "declaredstatisticsvalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "freeonboardvalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "insurancevalueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "valueamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "grossweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "netweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "netnetweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "chargeableweightmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "grossvolumemeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "netvolumemeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "quantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "preferencecriterioncode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "requiredcustomsid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "customsstatuscode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "customstariffquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "customsimportclassifiedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "chargeablequantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "returnablequantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "traceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "item": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "goodsitemcontainer": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "freightallowancecharge": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "invoiceline": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "temperature": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "containedgoodsitem": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "originaddress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "delivery": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "pickup": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "despatch": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "measurementdimension": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "containingpackage": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "shipmentdocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "minimumtemperature": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "maximumtemperature": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "transportationsegment": {
+      "type": "cac:TransportationSegment",
+      "minOccurs": "1",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "sequencenumeric": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "transportexecutionplanreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "transportationservice": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "transportserviceproviderparty": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "referencedconsignment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "shipmentstage": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    }
+  }
+}

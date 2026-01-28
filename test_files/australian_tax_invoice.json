@@ -1,0 +1,1457 @@
+[
+  {
+    "id": "728205",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "RW10623",
+      "salespersonID": "AT",
+      "SalesOrderID": "742012",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "SMITH'S FLOORWORLD",
+        "address": {
+          "streetName": "92 PARKHURST DRIVE",
+          "buildingNumber": "92",
+          "additionalStreetName": null,
+          "cityName": "KNOXFIELD",
+          "postalZone": "3180",
+          "countrySubentity": "VIC",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "SMITH'S FLOORWORLD",
+        "contact": {
+          "name": null,
+          "telephone": null
+        }
+      },
+      "sourcePage": 1
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 194.43,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 1944.29,
+            "taxAmount": 194.43,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 1944.29,
+      "taxExclusiveAmount": 1944.29,
+      "taxInclusiveAmount": 2138.72,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 2138.72
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "CALIFORNIA DREAMS",
+          "description": "CALIFORNIA DREAMS CROMPTON",
+          "sellersItemIdentification_id": "10/2406A",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 21.2,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 91.24,
+        "lineExtensionAmount": 1934.29,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 1,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 1
+      },
+      {
+        "field": "issueDate",
+        "page": 1
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "728621",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "RW10510",
+      "salespersonID": "AT",
+      "SalesOrderID": "742705",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "SMITH'S FLOORWORLD",
+        "address": {
+          "streetName": "92 PARKHURST DRIVE",
+          "buildingNumber": "92",
+          "additionalStreetName": null,
+          "cityName": "KNOXFIELD",
+          "postalZone": "3180",
+          "countrySubentity": "VIC",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "SMITH'S FLOORWORLD",
+        "contact": {
+          "name": null,
+          "telephone": null
+        }
+      },
+      "sourcePage": 2
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 423.24,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 4232.4,
+            "taxAmount": 423.24,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 4232.4,
+      "taxExclusiveAmount": 4232.4,
+      "taxInclusiveAmount": 4655.64,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 4655.64
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "CROSSLEY TWIST",
+          "description": "CROSSLEY TWIST ZINIA",
+          "sellersItemIdentification_id": "11/3440B",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 37.7,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 112.0,
+        "lineExtensionAmount": 4222.4,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 2,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 2,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 2
+      },
+      {
+        "field": "issueDate",
+        "page": 2
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "728968",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "KX14073",
+      "salespersonID": "AT",
+      "SalesOrderID": "742973",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "SMITH'S FLOORWORLD",
+        "address": {
+          "streetName": "92 PARKHURST DRIVE",
+          "buildingNumber": "92",
+          "additionalStreetName": null,
+          "cityName": "KNOXFIELD",
+          "postalZone": "3180",
+          "countrySubentity": "VIC",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "SMITH'S FLOORWORLD",
+        "contact": {
+          "name": null,
+          "telephone": null
+        }
+      },
+      "sourcePage": 3
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 208.04,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 2080.36,
+            "taxAmount": 208.04,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 2080.36,
+      "taxExclusiveAmount": 2080.36,
+      "taxInclusiveAmount": 2288.4,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 2288.4
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "METROPOL",
+          "description": "METROPOL MOOD",
+          "sellersItemIdentification_id": "11/3471B",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 18.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 115.02,
+        "lineExtensionAmount": 2070.36,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 3,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 3,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 3
+      },
+      {
+        "field": "issueDate",
+        "page": 3
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 3
+      }
+    ]
+  },
+  {
+    "id": "728985",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "10668",
+      "salespersonID": "AT",
+      "SalesOrderID": "742958",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [
+      {
+        "id": "VIC WELFARE",
+        "documentTypeCode": "REF",
+        "issueDate": null
+      }
+    ],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "WAVERLEY FLOORWORLD",
+        "address": {
+          "streetName": "7 BRAND ROAD",
+          "buildingNumber": "7",
+          "additionalStreetName": "C/- CARPET LOGISTICS",
+          "cityName": "KNOXFIELD",
+          "postalZone": "3180",
+          "countrySubentity": "VIC",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "WAVERLEY FLOORWORLD",
+        "contact": {
+          "name": "ET",
+          "telephone": null
+        }
+      },
+      "sourcePage": 4
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 65.9,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 659.0,
+            "taxAmount": 65.9,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 659.0,
+      "taxExclusiveAmount": 659.0,
+      "taxInclusiveAmount": 724.9,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 724.9
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "FLASHTONE",
+          "description": "FLASHTONE ANGUS",
+          "sellersItemIdentification_id": "12/5306B",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 15.1,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 42.98,
+        "lineExtensionAmount": 649.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 4,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 4,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 4
+      },
+      {
+        "field": "issueDate",
+        "page": 4
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 4
+      }
+    ]
+  },
+  {
+    "id": "729026",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "50324",
+      "salespersonID": "RW",
+      "SalesOrderID": "743022",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "NORTH LAKES FLOORWORLD",
+        "address": {
+          "streetName": "10/11-15 BUSINESS DRIVE",
+          "buildingNumber": "SHED 10/11-15",
+          "additionalStreetName": null,
+          "cityName": "NARANGBA",
+          "postalZone": "4504",
+          "countrySubentity": "QLD",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "NORTH LAKES FLOORWORLD",
+        "contact": {
+          "name": "SL",
+          "telephone": null
+        }
+      },
+      "sourcePage": 5
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 234.5,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 2345.0,
+            "taxAmount": 234.5,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 2345.0,
+      "taxExclusiveAmount": 2345.0,
+      "taxInclusiveAmount": 2579.5,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 2579.5
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "METROPOL",
+          "description": "METROPOL MARBLE",
+          "sellersItemIdentification_id": "11/3588A",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 20.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 115.0,
+        "lineExtensionAmount": 2300.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 5,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "BAILING CHARGE",
+          "description": "BAILING CHARGE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 35.0,
+        "lineExtensionAmount": 35.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 5,
+        "confidence": 1.0
+      },
+      {
+        "id": "3",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 5,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 5
+      },
+      {
+        "field": "issueDate",
+        "page": 5
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 5
+      }
+    ]
+  },
+  {
+    "id": "729074",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "29561",
+      "salespersonID": "AT",
+      "SalesOrderID": "743084",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "DELTA FLOORWORLD",
+        "address": {
+          "streetName": "66 MAIR STREET",
+          "buildingNumber": "66",
+          "additionalStreetName": null,
+          "cityName": "BALLARAT",
+          "postalZone": "3350",
+          "countrySubentity": "VIC",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "DELTA FLOORWORLD",
+        "contact": {
+          "name": null,
+          "telephone": null
+        }
+      },
+      "sourcePage": 6
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 34.07,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 340.7,
+            "taxAmount": 34.07,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 340.7,
+      "taxExclusiveAmount": 340.7,
+      "taxInclusiveAmount": 374.77,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 374.77
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "FLASHTONE",
+          "description": "FLASHTONE OTIS",
+          "sellersItemIdentification_id": "12/4805C",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 7.4,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 39.96,
+        "lineExtensionAmount": 295.7,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 6,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "BAILING CHARGE",
+          "description": "BAILING CHARGE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 35.0,
+        "lineExtensionAmount": 35.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 6,
+        "confidence": 1.0
+      },
+      {
+        "id": "3",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 6,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 6
+      },
+      {
+        "field": "issueDate",
+        "page": 6
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 6
+      }
+    ]
+  },
+  {
+    "id": "729075",
+    "issueDate": "2025-05-01",
+    "dueDate": null,
+    "documentCurrencyCode": "AUD",
+    "document_type": "380",
+    "page_count_text": "1",
+    "accountingSupplierParty": {
+      "id": null,
+      "partyName": "QUEST CARPETS",
+      "postalAddress": {
+        "streetName": "43-45 Mark Anthony Drive",
+        "cityName": "Dandenong South",
+        "postalZone": "3175",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": "+613 8791 8200",
+        "telefax": "+613 8791 8299",
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "61 606 397 273",
+          "taxSchemeID": "GST"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "Quest Flooring Pty Ltd",
+          "companyID": "61 606 397 273"
+        }
+      ]
+    },
+    "accountingCustomerParty": {
+      "id": "34201",
+      "partyName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+      "postalAddress": {
+        "streetName": "TENANCY 4/LEVEL 2, 2/331-333 POLICE ROAD",
+        "cityName": "MULGRAVE",
+        "postalZone": "3170",
+        "countrySubentity": "VIC",
+        "identificationCode": "AU"
+      },
+      "contact": {
+        "telephone": null,
+        "telefax": null,
+        "electronicMail": null
+      },
+      "partyTaxSchemes": [
+        {
+          "companyID": "20051233964",
+          "taxSchemeID": "ABN"
+        }
+      ],
+      "partyLegalEntities": [
+        {
+          "registrationName": "FLOORWORLD PTY. LTD. (DOMESTIC)",
+          "companyID": "20051233964"
+        }
+      ]
+    },
+    "payeeParty": null,
+    "originatorParty": null,
+    "orderReference": {
+      "id": "29562",
+      "salespersonID": "AT",
+      "SalesOrderID": "743085",
+      "customerReference": "34201",
+      "issueDate": null
+    },
+    "additionalDocumentReferences": [],
+    "shipVia": null,
+    "jobReference": null,
+    "delivery": {
+      "actualDeliveryDate": null,
+      "actualDeliveryTime": null,
+      "deliveryLocation": {
+        "id": null,
+        "description": "DELTA FLOORWORLD",
+        "address": {
+          "streetName": "66 MAIR STREET",
+          "buildingNumber": "66",
+          "additionalStreetName": null,
+          "cityName": "BALLARAT",
+          "postalZone": "3350",
+          "countrySubentity": "VIC",
+          "identificationCode": "AU"
+        }
+      },
+      "deliveryParty": {
+        "partyName": "DELTA FLOORWORLD",
+        "contact": {
+          "name": null,
+          "telephone": null
+        }
+      },
+      "sourcePage": 7
+    },
+    "paymentMeans": {
+      "paymentMeansCode": "30",
+      "payeeFinancialAccount_id": "11194380",
+      "financialInstitutionBranch": {
+        "id": "063 125",
+        "name": null,
+        "branchName": null
+      },
+      "remit_to_email": null
+    },
+    "paymentTerms": {
+      "note": "STRICTLY NETT 30 DAYS TRADING",
+      "settlementDiscountPercent": null,
+      "penaltySurchargePercent": null
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 121.58,
+        "taxSubtotals": [
+          {
+            "taxableAmount": 1215.83,
+            "taxAmount": 121.58,
+            "taxPercent": 10.0,
+            "taxSchemeID": "GST"
+          }
+        ]
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 1215.83,
+      "taxExclusiveAmount": 1215.83,
+      "taxInclusiveAmount": 1337.41,
+      "allowanceTotalAmount": 0.0,
+      "chargeTotalAmount": 0.0,
+      "prepaidAmount": 0.0,
+      "payableAmount": 1337.41
+    },
+    "globalAllowanceCharges": [],
+    "invoiceLines": [
+      {
+        "id": "1",
+        "item": {
+          "name": "FLASHTONE",
+          "description": "FLASHTONE VAN",
+          "sellersItemIdentification_id": "12/5564",
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 29.3,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 39.96,
+        "lineExtensionAmount": 1170.83,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 7,
+        "confidence": 1.0
+      },
+      {
+        "id": "2",
+        "item": {
+          "name": "BAILING CHARGE",
+          "description": "BAILING CHARGE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 35.0,
+        "lineExtensionAmount": 35.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 7,
+        "confidence": 1.0
+      },
+      {
+        "id": "3",
+        "item": {
+          "name": "PACKING & HANDLING",
+          "description": "PACKING & HANDLING PER INVOICE",
+          "sellersItemIdentification_id": null,
+          "pack": null,
+          "size": null,
+          "weight": null,
+          "itemInstances": []
+        },
+        "invoicedQuantity": 1.0,
+        "orderedQuantity": null,
+        "unitCode": null,
+        "priceAmount": 10.0,
+        "lineExtensionAmount": 10.0,
+        "orderReference_id": null,
+        "allowanceCharges": [],
+        "sourcePage": 7,
+        "confidence": 1.0
+      }
+    ],
+    "annotations": [],
+    "fieldSourceMap": [
+      {
+        "field": "id",
+        "page": 7
+      },
+      {
+        "field": "issueDate",
+        "page": 7
+      },
+      {
+        "field": "legalMonetaryTotal.payableAmount",
+        "page": 7
+      }
+    ]
+  }
+]

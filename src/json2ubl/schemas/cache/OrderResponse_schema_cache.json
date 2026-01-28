@@ -1,0 +1,1790 @@
+{
+  "_document_type_mapping": {
+    "1": "Catalogue",
+    "10": "ContractNotice",
+    "11": "PriorInformationNotice",
+    "129": "CatalogueRequest",
+    "140": "Forecast",
+    "141": "ForecastRevision",
+    "142": "InventoryReport",
+    "143": "ProductActivity",
+    "144": "RetailEvent",
+    "145": "StockAvailabilityReport",
+    "146": "TradeItemLocationProfile",
+    "147": "TransportProgressStatus",
+    "148": "TransportProgressStatusRequest",
+    "149": "TransportServiceDescription",
+    "15": "ContractAwardNotice",
+    "150": "TransportServiceDescriptionRequest",
+    "17": "CallForTenders",
+    "170": "CataloguePricingUpdate",
+    "171": "CatalogueItemSpecificationUpdate",
+    "172": "CatalogueDeletion",
+    "21": "ItemInformationRequest",
+    "220": "Order",
+    "221": "OrderResponseSimple",
+    "227": "OrderChange",
+    "230": "OrderCancellation",
+    "231": "OrderResponse",
+    "232": "FulfilmentCancellation",
+    "24": "AwardedNotification",
+    "25": "UnawardedNotification",
+    "271": "PackingList",
+    "310": "RequestForQuotation",
+    "311": "ApplicationResponse",
+    "312": "DocumentStatus",
+    "313": "DocumentStatusRequest",
+    "315": "Quotation",
+    "325": "Statement",
+    "326": "UtilityStatement",
+    "380": "Invoice",
+    "381": "CreditNote",
+    "383": "DebitNote",
+    "389": "SelfBilledInvoice",
+    "396": "SelfBilledCreditNote",
+    "42": "TransportationStatus",
+    "43": "TransportationStatusRequest",
+    "430": "RemittanceAdvice",
+    "447": "GuaranteeCertificate",
+    "45": "TenderReceipt",
+    "50": "Tender",
+    "54": "TendererQualification",
+    "55": "TendererQualificationResponse",
+    "6": "CertificateOfOrigin",
+    "610": "ForwardingInstructions",
+    "632": "DespatchAdvice",
+    "633": "ReceiptAdvice",
+    "635": "InstructionForReturns",
+    "705": "BillOfLading",
+    "71": "Reminder",
+    "716": "Waybill",
+    "744": "GoodsItemItinerary",
+    "76": "TransportExecutionPlanRequest",
+    "77": "TransportExecutionPlan",
+    "780": "FreightInvoice",
+    "916": "AttachedDocument",
+    "92": "ExceptionCriteria",
+    "93": "ExceptionNotification"
+  },
+  "elements": {
+    "ublextensions": {
+      "type": "ext:UBLExtensions",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "ublversionid": {
+      "type": "cbc:UBLVersionID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "customizationid": {
+      "type": "cbc:CustomizationID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "profileid": {
+      "type": "cbc:ProfileID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "profileexecutionid": {
+      "type": "cbc:ProfileExecutionID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "id": {
+      "type": "cbc:ID",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "salesorderid": {
+      "type": "cbc:SalesOrderID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "copyindicator": {
+      "type": "cbc:CopyIndicator",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "uuid": {
+      "type": "cbc:UUID",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "issuedate": {
+      "type": "cbc:IssueDate",
+      "minOccurs": "1",
+      "maxOccurs": "1"
+    },
+    "issuetime": {
+      "type": "cbc:IssueTime",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "orderresponsecode": {
+      "type": "cbc:OrderResponseCode",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "note": {
+      "type": "cbc:Note",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded"
+    },
+    "documentcurrencycode": {
+      "type": "cbc:DocumentCurrencyCode",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "pricingcurrencycode": {
+      "type": "cbc:PricingCurrencyCode",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "taxcurrencycode": {
+      "type": "cbc:TaxCurrencyCode",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "totalpackagesquantity": {
+      "type": "cbc:TotalPackagesQuantity",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "grossweightmeasure": {
+      "type": "cbc:GrossWeightMeasure",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "netweightmeasure": {
+      "type": "cbc:NetWeightMeasure",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "netnetweightmeasure": {
+      "type": "cbc:NetNetWeightMeasure",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "grossvolumemeasure": {
+      "type": "cbc:GrossVolumeMeasure",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "netvolumemeasure": {
+      "type": "cbc:NetVolumeMeasure",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "customerreference": {
+      "type": "cbc:CustomerReference",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "accountingcostcode": {
+      "type": "cbc:AccountingCostCode",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "accountingcost": {
+      "type": "cbc:AccountingCost",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "linecountnumeric": {
+      "type": "cbc:LineCountNumeric",
+      "minOccurs": "0",
+      "maxOccurs": "1"
+    },
+    "validityperiod": {
+      "type": "cac:ValidityPeriod",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "startdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "starttime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "enddate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "durationmeasure": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "descriptioncode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "orderreference": {
+      "type": "cac:OrderReference",
+      "minOccurs": "1",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "salesorderid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "copyindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "customerreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "ordertypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "orderdocumentreference": {
+      "type": "cac:OrderDocumentReference",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "copyindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttype": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "xpath": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "languageid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "localecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentstatuscode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentdescription": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "attachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "resultofverification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "originatordocumentreference": {
+      "type": "cac:OriginatorDocumentReference",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "copyindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttype": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "xpath": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "languageid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "localecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentstatuscode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentdescription": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "attachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "resultofverification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "additionaldocumentreference": {
+      "type": "cac:AdditionalDocumentReference",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "copyindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "uuid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documenttype": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "xpath": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "languageid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "localecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentstatuscode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "documentdescription": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "attachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuerparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "resultofverification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "contract": {
+      "type": "cac:Contract",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "issuetime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "nominationdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "nominationtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contracttypecode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contracttype": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "versionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contractdocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "nominationperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "contractualdelivery": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "signature": {
+      "type": "cac:Signature",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "validationdate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validationtime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validatorid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "canonicalizationmethod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "signaturemethod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "signatoryparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "digitalsignatureattachment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "originaldocumentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "sellersupplierparty": {
+      "type": "cac:SellerSupplierParty",
+      "minOccurs": "1",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "datasendingcapability": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "despatchcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "sellercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "buyercustomerparty": {
+      "type": "cac:BuyerCustomerParty",
+      "minOccurs": "1",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "supplierassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliverycontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "buyercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "originatorcustomerparty": {
+      "type": "cac:OriginatorCustomerParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "supplierassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliverycontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "buyercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "freightforwarderparty": {
+      "type": "cac:FreightForwarderParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "markcareindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "markattentionindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "websiteuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "logoreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "endpointid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "industryclassificationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partyidentification": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partyname": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "language": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "postaladdress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "physicallocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "partytaxscheme": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "partylegalentity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "contact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "person": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "agentparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "serviceproviderparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "powerofattorney": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "financialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "accountingsupplierparty": {
+      "type": "cac:AccountingSupplierParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "datasendingcapability": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "despatchcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "sellercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "accountingcustomerparty": {
+      "type": "cac:AccountingCustomerParty",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "customerassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "supplierassignedaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "additionalaccountid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "party": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliverycontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "buyercontact": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "delivery": {
+      "type": "cac:Delivery",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "quantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "minimumquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "maximumquantity": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "actualdeliverydate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "actualdeliverytime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "latestdeliverydate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "latestdeliverytime": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "releaseid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "trackingid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliveryaddress": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliverylocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "alternativedeliverylocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "requesteddeliveryperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "promiseddeliveryperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "estimateddeliveryperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "carrierparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliveryparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "notifyparty": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "despatch": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliveryterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "minimumdeliveryunit": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "maximumdeliveryunit": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "shipment": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "deliveryterms": {
+      "type": "cac:DeliveryTerms",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "specialterms": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "lossriskresponsibilitycode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "lossrisk": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "amount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "deliverylocation": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "allowancecharge": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "paymentmeans": {
+      "type": "cac:PaymentMeans",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentmeanscode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "paymentduedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentchannelcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "instructionid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "instructionnote": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "paymentid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "cardaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "payerfinancialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "payeefinancialaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "creditaccount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentmandate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "tradefinancing": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "paymentterms": {
+      "type": "cac:PaymentTerms",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentmeansid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "prepaidpaymentreferenceid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "referenceeventcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "settlementdiscountpercent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "penaltysurchargepercent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentpercent": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "amount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "settlementdiscountamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "penaltyamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymenttermsdetailsuri": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentduedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "installmentduedate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "invoicingpartyreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "settlementperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "penaltyperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "exchangerate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "validityperiod": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "allowancecharge": {
+      "type": "cac:AllowanceCharge",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "chargeindicator": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "allowancechargereasoncode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "allowancechargereason": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "multiplierfactornumeric": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "prepaidindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "sequencenumeric": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "amount": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "baseamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcostcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "accountingcost": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "perunitamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "taxcategory": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "taxtotal": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "paymentmeans": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "transactionconditions": {
+      "type": "cac:TransactionConditions",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "id": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "actioncode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "description": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "documentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "taxexchangerate": {
+      "type": "cac:TaxExchangeRate",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "sourcecurrencycode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "sourcecurrencybaserate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "targetcurrencycode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "targetcurrencybaserate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "exchangemarketid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "calculationrate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "mathematicoperatorcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "date": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "foreignexchangecontract": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "pricingexchangerate": {
+      "type": "cac:PricingExchangeRate",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "sourcecurrencycode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "sourcecurrencybaserate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "targetcurrencycode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "targetcurrencybaserate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "exchangemarketid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "calculationrate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "mathematicoperatorcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "date": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "foreignexchangecontract": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "paymentexchangerate": {
+      "type": "cac:PaymentExchangeRate",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "sourcecurrencycode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "sourcecurrencybaserate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "targetcurrencycode": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "targetcurrencybaserate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "exchangemarketid": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "calculationrate": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "mathematicoperatorcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "date": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "foreignexchangecontract": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "destinationcountry": {
+      "type": "cac:DestinationCountry",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "identificationcode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "name": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "taxtotal": {
+      "type": "cac:TaxTotal",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "taxamount": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "roundingamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "taxevidenceindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "taxincludedindicator": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "taxsubtotal": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    },
+    "legalmonetarytotal": {
+      "type": "cac:LegalMonetaryTotal",
+      "minOccurs": "0",
+      "maxOccurs": "1",
+      "nested_elements": {
+        "lineextensionamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "taxexclusiveamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "taxinclusiveamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "allowancetotalamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "chargetotalamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "prepaidamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "payableroundingamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "payableamount": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "payablealternativeamount": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        }
+      }
+    },
+    "orderline": {
+      "type": "cac:OrderLine",
+      "minOccurs": "0",
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "substitutionstatuscode": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "note": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "lineitem": {
+          "type": "",
+          "minOccurs": "1",
+          "maxOccurs": "1"
+        },
+        "sellerproposedsubstitutelineitem": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "sellersubstitutedlineitem": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "buyerproposedsubstitutelineitem": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "cataloguelinereference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "quotationlinereference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "1"
+        },
+        "orderlinereference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        },
+        "documentreference": {
+          "type": "",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded"
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -30,7 +29,7 @@ class UblConfig:
         _logger.remove()
         log_path = Path(self.log_file)
         log_path.parent.mkdir(parents=True, exist_ok=True)
-        
+
         _logger.add(
             str(log_path),
             level=self.log_level,
