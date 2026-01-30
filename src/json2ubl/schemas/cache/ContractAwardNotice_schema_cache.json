@@ -66,1045 +66,158 @@
     "92": "ExceptionCriteria",
     "93": "ExceptionNotification"
   },
+  "root_element_name": "ContractAwardNotice",
+  "root_namespace": "urn:oasis:names:specification:ubl:schema:xsd:ContractAwardNotice-2",
   "elements": {
     "ublextensions": {
+      "name": "UBLExtensions",
       "type": "ext:UBLExtensions",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "ublextension": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "unbounded"
-        }
-      }
+      "maxOccurs": "1"
     },
     "ublversionid": {
+      "name": "UBLVersionID",
       "type": "cbc:UBLVersionID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "customizationid": {
+      "name": "CustomizationID",
       "type": "cbc:CustomizationID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "profileid": {
+      "name": "ProfileID",
       "type": "cbc:ProfileID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "profileexecutionid": {
+      "name": "ProfileExecutionID",
       "type": "cbc:ProfileExecutionID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "id": {
+      "name": "ID",
       "type": "cbc:ID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "copyindicator": {
+      "name": "CopyIndicator",
       "type": "cbc:CopyIndicator",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "uuid": {
+      "name": "UUID",
       "type": "cbc:UUID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "contractfolderid": {
+      "name": "ContractFolderID",
       "type": "cbc:ContractFolderID",
       "minOccurs": "1",
       "maxOccurs": "1"
     },
     "issuedate": {
+      "name": "IssueDate",
       "type": "cbc:IssueDate",
       "minOccurs": "1",
       "maxOccurs": "1"
     },
     "issuetime": {
+      "name": "IssueTime",
       "type": "cbc:IssueTime",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "note": {
+      "name": "Note",
       "type": "cbc:Note",
       "minOccurs": "0",
       "maxOccurs": "unbounded"
     },
     "regulatorydomain": {
+      "name": "RegulatoryDomain",
       "type": "cbc:RegulatoryDomain",
       "minOccurs": "0",
       "maxOccurs": "unbounded"
     },
     "publishawardindicator": {
+      "name": "PublishAwardIndicator",
       "type": "cbc:PublishAwardIndicator",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "previousdocumentreference": {
+      "name": "PreviousDocumentReference",
       "type": "cac:PreviousDocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "copyindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "uuid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuedate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuetime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documenttypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documenttype": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "xpath": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "languageid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "localecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "versionid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentstatuscode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentdescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "attachment": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuerparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "resultofverification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "minutesdocumentreference": {
+      "name": "MinutesDocumentReference",
       "type": "cac:MinutesDocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "copyindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "uuid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuedate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuetime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documenttypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documenttype": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "xpath": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "languageid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "localecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "versionid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentstatuscode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentdescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "attachment": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuerparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "resultofverification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "signature": {
+      "name": "Signature",
       "type": "cac:Signature",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "validationdate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validationtime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validatorid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "canonicalizationmethod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "signaturemethod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "signatoryparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "digitalsignatureattachment": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "originaldocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "contractingparty": {
+      "name": "ContractingParty",
       "type": "cac:ContractingParty",
       "minOccurs": "1",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "buyerprofileuri": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractingpartytype": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "contractingactivity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "party": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "originatorcustomerparty": {
+      "name": "OriginatorCustomerParty",
       "type": "cac:OriginatorCustomerParty",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "customerassignedaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "supplierassignedaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "additionalaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "party": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "deliverycontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "accountingcontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "buyercontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "receiverparty": {
+      "name": "ReceiverParty",
       "type": "cac:ReceiverParty",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "markcareindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "markattentionindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "websiteuri": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "logoreferenceid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "endpointid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "industryclassificationcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partyidentification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "partyname": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "language": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "postaladdress": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "physicallocation": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partytaxscheme": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "partylegalentity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "contact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "person": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "agentparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "serviceproviderparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "powerofattorney": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "financialaccount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "tenderingterms": {
+      "name": "TenderingTerms",
       "type": "cac:TenderingTerms",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "awardingmethodtypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "priceevaluationcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "maximumvariantquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "variantconstraintindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "acceptedvariantsdescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "pricerevisionformuladescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "fundingprogramcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "fundingprogram": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "maximumadvertisementamount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "paymentfrequencycode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "economicoperatorregistryuri": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "requiredcurriculaindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "otherconditionsindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "additionalconditions": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "latestsecurityclearancedate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentationfeeamount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "penaltyclause": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "requiredfinancialguarantee": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "procurementlegislationdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "fiscallegislationdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "environmentallegislationdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "employmentlegislationdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractualdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "callfortendersdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "warrantyvalidityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "paymentterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "tendererqualificationrequest": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "allowedsubcontractterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "tenderpreparation": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "contractexecutionrequirement": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "awardingterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "additionalinformationparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentproviderparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "tenderrecipientparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractresponsibleparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "tenderevaluationparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "tendervalidityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractacceptanceperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "appealterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "language": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "budgetaccountline": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "replacednoticedocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "tenderingprocess": {
+      "name": "TenderingProcess",
       "type": "cac:TenderingProcess",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "originalcontractingsystemid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "description": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "negotiationdescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "procedurecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "urgencycode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "expensecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partpresentationcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractingsystemcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "submissionmethodcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "candidatereductionconstraintindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "governmentagreementconstraintindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentavailabilityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "tendersubmissiondeadlineperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "invitationsubmissionperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "participationrequestreceptionperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "noticedocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "additionaldocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "processjustification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "economicoperatorshortlist": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "opentenderevent": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "auctionterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "frameworkagreement": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "procurementproject": {
+      "name": "ProcurementProject",
       "type": "cac:ProcurementProject",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "name": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "unbounded"
-        },
-        "description": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "procurementtypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "procurementsubtypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "qualitycontrolcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "requiredfeeamount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "feedescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "requesteddeliverydate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "estimatedoverallcontractquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "requestedtendertotal": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "maincommodityclassification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "additionalcommodityclassification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "realizedlocation": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "plannedperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractextension": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "requestfortenderline": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        }
-      }
+      "maxOccurs": "1"
     },
     "procurementprojectlot": {
+      "name": "ProcurementProjectLot",
       "type": "cac:ProcurementProjectLot",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "tenderingterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "procurementproject": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "tenderresult": {
+      "name": "TenderResult",
       "type": "cac:TenderResult",
       "minOccurs": "1",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "tenderresultcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "description": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "advertisementamount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "awarddate": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "awardtime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "receivedtenderquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "lowertenderamount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "highertenderamount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "startdate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "receivedelectronictenderquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "receivedforeigntenderquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contract": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "awardedtenderedproject": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractformalizationperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "subcontractterms": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "winningparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        }
-      }
+      "maxOccurs": "unbounded"
     }
   }
 }

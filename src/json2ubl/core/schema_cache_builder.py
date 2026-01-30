@@ -12,6 +12,7 @@ from typing import Any, Dict, Optional, Set
 from lxml import etree
 
 from ..config import get_logger
+from ..constants import NUMERIC_TYPE_TO_DOCUMENT_TYPE
 
 logger = get_logger(__name__)
 
@@ -20,76 +21,6 @@ NS = {
     "xs": "http://www.w3.org/2001/XMLSchema",
     "cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
     "cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
-    "ext": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
-}
-
-# Document type mapping
-NUMERIC_TYPE_TO_DOCUMENT_TYPE = {
-    "1": "Catalogue",
-    "10": "ContractNotice",
-    "11": "PriorInformationNotice",
-    "129": "CatalogueRequest",
-    "140": "Forecast",
-    "141": "ForecastRevision",
-    "142": "InventoryReport",
-    "143": "ProductActivity",
-    "144": "RetailEvent",
-    "145": "StockAvailabilityReport",
-    "146": "TradeItemLocationProfile",
-    "147": "TransportProgressStatus",
-    "148": "TransportProgressStatusRequest",
-    "149": "TransportServiceDescription",
-    "15": "ContractAwardNotice",
-    "150": "TransportServiceDescriptionRequest",
-    "17": "CallForTenders",
-    "170": "CataloguePricingUpdate",
-    "171": "CatalogueItemSpecificationUpdate",
-    "172": "CatalogueDeletion",
-    "21": "ItemInformationRequest",
-    "220": "Order",
-    "221": "OrderResponseSimple",
-    "227": "OrderChange",
-    "230": "OrderCancellation",
-    "231": "OrderResponse",
-    "232": "FulfilmentCancellation",
-    "24": "AwardedNotification",
-    "25": "UnawardedNotification",
-    "271": "PackingList",
-    "310": "RequestForQuotation",
-    "311": "ApplicationResponse",
-    "312": "DocumentStatus",
-    "313": "DocumentStatusRequest",
-    "315": "Quotation",
-    "325": "Statement",
-    "326": "UtilityStatement",
-    "380": "Invoice",
-    "381": "CreditNote",
-    "383": "DebitNote",
-    "389": "SelfBilledInvoice",
-    "396": "SelfBilledCreditNote",
-    "42": "TransportationStatus",
-    "43": "TransportationStatusRequest",
-    "430": "RemittanceAdvice",
-    "447": "GuaranteeCertificate",
-    "45": "TenderReceipt",
-    "50": "Tender",
-    "54": "TendererQualification",
-    "55": "TendererQualificationResponse",
-    "6": "CertificateOfOrigin",
-    "610": "ForwardingInstructions",
-    "632": "DespatchAdvice",
-    "633": "ReceiptAdvice",
-    "635": "InstructionForReturns",
-    "705": "BillOfLading",
-    "71": "Reminder",
-    "716": "Waybill",
-    "744": "GoodsItemItinerary",
-    "76": "TransportExecutionPlanRequest",
-    "77": "TransportExecutionPlan",
-    "780": "FreightInvoice",
-    "916": "AttachedDocument",
-    "92": "ExceptionCriteria",
-    "93": "ExceptionNotification",
 }
 
 
@@ -108,6 +39,8 @@ class SchemaCacheBuilder:
 
         # Store loaded XSD roots for type resolution
         self._xsd_roots: Dict[str, etree._Element] = {}
+        # Cache type lookups to avoid repeated searches
+        self._type_cache: Dict[str, Optional[etree._Element]] = {}
 
     def build_all_caches(self) -> None:
         """Generate schema cache files for all UBL document types."""
@@ -123,30 +56,56 @@ class SchemaCacheBuilder:
         xsd_files = sorted(self.maindoc_dir.glob("UBL-*.xsd"))
         logger.info(f"Found {len(xsd_files)} UBL document types")
 
+        caches_generated = 0
+        caches_failed = 0
+
         for xsd_path in xsd_files:
+            doc_name = xsd_path.stem.replace("UBL-", "").replace("-2.1", "")
             try:
-                doc_name = xsd_path.stem.replace("UBL-", "").replace("-2.1", "")
                 logger.info(f"Building cache for {doc_name}...")
 
                 # Parse XSD and extract schema
-                tree = etree.parse(str(xsd_path))
-                root = tree.getroot()
+                try:
+                    tree = etree.parse(str(xsd_path))
+                    root = tree.getroot()
+                except etree.XMLSyntaxError as xml_err:
+                    logger.error(f"Invalid XSD syntax in {xsd_path.name}: {xml_err}")
+                    continue
+                except IOError as io_err:
+                    logger.error(f"Cannot read XSD file {xsd_path.name}: {io_err}")
+                    caches_failed += 1
+                    continue
+
                 self._xsd_roots["main"] = root
+                # Note: Do NOT clear shared type cache during concurrent processing
 
                 # Build cache data
-                cache_data = self._build_cache_for_document(root, doc_name)
+                try:
+                    cache_data = self._build_cache_for_document(root, doc_name)
+                except Exception as build_err:
+                    logger.error(f"Failed to extract schema from {doc_name}: {build_err}")
+                    caches_failed += 1
+                    continue
 
                 # Save to file
                 cache_file = self.cache_dir / f"{doc_name}_schema_cache.json"
-                with open(cache_file, "w", encoding="utf-8") as f:
-                    json.dump(cache_data, f, indent=2)
-
-                logger.info(f"Generated cache: {cache_file.name}")
+                try:
+                    with open(cache_file, "w", encoding="utf-8") as f:
+                        json.dump(cache_data, f, indent=2)
+                    logger.info(f"Generated cache: {cache_file.name}")
+                    caches_generated += 1
+                except IOError as io_err:
+                    logger.error(f"Failed to write cache file {cache_file.name}: {io_err}")
+                    caches_failed += 1
+                    continue
 
             except Exception as e:
-                logger.error(f"Error building cache for {xsd_path.name}: {e}")
+                logger.error(f"Unexpected error building cache for {doc_name}: {e}")
+                caches_failed += 1
 
-        logger.info("Schema cache generation complete")
+        logger.info(
+            f"Schema cache generation complete: {caches_generated} generated, {caches_failed} failed"
+        )
 
     def _load_common_components(self) -> None:
         """Load common component XSD files."""
@@ -171,10 +130,10 @@ class SchemaCacheBuilder:
             logger.warning(f"Error loading common components: {e}")
 
     def _build_cache_for_document(self, root: etree._Element, doc_name: str) -> Dict[str, Any]:
-        """Build cache for a single document type."""
+        """Build cache for a single document type with full depth extraction."""
         # Find the root element
         root_elem = self._find_element(root, doc_name)
-        if not root_elem:
+        if root_elem is None:
             raise ValueError(f"Root element {doc_name} not found")
 
         # Get type reference
@@ -182,11 +141,19 @@ class SchemaCacheBuilder:
         if not type_ref:
             raise ValueError(f"Root element {doc_name} has no type")
 
-        # Extract all elements from this type
-        elements = self._extract_elements_from_type(type_ref, root)
+        # Extract root element name and namespace
+        root_element_name = root_elem.get("name")
+        root_namespace = root.get("targetNamespace")
+
+        # Extract all elements from this type to full depth
+        elements = self._extract_elements_from_type(
+            type_ref, root, visited=None, depth=0, max_depth=20
+        )
 
         cache_data = {
             "_document_type_mapping": NUMERIC_TYPE_TO_DOCUMENT_TYPE,
+            "root_element_name": root_element_name,
+            "root_namespace": root_namespace,
             "elements": elements,
         }
         return cache_data
@@ -204,13 +171,14 @@ class SchemaCacheBuilder:
         main_root: etree._Element,
         visited: Optional[Set[str]] = None,
         depth: int = 0,
+        max_depth: int = 20,
     ) -> Dict[str, Any]:
-        """Extract all child elements from a type reference recursively."""
+        """Extract all child elements from a type reference recursively to full depth."""
         if visited is None:
             visited = set()
 
-        # Prevent infinite recursion (limit depth to 10 levels)
-        if type_ref in visited or depth > 10:
+        # Prevent infinite recursion
+        if type_ref in visited or depth > max_depth:
             return {}
         visited.add(type_ref)
 
@@ -219,7 +187,7 @@ class SchemaCacheBuilder:
 
         # Find the type definition
         type_def = self._find_type(local_type, main_root)
-        if not type_def:
+        if type_def is None:
             return elements
 
         # Extract sequence elements
@@ -233,20 +201,21 @@ class SchemaCacheBuilder:
             if not elem_name:
                 continue
 
-            # Normalize to lowercase
+            # Normalize to lowercase for cache key
             elem_name_lower = elem_name.lower()
 
             # Get type from type= or ref= attribute
             elem_type = elem.get("type", "") or elem.get("ref", "")
 
-            # Build element info
+            # Build element info with cardinality and proper element name
             elem_info = {
+                "name": elem_name,  # Store proper XML element name from XSD
                 "type": elem_type,
                 "minOccurs": elem.get("minOccurs", "1"),
                 "maxOccurs": elem.get("maxOccurs", "1"),
             }
 
-            # Try to extract nested elements recursively
+            # Try to extract nested elements recursively to full depth
             if elem_type:
                 nested_local = elem_type.split(":")[-1] if ":" in elem_type else elem_type
 
@@ -254,25 +223,35 @@ class SchemaCacheBuilder:
                 if nested_local not in visited:
                     nested_type_def = self._find_type(nested_local, main_root)
 
-                    if nested_type_def:
+                    if nested_type_def is not None:
                         nested_seq = nested_type_def.find("xs:sequence", NS)
                         if nested_seq is not None:
-                            # Recursively extract nested elements
+                            # Recursively extract nested elements to full depth
+                            # Pass visited set directly to avoid shallow copy overhead
                             nested = self._extract_nested_from_sequence(
-                                nested_seq, main_root, visited.copy(), depth + 1
+                                nested_seq,
+                                main_root,
+                                visited,
+                                depth + 1,
+                                max_depth,
                             )
-                            if nested:
-                                elem_info["nested_elements"] = nested
+                            # Always store nested_elements, even if empty
+                            elem_info["nested_elements"] = nested
 
             elements[elem_name_lower] = elem_info
 
         return elements
 
     def _extract_nested_from_sequence(
-        self, sequence: etree._Element, main_root: etree._Element, visited: Set[str], depth: int
+        self,
+        sequence: etree._Element,
+        main_root: etree._Element,
+        visited: Set[str],
+        depth: int,
+        max_depth: int = 20,
     ) -> Dict[str, Any]:
-        """Extract nested elements from a sequence element."""
-        if depth > 10:
+        """Extract nested elements from a sequence element to full depth."""
+        if depth > max_depth:
             return {}
 
         nested = {}
@@ -283,31 +262,33 @@ class SchemaCacheBuilder:
                 continue
 
             elem_name_lower = elem_name.lower()
-            elem_type = seq_elem.get("type", "")
+            # Get type from type= or ref= attribute (ref= is used for element references)
+            elem_type = seq_elem.get("type", "") or seq_elem.get("ref", "")
 
+            # Include cardinality information and proper element name
             elem_info = {
+                "name": elem_name,  # Store proper XML element name from XSD
                 "type": elem_type,
                 "minOccurs": seq_elem.get("minOccurs", "1"),
                 "maxOccurs": seq_elem.get("maxOccurs", "1"),
             }
 
-            # Recursively extract deeper nested elements
+            # Recursively extract deeper nested elements to full depth
             if elem_type:
                 nested_local = elem_type.split(":")[-1] if ":" in elem_type else elem_type
 
                 if nested_local not in visited:
-                    visited_copy = visited.copy()
-                    visited_copy.add(nested_local)
+                    visited.add(nested_local)
 
                     type_def = self._find_type(nested_local, main_root)
-                    if type_def:
+                    if type_def is not None:
                         inner_seq = type_def.find("xs:sequence", NS)
                         if inner_seq is not None:
                             inner_nested = self._extract_nested_from_sequence(
-                                inner_seq, main_root, visited_copy, depth + 1
+                                inner_seq, main_root, visited, depth + 1, max_depth
                             )
-                            if inner_nested:
-                                elem_info["nested_elements"] = inner_nested
+                            # Always store nested_elements, even if empty
+                            elem_info["nested_elements"] = inner_nested
 
             nested[elem_name_lower] = elem_info
 
@@ -315,31 +296,46 @@ class SchemaCacheBuilder:
 
     def _find_type(self, type_name: str, main_root: etree._Element) -> Optional[etree._Element]:
         """Find type definition or element ref in any loaded XSD."""
-        # Try main document first
+        # Check cache first
+        if type_name in self._type_cache:
+            return self._type_cache[type_name]
+
+        result = None
+
+        # Try main document first - direct children only
         for ctype in main_root.findall("xs:complexType[@name]", NS):
             if ctype.get("name") == type_name:
-                return ctype
+                result = ctype
+                break
 
-        # Try common components
-        for root in self._xsd_roots.values():
-            if root is None:
-                continue
-            for ctype in root.findall(".//xs:complexType[@name]", NS):
-                if ctype.get("name") == type_name:
-                    return ctype
+        # If not found, try common components (only direct children, not recursive)
+        if result is not None:
+            for root in self._xsd_roots.values():
+                if root is None:
+                    continue
+                for ctype in root.findall("xs:complexType[@name]", NS):
+                    if ctype.get("name") == type_name:
+                        result = ctype
+                        break
+                if result is not None:  # Early exit
+                    break
 
-        # If not found as type, try as element ref (for complex types defined as elements)
-        for root in [main_root] + list(self._xsd_roots.values()):
-            if root is None:
-                continue
-            for elem in root.findall(".//xs:element[@name]", NS):
-                if elem.get("name") == type_name:
-                    elem_type = elem.get("type")
-                    if elem_type:
-                        local_type = elem_type.split(":")[-1] if ":" in elem_type else elem_type
-                        return self._find_type(local_type, main_root)
+        # If still not found, try with "Type" suffix (e.g., "InvoiceLine" -> "InvoiceLineType")
+        if result is not None and not type_name.endswith("Type"):
+            type_with_suffix = type_name + "Type"
+            for root in [main_root] + list(self._xsd_roots.values()):
+                if root is None:
+                    continue
+                for ctype in root.findall("xs:complexType[@name]", NS):
+                    if ctype.get("name") == type_with_suffix:
+                        result = ctype
+                        break
+                if result is not None:  # Early exit
+                    break
 
-        return None
+        # Cache result (even if None to avoid repeated searches)
+        self._type_cache[type_name] = result
+        return result
 
     def _get_element_name(self, elem: etree._Element) -> Optional[str]:
         """Get element name from name= or ref= attribute."""

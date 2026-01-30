@@ -1,0 +1,82 @@
+[
+  {
+    "id": "SBCN-2025-001",
+    "document_type": 396,
+    "issueDate": "2025-01-30",
+    "issueTime": "14:00:00",
+    "creditNoteTypeCode": "396",
+    "accountingCustomerParty": {
+      "id": "BUYER-001",
+      "name": "Buyer Company Ltd",
+      "contact": {
+        "name": "Jane Buyer",
+        "telephone": "+1-555-0300",
+        "electronicMail": "jane@buyer.com"
+      },
+      "address": {
+        "streetName": "789 Buyer St",
+        "cityName": "Chicago",
+        "postalCode": "60601",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "accountingSupplierParty": {
+      "id": "SUPPLIER-001",
+      "name": "Self-Billed Credit Supplier Ltd",
+      "contact": {
+        "name": "Bob Supplier",
+        "telephone": "+1-555-0400",
+        "electronicMail": "bob@supplier.com"
+      },
+      "address": {
+        "streetName": "321 Supply Ave",
+        "cityName": "Houston",
+        "postalCode": "77001",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "creditNoteLines": [
+      {
+        "id": "LINE-001",
+        "creditedQuantity": 5,
+        "lineExtensionAmount": -500.0,
+        "item": {
+          "name": "Service Credit",
+          "description": "Credit for returned services"
+        },
+        "price": {
+          "priceAmount": 100.0
+        }
+      }
+    ],
+    "billingReference": {
+      "invoiceDocumentReference": {
+        "id": "SBI-2025-001",
+        "issueDate": "2025-01-25"
+      }
+    },
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": -500.0,
+      "taxExclusiveAmount": -500.0,
+      "taxInclusiveAmount": -600.0,
+      "payableAmount": -600.0
+    },
+    "taxTotal": [
+      {
+        "taxAmount": -100.0,
+        "taxSubtotal": [
+          {
+            "taxableAmount": -500.0,
+            "taxAmount": -100.0,
+            "taxCategory": {
+              "percent": 20,
+              "taxScheme": {
+                "id": "VAT"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

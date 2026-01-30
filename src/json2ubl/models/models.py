@@ -1,3 +1,14 @@
+"""
+Pydantic models for UBL documents - DEPRECATED/REFERENCE ONLY.
+
+NOTE: These models are provided for reference and type hints only.
+The converter uses schema-driven processing and does NOT validate against these models.
+The schema-cache is the source of truth for document structure.
+
+To use: Import from json2ubl.models if needed for type hints.
+Don't use for validation - converter.map_json_to_document() is schema-driven.
+"""
+
 from typing import List, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -303,27 +314,3 @@ class OrderLine(BaseModel):
     price_currency_id: Optional[str] = None
     item: Optional[Item] = None
     allowance_charges: List[AllowanceCharge] = Field(default_factory=list)
-
-
-class Invoice(UblDocument):
-    """Invoice document type."""
-
-    pass
-
-
-class CreditNote(UblDocument):
-    """Credit note document type."""
-
-    pass
-
-
-class DebitNote(UblDocument):
-    """Debit note document type."""
-
-    pass
-
-
-class Order(UblDocument):
-    """Order/Purchase Order document type."""
-
-    pass

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "INV-ERROR-002",
+    "issueDate": "2025-01-30",
+    "accountingCustomerParty": {
+      "id": "CUST-001",
+      "name": "Customer"
+    },
+    "accountingSupplierParty": {
+      "id": "SUPP-001",
+      "name": "Supplier"
+    }
+  }
+]

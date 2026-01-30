@@ -66,900 +66,182 @@
     "92": "ExceptionCriteria",
     "93": "ExceptionNotification"
   },
+  "root_element_name": "Catalogue",
+  "root_namespace": "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2",
   "elements": {
     "ublextensions": {
+      "name": "UBLExtensions",
       "type": "ext:UBLExtensions",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "ublextension": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "unbounded"
-        }
-      }
+      "maxOccurs": "1"
     },
     "ublversionid": {
+      "name": "UBLVersionID",
       "type": "cbc:UBLVersionID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "customizationid": {
+      "name": "CustomizationID",
       "type": "cbc:CustomizationID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "profileid": {
+      "name": "ProfileID",
       "type": "cbc:ProfileID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "profileexecutionid": {
+      "name": "ProfileExecutionID",
       "type": "cbc:ProfileExecutionID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "id": {
+      "name": "ID",
       "type": "cbc:ID",
       "minOccurs": "1",
       "maxOccurs": "1"
     },
     "uuid": {
+      "name": "UUID",
       "type": "cbc:UUID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "actioncode": {
+      "name": "ActionCode",
       "type": "cbc:ActionCode",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "name": {
+      "name": "Name",
       "type": "cbc:Name",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "issuedate": {
+      "name": "IssueDate",
       "type": "cbc:IssueDate",
       "minOccurs": "1",
       "maxOccurs": "1"
     },
     "issuetime": {
+      "name": "IssueTime",
       "type": "cbc:IssueTime",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "revisiondate": {
+      "name": "RevisionDate",
       "type": "cbc:RevisionDate",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "revisiontime": {
+      "name": "RevisionTime",
       "type": "cbc:RevisionTime",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "note": {
+      "name": "Note",
       "type": "cbc:Note",
       "minOccurs": "0",
       "maxOccurs": "unbounded"
     },
     "description": {
+      "name": "Description",
       "type": "cbc:Description",
       "minOccurs": "0",
       "maxOccurs": "unbounded"
     },
     "versionid": {
+      "name": "VersionID",
       "type": "cbc:VersionID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "previousversionid": {
+      "name": "PreviousVersionID",
       "type": "cbc:PreviousVersionID",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "linecountnumeric": {
+      "name": "LineCountNumeric",
       "type": "cbc:LineCountNumeric",
       "minOccurs": "0",
       "maxOccurs": "1"
     },
     "validityperiod": {
+      "name": "ValidityPeriod",
       "type": "cac:ValidityPeriod",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "startdate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "starttime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "enddate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "endtime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "durationmeasure": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "descriptioncode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "description": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "referencedcontract": {
+      "name": "ReferencedContract",
       "type": "cac:ReferencedContract",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuedate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuetime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "nominationdate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "nominationtime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contracttypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contracttype": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "versionid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "description": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "validityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "nominationperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractualdelivery": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "sourcecataloguereference": {
+      "name": "SourceCatalogueReference",
       "type": "cac:SourceCatalogueReference",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "uuid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuedate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuetime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "revisiondate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "revisiontime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "description": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "versionid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "previousversionid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "documentreference": {
+      "name": "DocumentReference",
       "type": "cac:DocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "copyindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "uuid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuedate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuetime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documenttypecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documenttype": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "xpath": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "languageid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "localecode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "versionid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentstatuscode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "documentdescription": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "attachment": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "issuerparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "resultofverification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "signature": {
+      "name": "Signature",
       "type": "cac:Signature",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "validationdate": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validationtime": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "validatorid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "canonicalizationmethod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "signaturemethod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "signatoryparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "digitalsignatureattachment": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "originaldocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "providerparty": {
+      "name": "ProviderParty",
       "type": "cac:ProviderParty",
       "minOccurs": "1",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "markcareindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "markattentionindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "websiteuri": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "logoreferenceid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "endpointid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "industryclassificationcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partyidentification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "partyname": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "language": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "postaladdress": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "physicallocation": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partytaxscheme": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "partylegalentity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "contact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "person": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "agentparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "serviceproviderparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "powerofattorney": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "financialaccount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "receiverparty": {
+      "name": "ReceiverParty",
       "type": "cac:ReceiverParty",
       "minOccurs": "1",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "markcareindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "markattentionindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "websiteuri": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "logoreferenceid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "endpointid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "industryclassificationcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partyidentification": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "partyname": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "language": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "postaladdress": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "physicallocation": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "partytaxscheme": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "partylegalentity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "contact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "person": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "agentparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "serviceproviderparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "powerofattorney": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "financialaccount": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "sellersupplierparty": {
+      "name": "SellerSupplierParty",
       "type": "cac:SellerSupplierParty",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "customerassignedaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "additionalaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "datasendingcapability": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "party": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "despatchcontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "accountingcontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "sellercontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "contractorcustomerparty": {
+      "name": "ContractorCustomerParty",
       "type": "cac:ContractorCustomerParty",
       "minOccurs": "0",
-      "maxOccurs": "1",
-      "nested_elements": {
-        "customerassignedaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "supplierassignedaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "additionalaccountid": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "party": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "deliverycontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "accountingcontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "buyercontact": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "1"
     },
     "tradingterms": {
+      "name": "TradingTerms",
       "type": "cac:TradingTerms",
       "minOccurs": "0",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "information": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "reference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "applicableaddress": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     },
     "catalogueline": {
+      "name": "CatalogueLine",
       "type": "cac:CatalogueLine",
       "minOccurs": "1",
-      "maxOccurs": "unbounded",
-      "nested_elements": {
-        "id": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "actioncode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "lifecyclestatuscode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractsubdivision": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "note": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "orderableindicator": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "orderableunit": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contentunitquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "orderquantityincrementnumeric": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "minimumorderquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "maximumorderquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "warrantyinformation": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "packlevelcode": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "contractorcustomerparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "sellersupplierparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "warrantyparty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "warrantyvalidityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "linevalidityperiod": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "itemcomparison": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "componentrelateditem": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "accessoryrelateditem": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "requiredrelateditem": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "replacementrelateditem": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "complementaryrelateditem": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "replacedrelateditem": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "requireditemlocationquantity": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "documentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "item": {
-          "type": "",
-          "minOccurs": "1",
-          "maxOccurs": "1"
-        },
-        "keyworditemproperty": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "unbounded"
-        },
-        "callfortenderslinereference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        },
-        "callfortendersdocumentreference": {
-          "type": "",
-          "minOccurs": "0",
-          "maxOccurs": "1"
-        }
-      }
+      "maxOccurs": "unbounded"
     }
   }
 }

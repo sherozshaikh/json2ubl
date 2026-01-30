@@ -14,7 +14,7 @@ def generate_schema_cache():
     """Generate schema cache from XSD files."""
     try:
         # Import here to avoid issues if json2ubl isn't fully installed yet
-        from src.json2ubl.core.schema_cache_builder import SchemaCacheBuilder
+        from json2ubl.core.schema_cache_builder import SchemaCacheBuilder
 
         builder = SchemaCacheBuilder()
         builder.build_all_caches()

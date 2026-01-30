@@ -1,0 +1,82 @@
+[
+  {
+    "id": "DN-2025-001",
+    "document_type": 383,
+    "issueDate": "2025-01-30",
+    "issueTime": "12:00:00",
+    "debitNoteTypeCode": "383",
+    "accountingCustomerParty": {
+      "id": "CUST-001",
+      "name": "Customer Company Ltd",
+      "contact": {
+        "name": "John Doe",
+        "telephone": "+1-555-0100",
+        "electronicMail": "john@customer.com"
+      },
+      "address": {
+        "streetName": "123 Main St",
+        "cityName": "New York",
+        "postalCode": "10001",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "accountingSupplierParty": {
+      "id": "SUPP-001",
+      "name": "Supplier Company Ltd",
+      "contact": {
+        "name": "Jane Smith",
+        "telephone": "+1-555-0200",
+        "electronicMail": "jane@supplier.com"
+      },
+      "address": {
+        "streetName": "456 Oak Ave",
+        "cityName": "Los Angeles",
+        "postalCode": "90001",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "debitNoteLines": [
+      {
+        "id": "LINE-001",
+        "debitedQuantity": 1,
+        "lineExtensionAmount": 100.0,
+        "item": {
+          "name": "Additional Charge",
+          "description": "Late payment charge"
+        },
+        "price": {
+          "priceAmount": 100.0
+        }
+      }
+    ],
+    "billingReference": {
+      "invoiceDocumentReference": {
+        "id": "INV-2025-001",
+        "issueDate": "2025-01-25"
+      }
+    },
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 100.0,
+      "taxExclusiveAmount": 100.0,
+      "taxInclusiveAmount": 120.0,
+      "payableAmount": 120.0
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 20.0,
+        "taxSubtotal": [
+          {
+            "taxableAmount": 100.0,
+            "taxAmount": 20.0,
+            "taxCategory": {
+              "percent": 20,
+              "taxScheme": {
+                "id": "VAT"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

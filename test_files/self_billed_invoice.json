@@ -1,0 +1,76 @@
+[
+  {
+    "id": "SBI-2025-001",
+    "document_type": 389,
+    "issueDate": "2025-01-30",
+    "issueTime": "13:00:00",
+    "invoiceTypeCode": "389",
+    "accountingCustomerParty": {
+      "id": "BUYER-001",
+      "name": "Buyer Company Ltd",
+      "contact": {
+        "name": "Jane Buyer",
+        "telephone": "+1-555-0300",
+        "electronicMail": "jane@buyer.com"
+      },
+      "address": {
+        "streetName": "789 Buyer St",
+        "cityName": "Chicago",
+        "postalCode": "60601",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "accountingSupplierParty": {
+      "id": "SUPPLIER-001",
+      "name": "Self-Billed Supplier Ltd",
+      "contact": {
+        "name": "Bob Supplier",
+        "telephone": "+1-555-0400",
+        "electronicMail": "bob@supplier.com"
+      },
+      "address": {
+        "streetName": "321 Supply Ave",
+        "cityName": "Houston",
+        "postalCode": "77001",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "invoiceLines": [
+      {
+        "id": "LINE-001",
+        "invoicedQuantity": 10,
+        "lineExtensionAmount": 1000.0,
+        "item": {
+          "name": "Service Delivery",
+          "description": "Professional services rendered"
+        },
+        "price": {
+          "priceAmount": 100.0
+        }
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 1000.0,
+      "taxExclusiveAmount": 1000.0,
+      "taxInclusiveAmount": 1200.0,
+      "payableAmount": 1200.0
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 200.0,
+        "taxSubtotal": [
+          {
+            "taxableAmount": 1000.0,
+            "taxAmount": 200.0,
+            "taxCategory": {
+              "percent": 20,
+              "taxScheme": {
+                "id": "VAT"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

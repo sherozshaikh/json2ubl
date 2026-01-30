@@ -1,0 +1,15 @@
+[
+  {
+    "id": "INV-ERROR-001",
+    "document_type": "Invoice",
+    "issueDate": "2025-01-30",
+    "accountingCustomerParty": {
+      "id": "CUST-001",
+      "name": "Customer"
+    },
+    "accountingSupplierParty": {
+      "id": "SUPP-001",
+      "name": "Supplier"
+    }
+  }
+]

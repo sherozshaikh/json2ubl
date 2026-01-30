@@ -1,0 +1,82 @@
+[
+  {
+    "id": "CN-2025-001",
+    "document_type": 381,
+    "issueDate": "2025-01-30",
+    "issueTime": "11:00:00",
+    "creditNoteTypeCode": "381",
+    "accountingCustomerParty": {
+      "id": "CUST-001",
+      "name": "Customer Company Ltd",
+      "contact": {
+        "name": "John Doe",
+        "telephone": "+1-555-0100",
+        "electronicMail": "john@customer.com"
+      },
+      "address": {
+        "streetName": "123 Main St",
+        "cityName": "New York",
+        "postalCode": "10001",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "accountingSupplierParty": {
+      "id": "SUPP-001",
+      "name": "Supplier Company Ltd",
+      "contact": {
+        "name": "Jane Smith",
+        "telephone": "+1-555-0200",
+        "electronicMail": "jane@supplier.com"
+      },
+      "address": {
+        "streetName": "456 Oak Ave",
+        "cityName": "Los Angeles",
+        "postalCode": "90001",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "creditNoteLines": [
+      {
+        "id": "LINE-001",
+        "creditedQuantity": 2,
+        "lineExtensionAmount": -200.0,
+        "item": {
+          "name": "Product A",
+          "description": "Return of product A"
+        },
+        "price": {
+          "priceAmount": 100.0
+        }
+      }
+    ],
+    "billingReference": {
+      "invoiceDocumentReference": {
+        "id": "INV-2025-001",
+        "issueDate": "2025-01-25"
+      }
+    },
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": -200.0,
+      "taxExclusiveAmount": -200.0,
+      "taxInclusiveAmount": -240.0,
+      "payableAmount": -240.0
+    },
+    "taxTotal": [
+      {
+        "taxAmount": -40.0,
+        "taxSubtotal": [
+          {
+            "taxableAmount": -200.0,
+            "taxAmount": -40.0,
+            "taxCategory": {
+              "percent": 20,
+              "taxScheme": {
+                "id": "VAT"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

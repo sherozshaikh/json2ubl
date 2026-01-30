@@ -1,0 +1,81 @@
+[
+  {
+    "id": "FI-2025-001",
+    "document_type": 780,
+    "issueDate": "2025-01-30",
+    "issueTime": "15:00:00",
+    "invoiceTypeCode": "780",
+    "accountingCustomerParty": {
+      "id": "SHIPPER-001",
+      "name": "Shipper Company Ltd",
+      "contact": {
+        "name": "Logistics Manager",
+        "telephone": "+1-555-0500",
+        "electronicMail": "logistics@shipper.com"
+      },
+      "address": {
+        "streetName": "999 Port St",
+        "cityName": "Miami",
+        "postalCode": "33101",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "accountingSupplierParty": {
+      "id": "CARRIER-001",
+      "name": "Freight Carrier Ltd",
+      "contact": {
+        "name": "Carrier Agent",
+        "telephone": "+1-555-0600",
+        "electronicMail": "agent@carrier.com"
+      },
+      "address": {
+        "streetName": "555 Logistics Blvd",
+        "cityName": "Atlanta",
+        "postalCode": "30303",
+        "countryIdentificationCode": "US"
+      }
+    },
+    "invoiceLines": [
+      {
+        "id": "FREIGHT-001",
+        "invoicedQuantity": 1,
+        "lineExtensionAmount": 2500.0,
+        "item": {
+          "name": "Ocean Freight",
+          "description": "Freight services for shipment"
+        },
+        "price": {
+          "priceAmount": 2500.0
+        }
+      }
+    ],
+    "shipment": {
+      "id": "SHIP-001",
+      "grossWeightMeasure": 10000,
+      "totalTransportHandlingUnitQuantity": 50
+    },
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 2500.0,
+      "taxExclusiveAmount": 2500.0,
+      "taxInclusiveAmount": 3000.0,
+      "payableAmount": 3000.0
+    },
+    "taxTotal": [
+      {
+        "taxAmount": 500.0,
+        "taxSubtotal": [
+          {
+            "taxableAmount": 2500.0,
+            "taxAmount": 500.0,
+            "taxCategory": {
+              "percent": 20,
+              "taxScheme": {
+                "id": "VAT"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

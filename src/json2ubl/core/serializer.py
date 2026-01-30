@@ -1,452 +1,435 @@
+"""
+Generic, schema-driven UBL document serializer.
+
+Converts UBL document dicts to XML recursively following schema structure.
+No hardcoded element mappings, no document-type-specific logic.
+Works with any UBL 2.1 document type (60+ types).
+"""
+
+from collections import OrderedDict
 from typing import Any, Dict
 
 from lxml import etree
 
 from ..config import get_logger
-from ..models import (
-    Address,
-    AllowanceCharge,
-    Contact,
-    Delivery,
-    DocumentReference,
-    InvoiceLine,
-    Item,
-    LegalMonetaryTotal,
-    OrderReference,
-    Party,
-    PaymentMeans,
-    PaymentTerms,
-    TaxSubtotal,
-    TaxTotal,
-    UblDocument,
-)
 
 logger = get_logger(__name__)
 
+# Standard UBL namespace constants
+NS_CBC = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+NS_CAC = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+NS_EXT = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+
 NSMAP_BASE = {
-    "cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
-    "cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
-}
-
-DOCUMENT_NAMESPACES = {
-    "Invoice": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
-    "CreditNote": "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2",
-    "DebitNote": "urn:oasis:names:specification:ubl:schema:xsd:DebitNote-2",
-    "Order": "urn:oasis:names:specification:ubl:schema:xsd:Order-2",
-}
-
-ROOT_ELEMENT_BY_TYPE = {
-    "Invoice": "Invoice",
-    "TAX INVOICE": "Invoice",
-    "CreditNote": "CreditNote",
-    "Credit Note": "CreditNote",
-    "DebitNote": "DebitNote",
-    "Debit Note": "DebitNote",
-    "Order": "Order",
-    "PurchaseOrder": "Order",
-    "OrderResponse": "OrderResponse",
-    "Quotation": "Quotation",
-    "OrderCancellation": "OrderCancellation",
-    "OrderChange": "OrderChange",
-    "OrderResponseSimple": "OrderResponseSimple",
-    "ReceiptAdvice": "ReceiptAdvice",
-    "SelfBilledInvoice": "Invoice",
-    "SelfBilledCreditNote": "CreditNote",
-    "FreightInvoice": "Invoice",
-}
-
-TYPE_CODE_ELEMENT = {
-    "Invoice": "InvoiceTypeCode",
-    "CreditNote": "CreditNoteTypeCode",
-    "DebitNote": "DebitNoteTypeCode",
-    "Order": "OrderTypeCode",
-}
-
-LINE_ELEMENT_BY_ROOT = {
-    "Invoice": "InvoiceLine",
-    "CreditNote": "CreditNoteLine",
-    "DebitNote": "DebitNoteLine",
-    "Order": "OrderLine",
-}
-
-QUANTITY_ELEMENT_BY_ROOT = {
-    "Invoice": "InvoicedQuantity",
-    "CreditNote": "CreditedQuantity",
-    "DebitNote": "DebitedQuantity",
-    "Order": "OrderedQuantity",
+    "cac": NS_CAC,
+    "cbc": NS_CBC,
 }
 
 
 class XmlSerializer:
-    """Convert Pydantic UBL models to lxml XML."""
+    """
+    Schema-driven generic XML serializer for UBL documents.
 
-    def __init__(self):
-        self._nsmap_cache: Dict[str, dict] = {}
+    Generates XML recursively following schema structure.
+    Uses element ordering from schema sequence.
+    Derives namespaces from schema metadata.
+    No hardcoded mappings for any document type.
+    """
 
-    def serialize(self, doc: UblDocument) -> etree._Element:
-        """Convert UblDocument to XML element tree."""
-        root_element = ROOT_ELEMENT_BY_TYPE.get(doc.document_type, "Invoice")
-        namespace = DOCUMENT_NAMESPACES.get(root_element, DOCUMENT_NAMESPACES["Invoice"])
-        nsmap = self._get_nsmap(root_element, namespace)
+    def __init__(self, schema_cache: Dict[str, Any] | None = None):
+        """
+        Initialize serializer with schema cache.
 
-        root = etree.Element(f"{{{namespace}}}{root_element}", nsmap=nsmap)
+        Args:
+            schema_cache: Schema cache from schema_cache_builder containing:
+                - root_element_name: Root element name from schema
+                - root_namespace: Target namespace from schema
+                - elements: Element definitions with cardinality/nesting
+        """
+        self.schema_cache = schema_cache or {}
+        self._nsmap_cache: OrderedDict = OrderedDict()  # Use OrderedDict for LRU eviction
+        self._namespace_cache: Dict[str, str] = {}  # Cache computed namespaces
+        self._max_cache_size = 100  # Limit namespace cache to 100 entries
 
-        # UBL header elements
-        self._cbc(root, "UBLVersionID", "2.1")
-        self._cbc(root, "ID", doc.id)
-        self._cbc(root, "IssueDate", doc.issue_date)
+    def serialize(self, doc: Dict[str, Any]) -> etree._Element:
+        """
+        Convert UBL document dict to XML element tree using SCHEMA-DRIVEN approach.
 
-        if doc.due_date:
-            self._cbc(root, "DueDate", doc.due_date)
+        Recursively serializes following schema structure.
+        Element ordering follows schema sequence.
+        Namespaces derived from schema metadata.
 
-        # Type code
-        type_code_elem = TYPE_CODE_ELEMENT.get(root_element, "InvoiceTypeCode")
-        self._cbc(root, type_code_elem, doc.document_type or "380")
+        Args:
+            doc: Document dict with document_type key
 
-        # Currency
-        if doc.document_currency_code:
-            self._cbc(root, "DocumentCurrencyCode", doc.document_currency_code)
-
-        # Parties
-        if doc.accounting_supplier_party:
-            self._serialize_party(root, doc.accounting_supplier_party, "AccountingSupplierParty")
-        if doc.accounting_customer_party:
-            self._serialize_party(root, doc.accounting_customer_party, "AccountingCustomerParty")
-        if doc.payee_party:
-            self._serialize_party(root, doc.payee_party, "PayeeParty")
-        if doc.originator_party:
-            self._serialize_party(root, doc.originator_party, "OriginatorParty")
-
-        # Order reference
-        if doc.order_reference:
-            self._serialize_order_reference(root, doc.order_reference)
-
-        # Payment
-        if doc.payment_means:
-            self._serialize_payment_means(root, doc.payment_means)
-        if doc.payment_terms:
-            self._serialize_payment_terms(root, doc.payment_terms)
-
-        # Delivery
-        if doc.delivery:
-            self._serialize_delivery(root, doc.delivery)
-
-        # Document references
-        for doc_ref in doc.document_references:
-            self._serialize_document_reference(root, doc_ref)
-
-        # Allowances/charges
-        for ac in doc.allowance_charges:
-            self._serialize_allowance_charge(root, ac)
-
-        # Tax and monetary
-        if doc.tax_total:
-            self._serialize_tax_total(root, doc.tax_total)
-        if doc.legal_monetary_total:
-            self._serialize_legal_monetary_total(root, doc.legal_monetary_total)
-
-        # Invoice lines - FIXED: pass quantity_element properly
-        line_element = LINE_ELEMENT_BY_ROOT.get(root_element, "InvoiceLine")
-        quantity_element = QUANTITY_ELEMENT_BY_ROOT.get(root_element, "InvoicedQuantity")
-        for line in doc.invoice_lines:
-            self._serialize_invoice_line(
-                root, line, line_element, quantity_element, doc.document_currency_code
+        Returns:
+            lxml Element representing the UBL XML document
+        """
+        try:
+            doc_type = doc.get("document_type", "Invoice")
+            root_element = self.schema_cache.get("root_element_name", doc_type)
+            root_namespace = self.schema_cache.get(
+                "root_namespace", self._get_default_namespace(doc_type)
             )
 
-        return root
+            logger.debug(
+                f"Serializing {doc_type}: root element={root_element}, ns={root_namespace}"
+            )
 
-    def _get_nsmap(self, root_element: str, namespace: str) -> dict:
-        """Get namespace map for document type."""
-        if root_element in self._nsmap_cache:
-            return self._nsmap_cache[root_element]
-        nsmap = dict(NSMAP_BASE)
-        nsmap[None] = namespace
-        self._nsmap_cache[root_element] = nsmap
-        return nsmap
+            nsmap = self._get_nsmap(root_namespace)
+            root = etree.Element(f"{{{root_namespace}}}{root_element}", nsmap=nsmap)
 
-    def _cbc(self, parent: etree._Element, tag: str, text: Any = None, **attrib) -> etree._Element:
-        """Create CommonBasicComponent element."""
-        el = etree.SubElement(parent, f"{{{NSMAP_BASE['cbc']}}}{tag}", **attrib)
+            schema_elements = self.schema_cache.get("elements", {})
+            self._serialize_recursive(root, doc, schema_elements, root_namespace, depth=0)
+
+            return root
+
+        except Exception as e:
+            logger.error(f"Error serializing document: {e}")
+            raise
+
+    def _serialize_recursive(
+        self,
+        parent: etree._Element,
+        data_dict: Dict[str, Any],
+        schema_spec: Dict[str, Any],
+        parent_ns: str,
+        depth: int = 0,
+    ) -> None:
+        """
+        Recursively serialize document dict to XML following schema structure.
+
+        Processes each element defined in schema:
+        - Creates child elements in schema order
+        - Handles cardinality (arrays vs single elements)
+        - Recursively processes nested structures
+        - Applies proper namespace context
+        - Extracts scalar values from dict structures when schema expects simple types
+
+        Args:
+            parent: Parent XML element to add children to
+            data_dict: Data dict for this level
+            schema_spec: Schema specification for this level (element definitions)
+            parent_ns: Parent namespace context
+            depth: Current recursion depth
+        """
+        if depth > 50:
+            logger.warning(f"Max recursion depth exceeded at depth {depth}")
+            return
+
+        if not isinstance(data_dict, dict):
+            return
+
+        # Normalize data dict keys to lowercase for lookup
+        data_keys_lower = {k.lower(): k for k in data_dict.keys()}
+
+        # If schema_spec is empty dict, process all data_dict keys as child elements
+        if not schema_spec:
+            for data_key_lower, data_key_orig in data_keys_lower.items():
+                data_value = data_dict[data_key_orig]
+                if data_value is None:
+                    continue
+                # Use proper UBL casing from schema or capitalize
+                element_name = self._capitalize_element_name(data_key_lower)
+                if isinstance(data_value, dict):
+                    child_elem = self._create_element(parent, element_name, parent_ns)
+                    self._serialize_recursive(child_elem, data_value, {}, parent_ns, depth + 1)
+                elif isinstance(data_value, list):
+                    for item in data_value:
+                        if isinstance(item, dict):
+                            child_elem = self._create_element(parent, element_name, parent_ns)
+                            self._serialize_recursive(child_elem, item, {}, parent_ns, depth + 1)
+                        else:
+                            self._create_element(parent, element_name, parent_ns, text=str(item))
+                else:
+                    self._create_element(parent, element_name, parent_ns, text=str(data_value))
+            return
+
+        # Process schema elements in order (schema defines the sequence)
+        for schema_key_lower, schema_info in schema_spec.items():
+            # Skip metadata fields
+            if schema_key_lower.startswith("_"):
+                continue
+
+            # Look for matching data key (case-insensitive)
+            data_key = data_keys_lower.get(schema_key_lower)
+            if data_key is None:
+                continue
+
+            if data_key not in data_dict:
+                logger.warning(f"Key '{data_key}' missing from data_dict, expected from schema")
+                continue
+
+            data_value = data_dict[data_key]
+            if data_value is None:
+                # Preserve null fields as empty elements per A5 requirement
+                min_occurs = schema_info.get("minOccurs", "0")
+                if min_occurs == "1" or min_occurs == "true":
+                    element_name = schema_info.get("name") or self._capitalize_element_name(
+                        schema_key_lower
+                    )
+                    self._create_element(parent, element_name, parent_ns, text="")
+                continue
+
+            # Get element info from schema
+            max_occurs = schema_info.get("maxOccurs", "1")
+            is_array = max_occurs == "unbounded"
+            nested_elements = schema_info.get("nested_elements", {})
+            element_type = schema_info.get("type", "")
+
+            # Get proper XML element name from schema cache (has correct UBL casing)
+            element_name = schema_info.get("name") or self._capitalize_element_name(
+                schema_key_lower
+            )
+
+            if is_array:
+                # Array: create multiple elements
+                if isinstance(data_value, list):
+                    for item in data_value:
+                        if isinstance(item, dict):
+                            # Complex nested element - recurse even if nested_elements empty
+                            child_elem = self._create_element(parent, element_name, parent_ns)
+                            self._serialize_recursive(
+                                child_elem, item, nested_elements, parent_ns, depth + 1
+                            )
+                        else:
+                            # Simple element with text
+                            text_value = self._extract_value_for_field(item, element_type)
+                            self._create_element(parent, element_name, parent_ns, text=text_value)
+                else:
+                    # Single item, create one element
+                    if isinstance(data_value, dict):
+                        child_elem = self._create_element(parent, element_name, parent_ns)
+                        self._serialize_recursive(
+                            child_elem,
+                            data_value,
+                            nested_elements,
+                            parent_ns,
+                            depth + 1,
+                        )
+                    else:
+                        text_value = self._extract_value_for_field(data_value, element_type)
+                        self._create_element(parent, element_name, parent_ns, text=text_value)
+            else:
+                # Single element
+                if isinstance(data_value, dict):
+                    # Complex nested element - recurse even if nested_elements empty
+                    child_elem = self._create_element(parent, element_name, parent_ns)
+                    self._serialize_recursive(
+                        child_elem, data_value, nested_elements, parent_ns, depth + 1
+                    )
+                elif isinstance(data_value, list) and data_value:
+                    # Take first if list provided for non-array field
+                    first = data_value[0]
+                    if isinstance(first, dict):
+                        child_elem = self._create_element(parent, element_name, parent_ns)
+                        self._serialize_recursive(
+                            child_elem, first, nested_elements, parent_ns, depth + 1
+                        )
+                    else:
+                        text_value = self._extract_value_for_field(first, element_type)
+                        self._create_element(parent, element_name, parent_ns, text=text_value)
+                else:
+                    # Simple scalar element
+                    text_value = self._extract_value_for_field(data_value, element_type)
+                    self._create_element(parent, element_name, parent_ns, text=text_value)
+
+    def _is_simple_type(self, element_type: str) -> bool:
+        """
+        Detect if an element type is a simple/basic type based on schema type.
+
+        Simple types (CommonBasicComponents) start with "cbc:" namespace.
+        Complex types (CommonAggregateComponents) start with "cac:" namespace.
+
+        Args:
+            element_type: Type string from schema (e.g., "cbc:Amount", "cac:Party")
+
+        Returns:
+            True if type is a simple type, False otherwise
+        """
+        # Simple types are in the CommonBasicComponents namespace
+        return element_type.startswith("cbc:") if element_type else False
+
+    def _extract_value_for_field(self, value: Any, element_type: str) -> Any:
+        """
+        Extract scalar value from potentially nested dict structure, using schema type info.
+
+        For simple types (cbc:*), if value is a dict with a "value" key, extract that.
+        Otherwise, return the value as-is.
+
+        This handles cases like:
+            {"unitcode": "EA", "value": 2.0} -> 2.0
+            {"value": 100.50} -> 100.50
+            100.50 -> 100.50
+
+        Args:
+            value: The value to extract from
+            element_type: Type string from schema (e.g., "cbc:Amount")
+
+        Returns:
+            Extracted scalar value or original value
+        """
+        # For simple types with dict structure, extract the "value" key
+        if self._is_simple_type(element_type) and isinstance(value, dict) and "value" in value:
+            return value["value"]
+        # For non-schema-typed or complex types, fall back to basic extraction
+        if isinstance(value, dict) and "value" in value:
+            return value["value"]
+        return value
+
+    def _create_element(
+        self,
+        parent: etree._Element,
+        tag: str,
+        namespace: str,
+        text: Any | None = None,
+        attrib: Dict[str, str] | None = None,
+    ) -> etree._Element:
+        """
+        Create and append child element to parent.
+
+        Determines element namespace based on element type:
+        - BasicComponents (cbc) for simple types
+        - AggregateComponents (cac) for complex types
+
+        Args:
+            parent: Parent element
+            tag: Element tag name (unqualified)
+            namespace: Namespace context
+            text: Optional text content
+            attrib: Optional attributes
+
+        Returns:
+            Created child element
+        """
+        # Determine element namespace based on element name
+        # If no nested elements, likely a BasicComponent
+        elem_ns = self._get_element_namespace(tag)
+
+        el = etree.SubElement(parent, f"{{{elem_ns}}}{tag}", **(attrib or {}))
         if text is not None:
             el.text = str(text)
         return el
 
-    def _cac(self, parent: etree._Element, tag: str, **attrib) -> etree._Element:
-        """Create CommonAggregateComponent element."""
-        return etree.SubElement(parent, f"{{{NSMAP_BASE['cac']}}}{tag}", **attrib)
+    def _get_element_namespace(self, tag: str) -> str:
+        """
+        Determine namespace for element based on tag name conventions.
 
-    def _serialize_address(self, parent: etree._Element, address: Address) -> None:
-        """Serialize Address to PostalAddress element."""
-        addr_el = self._cac(parent, "PostalAddress")
-        if address.street_name:
-            self._cbc(addr_el, "StreetName", address.street_name)
-        if address.additional_street_name:
-            self._cbc(addr_el, "AdditionalStreetName", address.additional_street_name)
-        if address.building_number:
-            self._cbc(addr_el, "BuildingNumber", address.building_number)
-        if address.city_name:
-            self._cbc(addr_el, "CityName", address.city_name)
-        if address.postal_zone:
-            self._cbc(addr_el, "PostalZone", address.postal_zone)
-        if address.region:
-            self._cbc(addr_el, "Region", address.region)
-        if address.country_subentity:
-            self._cbc(addr_el, "CountrySubentityCode", address.country_subentity)
-        if address.country_code:
-            country = self._cac(addr_el, "Country")
-            self._cbc(country, "IdentificationCode", address.country_code)
+        UBL convention:
+        - CommonBasicComponents for simple elements (usually IDs, codes, amounts, etc.)
+        - CommonAggregateComponents for complex elements (objects with children)
 
-    def _serialize_contact(self, parent: etree._Element, contact: Contact) -> None:
-        """Serialize Contact element."""
-        c = self._cac(parent, "Contact")
-        if contact.telephone:
-            self._cbc(c, "Telephone", contact.telephone)
-        if contact.telefax:
-            self._cbc(c, "Telefax", contact.telefax)
-        if contact.email:
-            self._cbc(c, "ElectronicMail", contact.email)
-        if contact.name:
-            self._cbc(c, "Name", contact.name)
+        Args:
+            tag: Element tag name
 
-    def _serialize_party(self, parent: etree._Element, party: Party, role: str) -> None:
-        """Serialize Party element with role."""
-        role_el = self._cac(parent, role)
-        party_el = self._cac(role_el, "Party")
+        Returns:
+            Namespace URI for the element
+        """
+        # Check if element appears to be aggregate (plural or compound names)
+        # This is a heuristic based on common UBL naming patterns
+        aggregate_indicators = [
+            "Party",
+            "Address",
+            "Contact",
+            "Reference",
+            "Total",
+            "Subtotal",
+            "Scheme",
+            "Category",
+            "Entity",
+            "Item",
+            "Line",
+            "Component",
+            "Charge",
+            "Allowance",
+            "Delivery",
+            "Payment",
+            "Period",
+        ]
 
-        # PartyIdentification
-        if party.id:
-            pi = self._cac(party_el, "PartyIdentification")
-            self._cbc(pi, "ID", party.id)
+        for indicator in aggregate_indicators:
+            if indicator in tag:
+                return NS_CAC
 
-        # PartyName
-        if party.party_name:
-            pn = self._cac(party_el, "PartyName")
-            self._cbc(pn, "Name", party.party_name)
+        # Default to BasicComponents
+        return NS_CBC
 
-        # PostalAddress
-        if party.address:
-            self._serialize_address(party_el, party.address)
+    def _capitalize_element_name(self, lowercase_name: str) -> str:
+        """
+        Convert lowercase schema key to CapitalCase XML element name.
 
-        # PartyTaxScheme
-        for ts in party.tax_schemes:
-            pts = self._cac(party_el, "PartyTaxScheme")
-            if ts.company_id:
-                self._cbc(pts, "CompanyID", ts.company_id)
-            tax_scheme = self._cac(pts, "TaxScheme")
-            if ts.tax_scheme_id:
-                self._cbc(tax_scheme, "ID", ts.tax_scheme_id)
-            if ts.tax_scheme_name:
-                self._cbc(tax_scheme, "Name", ts.tax_scheme_name)
-            if ts.tax_scheme_type_code:
-                self._cbc(tax_scheme, "TaxTypeCode", ts.tax_scheme_type_code)
+        Examples:
+            "id" -> "ID"
+            "issuedate" -> "IssueDate"
+            "accountingsupplierparty" -> "AccountingSupplierParty"
 
-        # PartyLegalEntity
-        for le in party.legal_entities:
-            ple = self._cac(party_el, "PartyLegalEntity")
-            if le.registration_name:
-                self._cbc(ple, "RegistrationName", le.registration_name)
-            if le.company_id:
-                self._cbc(ple, "CompanyID", le.company_id)
+        Args:
+            lowercase_name: Lowercase element name from schema
 
-        # Contact
-        if party.contact:
-            self._serialize_contact(party_el, party.contact)
+        Returns:
+            CapitalCase element name for XML
+        """
+        # Special cases for common acronyms
+        special_cases = {
+            "id": "ID",
+            "uri": "URI",
+            "url": "URL",
+            "abn": "ABN",
+            "cbc": "CBC",
+            "cac": "CAC",
+        }
 
-    def _serialize_order_reference(self, parent: etree._Element, ref: OrderReference) -> None:
-        """Serialize OrderReference element."""
-        or_el = self._cac(parent, "OrderReference")
-        if ref.id:
-            self._cbc(or_el, "ID", ref.id)
-        if ref.issue_date:
-            self._cbc(or_el, "IssueDate", ref.issue_date)
-        if ref.sales_order_id:
-            self._cbc(or_el, "SalesOrderID", ref.sales_order_id)
-        if ref.customer_reference:
-            self._cbc(or_el, "CustomerReference", ref.customer_reference)
+        if lowercase_name in special_cases:
+            return special_cases[lowercase_name]
 
-    def _serialize_payment_means(self, parent: etree._Element, pm: PaymentMeans) -> None:
-        """Serialize PaymentMeans element."""
-        pm_el = self._cac(parent, "PaymentMeans")
-        if pm.payment_means_code:
-            self._cbc(pm_el, "PaymentMeansCode", pm.payment_means_code)
-        if pm.payee_financial_account_id:
-            pfa = self._cac(pm_el, "PayeeFinancialAccount")
-            self._cbc(pfa, "ID", pm.payee_financial_account_id)
+        # Handle camelCase conversion: split on transitions between lowercase and uppercase
+        # But since input is all lowercase, we'll capitalize each word
+        # Common separators in schema names:
+        separators = ["_", "-"]
+        words = [lowercase_name]
+        for sep in separators:
+            words = [w for word in words for w in word.split(sep)]
 
-    def _serialize_payment_terms(self, parent: etree._Element, pt: PaymentTerms) -> None:
-        """Serialize PaymentTerms element."""
-        pt_el = self._cac(parent, "PaymentTerms")
-        if pt.note:
-            self._cbc(pt_el, "Note", pt.note)
-        if pt.settlement_discount_percent:
-            self._cbc(pt_el, "SettlementDiscountPercent", pt.settlement_discount_percent)
-        if pt.penalty_surcharge_percent:
-            self._cbc(pt_el, "PenaltySurchargePercent", pt.penalty_surcharge_percent)
-        if pt.payment_due_date:
-            self._cbc(pt_el, "PaymentDueDate", pt.payment_due_date)
+        # Capitalize first letter of each word
+        return "".join(word.capitalize() for word in words if word)
 
-    def _serialize_delivery(self, parent: etree._Element, delivery: Delivery) -> None:
-        """Serialize Delivery element."""
-        del_el = self._cac(parent, "Delivery")
-        if delivery.actual_delivery_date:
-            self._cbc(del_el, "ActualDeliveryDate", delivery.actual_delivery_date)
-        if delivery.delivery_location:
-            loc_el = self._cac(del_el, "DeliveryLocation")
-            if delivery.delivery_location.id:
-                self._cbc(loc_el, "ID", delivery.delivery_location.id)
-            if delivery.delivery_location.description:
-                self._cbc(loc_el, "Description", delivery.delivery_location.description)
-            if delivery.delivery_location.address:
-                self._serialize_address(loc_el, delivery.delivery_location.address)
+    def _get_nsmap(self, root_namespace: str) -> dict:
+        """
+        Get namespace map for serialization.
 
-    def _serialize_document_reference(self, parent: etree._Element, ref: DocumentReference) -> None:
-        """Serialize AdditionalDocumentReference element."""
-        doc_ref = self._cac(parent, "AdditionalDocumentReference")
-        if ref.id:
-            self._cbc(doc_ref, "ID", ref.id)
-        if ref.document_type_code:
-            self._cbc(doc_ref, "DocumentTypeCode", ref.document_type_code)
-        if ref.issue_date:
-            self._cbc(doc_ref, "IssueDate", ref.issue_date)
-        if ref.document_description:
-            self._cbc(doc_ref, "DocumentDescription", ref.document_description)
+        Args:
+            root_namespace: Root element namespace
 
-    def _serialize_allowance_charge(self, parent: etree._Element, ac: AllowanceCharge) -> None:
-        """Serialize AllowanceCharge element."""
-        ac_el = self._cac(parent, "AllowanceCharge")
-        self._cbc(ac_el, "ChargeIndicator", "true" if ac.is_charge else "false")
-        if ac.reason_code:
-            self._cbc(ac_el, "AllowanceChargeReasonCode", ac.reason_code)
-        if ac.reason:
-            self._cbc(ac_el, "AllowanceChargeReason", ac.reason)
-        if ac.base_amount:
-            currency = ac.currency_id or ""
-            self._cbc(ac_el, "BaseAmount", ac.base_amount, currencyID=currency)
-        if ac.amount:
-            currency = ac.currency_id or ""
-            self._cbc(ac_el, "Amount", ac.amount, currencyID=currency)
-        if ac.percent:
-            self._cbc(ac_el, "Percent", ac.percent)
+        Returns:
+            Namespace map dict for lxml
+        """
+        if root_namespace in self._nsmap_cache:
+            return self._nsmap_cache[root_namespace]
 
-    def _serialize_tax_total(self, parent: etree._Element, tt: TaxTotal) -> None:
-        """Serialize TaxTotal element."""
-        tt_el = self._cac(parent, "TaxTotal")
-        if tt.tax_amount:
-            currency = tt.currency_id or ""
-            self._cbc(tt_el, "TaxAmount", tt.tax_amount, currencyID=currency)
-        for st in tt.subtotals:
-            self._serialize_tax_subtotal(tt_el, st, tt.currency_id)
+        nsmap = dict(NSMAP_BASE)
+        nsmap[None] = root_namespace  # Default namespace
 
-    def _serialize_tax_subtotal(
-        self, parent: etree._Element, st: TaxSubtotal, currency: str | None
-    ) -> None:
-        """Serialize TaxSubtotal element."""
-        st_el = self._cac(parent, "TaxSubtotal")
-        if st.taxable_amount:
-            c = currency or ""
-            self._cbc(st_el, "TaxableAmount", st.taxable_amount, currencyID=c)
-        if st.tax_amount:
-            c = currency or ""
-            self._cbc(st_el, "TaxAmount", st.tax_amount, currencyID=c)
+        # Limit cache size using LRU eviction to prevent unbounded growth
+        if len(self._nsmap_cache) >= self._max_cache_size:
+            # Remove oldest (least recently used) entry
+            oldest_key = next(iter(self._nsmap_cache))
+            del self._nsmap_cache[oldest_key]
 
-        tc = self._cac(st_el, "TaxCategory")
-        if st.tax_category_id:
-            self._cbc(tc, "ID", st.tax_category_id)
-        if st.tax_percent:
-            self._cbc(tc, "Percent", st.tax_percent)
+        self._nsmap_cache[root_namespace] = nsmap
+        return nsmap
 
-        ts = self._cac(tc, "TaxScheme")
-        if st.tax_scheme_id:
-            self._cbc(ts, "ID", st.tax_scheme_id)
-        if st.tax_scheme_name:
-            self._cbc(ts, "Name", st.tax_scheme_name)
+    def _get_default_namespace(self, doc_type: str) -> str:
+        """
+        Get default namespace for document type (cached).
 
-    def _serialize_legal_monetary_total(
-        self, parent: etree._Element, lmt: LegalMonetaryTotal
-    ) -> None:
-        """Serialize LegalMonetaryTotal element."""
-        lmt_el = self._cac(parent, "LegalMonetaryTotal")
-        c = lmt.currency_id or ""
+        UBL 2.1 namespace pattern: urn:oasis:names:specification:ubl:schema:xsd:{DocType}-2
 
-        if lmt.line_extension_amount is not None:
-            self._cbc(lmt_el, "LineExtensionAmount", lmt.line_extension_amount, currencyID=c)
-        if lmt.tax_exclusive_amount is not None:
-            self._cbc(lmt_el, "TaxExclusiveAmount", lmt.tax_exclusive_amount, currencyID=c)
-        if lmt.tax_inclusive_amount is not None:
-            self._cbc(lmt_el, "TaxInclusiveAmount", lmt.tax_inclusive_amount, currencyID=c)
-        if lmt.allowance_total_amount is not None:
-            self._cbc(lmt_el, "AllowanceTotalAmount", lmt.allowance_total_amount, currencyID=c)
-        if lmt.charge_total_amount is not None:
-            self._cbc(lmt_el, "ChargeTotalAmount", lmt.charge_total_amount, currencyID=c)
-        if lmt.prepaid_amount is not None:
-            self._cbc(lmt_el, "PrepaidAmount", lmt.prepaid_amount, currencyID=c)
-        if lmt.payable_amount is not None:
-            self._cbc(lmt_el, "PayableAmount", lmt.payable_amount, currencyID=c)
+        Returns:
+            Namespace URI
+        """
+        if doc_type in self._namespace_cache:
+            return self._namespace_cache[doc_type]
 
-    def _serialize_invoice_line(
-        self,
-        parent: etree._Element,
-        line: InvoiceLine,
-        line_tag: str,
-        quantity_element: str,
-        currency: str | None,
-    ) -> None:
-        """Serialize invoice/credit/debit line."""
-        il = self._cac(parent, line_tag)
-
-        if line.id:
-            self._cbc(il, "ID", line.id)
-        if line.note:
-            self._cbc(il, "Note", line.note)
-
-        # Quantity - use the provided quantity element name
-        if line.invoiced_quantity is not None:
-            unit = line.invoiced_quantity_unit_code or ""
-            self._cbc(il, quantity_element, line.invoiced_quantity, unitCode=unit)
-
-        if line.line_extension_amount is not None:
-            c = line.line_extension_currency_id or currency or ""
-            self._cbc(il, "LineExtensionAmount", line.line_extension_amount, currencyID=c)
-
-        # Item
-        if line.item:
-            self._serialize_item(il, line.item)
-
-        # Price
-        if line.price_amount is not None:
-            price_el = self._cac(il, "Price")
-            c = line.price_currency_id or currency or ""
-            self._cbc(price_el, "PriceAmount", line.price_amount, currencyID=c)
-
-        # AllowanceCharges
-        for ac in line.allowance_charges:
-            self._serialize_allowance_charge(il, ac)
-
-    def _serialize_item(self, parent: etree._Element, item: Item) -> None:
-        """Serialize Item with serial numbers."""
-        item_el = self._cac(parent, "Item")
-
-        if item.name:
-            self._cbc(item_el, "Name", item.name)
-        if item.description:
-            self._cbc(item_el, "Description", item.description)
-
-        # Serial numbers
-        for inst in item.instances:
-            if inst.serial_number:
-                self._cbc(item_el, "SerialNumber", inst.serial_number)
-            if inst.batch_id:
-                self._cbc(item_el, "BatchID", inst.batch_id)
-            if inst.lot_number:
-                self._cbc(item_el, "LotNumberID", inst.lot_number)
-
-        # Item identifications
-        if item.sellers_item_id:
-            sid = self._cac(item_el, "SellersItemIdentification")
-            self._cbc(sid, "ID", item.sellers_item_id)
-        if item.buyers_item_id:
-            bid = self._cac(item_el, "BuyersItemIdentification")
-            self._cbc(bid, "ID", item.buyers_item_id)
-        if item.standard_item_id:
-            stid = self._cac(item_el, "StandardItemIdentification")
-            self._cbc(stid, "ID", item.standard_item_id)
+        ns = f"urn:oasis:names:specification:ubl:schema:xsd:{doc_type}-2"
+        self._namespace_cache[doc_type] = ns
+        return ns

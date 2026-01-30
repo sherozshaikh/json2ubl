@@ -1,4 +1,6 @@
+import sys
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 
 import yaml
@@ -10,7 +12,7 @@ class UblConfig:
     schema_root: str
     log_level: str = "DEBUG"
     log_file: str = "json2ubl.log"
-    cache_dir: str = ".json2ubl_cache"
+    log_format: str = "json"  # "json" or "text"
 
     @classmethod
     def from_yaml(cls, yaml_path: str) -> "UblConfig":
@@ -21,22 +23,35 @@ class UblConfig:
             schema_root=data.get("schema_root", "schemas/ubl-2.1"),
             log_level=data.get("log_level", "DEBUG"),
             log_file=data.get("log_file", "json2ubl.log"),
-            cache_dir=data.get("cache_dir", ".json2ubl_cache"),
+            log_format=data.get("log_format", "json"),
         )
 
     def setup_logging(self) -> None:
-        """Configure loguru with file and console output."""
+        """Configure loguru with file and console output in logs folder."""
         _logger.remove()
-        log_path = Path(self.log_file)
-        log_path.parent.mkdir(parents=True, exist_ok=True)
 
+        # Create logs folder structure
+        logs_dir = Path("logs")
+        logs_dir.mkdir(parents=True, exist_ok=True)
+
+        # Add timestamp to log filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_filename = f"json2ubl_{timestamp}.log"
+        log_path = logs_dir / log_filename
+
+        # Add file handler with append mode and rotation
         _logger.add(
             str(log_path),
             level=self.log_level,
             format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {name}:{function}:{line} | {message}",
+            mode="a",  # Append mode
+            rotation="100 MB",  # Rotate at 100MB
+            retention="30 days",  # Keep 30 days
         )
+
+        # Add console handler
         _logger.add(
-            lambda msg: print(msg, end=""),
+            sys.stderr,
             level=self.log_level,
             format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {message}",
         )

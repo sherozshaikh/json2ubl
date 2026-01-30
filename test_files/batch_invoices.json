@@ -1,0 +1,66 @@
+[
+  {
+    "id": "BATCH-INV-001",
+    "document_type": 380,
+    "issueDate": "2025-01-30",
+    "accountingCustomerParty": {
+      "id": "CUST-001",
+      "name": "Customer 1"
+    },
+    "accountingSupplierParty": {
+      "id": "SUPP-001",
+      "name": "Supplier 1"
+    },
+    "invoiceLines": [
+      {
+        "id": "LINE-001",
+        "invoicedQuantity": 2,
+        "lineExtensionAmount": 200.00,
+        "item": {
+          "name": "Product"
+        },
+        "price": {
+          "priceAmount": 100.00
+        }
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 200.00,
+      "taxExclusiveAmount": 200.00,
+      "taxInclusiveAmount": 240.00,
+      "payableAmount": 240.00
+    }
+  },
+  {
+    "id": "BATCH-INV-002",
+    "document_type": 380,
+    "issueDate": "2025-01-30",
+    "accountingCustomerParty": {
+      "id": "CUST-002",
+      "name": "Customer 2"
+    },
+    "accountingSupplierParty": {
+      "id": "SUPP-002",
+      "name": "Supplier 2"
+    },
+    "invoiceLines": [
+      {
+        "id": "LINE-001",
+        "invoicedQuantity": 3,
+        "lineExtensionAmount": 300.00,
+        "item": {
+          "name": "Product"
+        },
+        "price": {
+          "priceAmount": 100.00
+        }
+      }
+    ],
+    "legalMonetaryTotal": {
+      "lineExtensionAmount": 300.00,
+      "taxExclusiveAmount": 300.00,
+      "taxInclusiveAmount": 360.00,
+      "payableAmount": 360.00
+    }
+  }
+]
