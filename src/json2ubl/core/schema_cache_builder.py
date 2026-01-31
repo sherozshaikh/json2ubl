@@ -287,13 +287,31 @@ class SchemaCacheBuilder:
 
                     type_def = self._find_type(nested_local, main_root)
                     if type_def is not None:
+                        # Check for sequence (complex elements)
                         inner_seq = type_def.find("xs:sequence", NS)
                         if inner_seq is not None:
                             inner_nested = self._extract_nested_from_sequence(
                                 inner_seq, main_root, visited_copy, depth + 1, max_depth
                             )
-                            # Store nested elements (will be empty dict if no children or max depth reached)
                             elem_info["nested_elements"] = inner_nested
+                        else:
+                            # Check for simpleContent with attributes
+                            simple_content = type_def.find("xs:simpleContent", NS)
+                            if simple_content is not None:
+                                ext = simple_content.find("xs:extension", NS)
+                                if ext is not None:
+                                    # Extract attributes as special _attributes key
+                                    attributes = {}
+                                    for attr in ext.findall("xs:attribute", NS):
+                                        attr_name = attr.get("name", "").lower()
+                                        attr_type = attr.get("type", "")
+                                        if attr_name:
+                                            attributes[attr_name] = {
+                                                "name": attr.get("name"),
+                                                "type": attr_type,
+                                            }
+                                    if attributes:
+                                        elem_info["_attributes"] = attributes
 
             nested[elem_name_lower] = elem_info
 
