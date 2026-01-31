@@ -213,29 +213,31 @@ class SchemaCacheBuilder:
                 "type": elem_type,
                 "minOccurs": elem.get("minOccurs", "1"),
                 "maxOccurs": elem.get("maxOccurs", "1"),
+                "nested_elements": {},  # Always initialize
             }
 
-            # Try to extract nested elements recursively to full depth
-            if elem_type:
+            # Try to extract nested elements recursively to FULL 20-level depth
+            if elem_type and depth < max_depth:
                 nested_local = elem_type.split(":")[-1] if ":" in elem_type else elem_type
 
-                # Check if this type hasn't been visited yet
+                # Check if this type hasn't been visited yet (prevent cycles)
                 if nested_local not in visited:
+                    visited_copy = visited.copy()
+                    visited_copy.add(nested_local)
                     nested_type_def = self._find_type(nested_local, main_root)
 
                     if nested_type_def is not None:
                         nested_seq = nested_type_def.find("xs:sequence", NS)
                         if nested_seq is not None:
                             # Recursively extract nested elements to full depth
-                            # Pass visited set directly to avoid shallow copy overhead
                             nested = self._extract_nested_from_sequence(
                                 nested_seq,
                                 main_root,
-                                visited,
+                                visited_copy,
                                 depth + 1,
                                 max_depth,
                             )
-                            # Always store nested_elements, even if empty
+                            # Store nested elements
                             elem_info["nested_elements"] = nested
 
             elements[elem_name_lower] = elem_info
@@ -250,8 +252,8 @@ class SchemaCacheBuilder:
         depth: int,
         max_depth: int = 20,
     ) -> Dict[str, Any]:
-        """Extract nested elements from a sequence element to full depth."""
-        if depth > max_depth:
+        """Extract nested elements from a sequence element to FULL 20-level depth."""
+        if depth >= max_depth:
             return {}
 
         nested = {}
@@ -271,23 +273,26 @@ class SchemaCacheBuilder:
                 "type": elem_type,
                 "minOccurs": seq_elem.get("minOccurs", "1"),
                 "maxOccurs": seq_elem.get("maxOccurs", "1"),
+                "nested_elements": {},  # Always initialize, will populate if has children
             }
 
-            # Recursively extract deeper nested elements to full depth
-            if elem_type:
+            # Recursively extract deeper nested elements to FULL 20-level depth
+            if elem_type and depth < max_depth:
                 nested_local = elem_type.split(":")[-1] if ":" in elem_type else elem_type
 
+                # Track visited to prevent infinite cycles
                 if nested_local not in visited:
-                    visited.add(nested_local)
+                    visited_copy = visited.copy()
+                    visited_copy.add(nested_local)
 
                     type_def = self._find_type(nested_local, main_root)
                     if type_def is not None:
                         inner_seq = type_def.find("xs:sequence", NS)
                         if inner_seq is not None:
                             inner_nested = self._extract_nested_from_sequence(
-                                inner_seq, main_root, visited, depth + 1, max_depth
+                                inner_seq, main_root, visited_copy, depth + 1, max_depth
                             )
-                            # Always store nested_elements, even if empty
+                            # Store nested elements (will be empty dict if no children or max depth reached)
                             elem_info["nested_elements"] = inner_nested
 
             nested[elem_name_lower] = elem_info
@@ -309,7 +314,7 @@ class SchemaCacheBuilder:
                 break
 
         # If not found, try common components (only direct children, not recursive)
-        if result is not None:
+        if result is None:
             for root in self._xsd_roots.values():
                 if root is None:
                     continue
@@ -321,7 +326,7 @@ class SchemaCacheBuilder:
                     break
 
         # If still not found, try with "Type" suffix (e.g., "InvoiceLine" -> "InvoiceLineType")
-        if result is not None and not type_name.endswith("Type"):
+        if result is None and not type_name.endswith("Type"):
             type_with_suffix = type_name + "Type"
             for root in [main_root] + list(self._xsd_roots.values()):
                 if root is None:

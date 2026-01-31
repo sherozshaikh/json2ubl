@@ -73,175 +73,3838 @@
       "name": "UBLExtensions",
       "type": "ext:UBLExtensions",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "name": "UBLExtension",
+          "type": "UBLExtension",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "name": {
+              "name": "Name",
+              "type": "cbc:Name",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyid": {
+              "name": "ExtensionAgencyID",
+              "type": "ExtensionAgencyID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyname": {
+              "name": "ExtensionAgencyName",
+              "type": "ExtensionAgencyName",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionversionid": {
+              "name": "ExtensionVersionID",
+              "type": "ExtensionVersionID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyuri": {
+              "name": "ExtensionAgencyURI",
+              "type": "ExtensionAgencyURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionuri": {
+              "name": "ExtensionURI",
+              "type": "ExtensionURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreasoncode": {
+              "name": "ExtensionReasonCode",
+              "type": "ExtensionReasonCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreason": {
+              "name": "ExtensionReason",
+              "type": "ExtensionReason",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensioncontent": {
+              "name": "ExtensionContent",
+              "type": "ExtensionContent",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     },
     "ublversionid": {
       "name": "UBLVersionID",
       "type": "cbc:UBLVersionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "customizationid": {
       "name": "CustomizationID",
       "type": "cbc:CustomizationID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileid": {
       "name": "ProfileID",
       "type": "cbc:ProfileID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileexecutionid": {
       "name": "ProfileExecutionID",
       "type": "cbc:ProfileExecutionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "id": {
       "name": "ID",
       "type": "cbc:ID",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "copyindicator": {
       "name": "CopyIndicator",
       "type": "cbc:CopyIndicator",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "uuid": {
       "name": "UUID",
       "type": "cbc:UUID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuedate": {
       "name": "IssueDate",
       "type": "cbc:IssueDate",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuetime": {
       "name": "IssueTime",
       "type": "cbc:IssueTime",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "note": {
       "name": "Note",
       "type": "cbc:Note",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "documentcurrencycode": {
       "name": "DocumentCurrencyCode",
       "type": "cbc:DocumentCurrencyCode",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "totaldebitamount": {
       "name": "TotalDebitAmount",
       "type": "cbc:TotalDebitAmount",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "totalcreditamount": {
       "name": "TotalCreditAmount",
       "type": "cbc:TotalCreditAmount",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "totalpaymentamount": {
       "name": "TotalPaymentAmount",
       "type": "cbc:TotalPaymentAmount",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "paymentorderreference": {
       "name": "PaymentOrderReference",
       "type": "cbc:PaymentOrderReference",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "payerreference": {
       "name": "PayerReference",
       "type": "cbc:PayerReference",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "invoicingpartyreference": {
       "name": "InvoicingPartyReference",
       "type": "cbc:InvoicingPartyReference",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "linecountnumeric": {
       "name": "LineCountNumeric",
       "type": "cbc:LineCountNumeric",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "invoiceperiod": {
       "name": "InvoicePeriod",
       "type": "cac:InvoicePeriod",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "billingreference": {
       "name": "BillingReference",
       "type": "cac:BillingReference",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "invoicedocumentreference": {
+          "name": "InvoiceDocumentReference",
+          "type": "cac:InvoiceDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "selfbilledinvoicedocumentreference": {
+          "name": "SelfBilledInvoiceDocumentReference",
+          "type": "cac:SelfBilledInvoiceDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "creditnotedocumentreference": {
+          "name": "CreditNoteDocumentReference",
+          "type": "cac:CreditNoteDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "selfbilledcreditnotedocumentreference": {
+          "name": "SelfBilledCreditNoteDocumentReference",
+          "type": "cac:SelfBilledCreditNoteDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "debitnotedocumentreference": {
+          "name": "DebitNoteDocumentReference",
+          "type": "cac:DebitNoteDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "reminderdocumentreference": {
+          "name": "ReminderDocumentReference",
+          "type": "cac:ReminderDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "additionaldocumentreference": {
+          "name": "AdditionalDocumentReference",
+          "type": "cac:AdditionalDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "billingreferenceline": {
+          "name": "BillingReferenceLine",
+          "type": "cac:BillingReferenceLine",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "amount": {
+              "name": "Amount",
+              "type": "cbc:Amount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "allowancecharge": {
+              "name": "AllowanceCharge",
+              "type": "cac:AllowanceCharge",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "chargeindicator": {
+                  "name": "ChargeIndicator",
+                  "type": "cbc:ChargeIndicator",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "allowancechargereasoncode": {
+                  "name": "AllowanceChargeReasonCode",
+                  "type": "cbc:AllowanceChargeReasonCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "allowancechargereason": {
+                  "name": "AllowanceChargeReason",
+                  "type": "cbc:AllowanceChargeReason",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "multiplierfactornumeric": {
+                  "name": "MultiplierFactorNumeric",
+                  "type": "cbc:MultiplierFactorNumeric",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "prepaidindicator": {
+                  "name": "PrepaidIndicator",
+                  "type": "cbc:PrepaidIndicator",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "sequencenumeric": {
+                  "name": "SequenceNumeric",
+                  "type": "cbc:SequenceNumeric",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "amount": {
+                  "name": "Amount",
+                  "type": "cbc:Amount",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "baseamount": {
+                  "name": "BaseAmount",
+                  "type": "cbc:BaseAmount",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "accountingcostcode": {
+                  "name": "AccountingCostCode",
+                  "type": "cbc:AccountingCostCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "accountingcost": {
+                  "name": "AccountingCost",
+                  "type": "cbc:AccountingCost",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "perunitamount": {
+                  "name": "PerUnitAmount",
+                  "type": "cbc:PerUnitAmount",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "taxcategory": {
+                  "name": "TaxCategory",
+                  "type": "cac:TaxCategory",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "name": {
+                      "name": "Name",
+                      "type": "cbc:Name",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "percent": {
+                      "name": "Percent",
+                      "type": "cbc:Percent",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "baseunitmeasure": {
+                      "name": "BaseUnitMeasure",
+                      "type": "cbc:BaseUnitMeasure",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "perunitamount": {
+                      "name": "PerUnitAmount",
+                      "type": "cbc:PerUnitAmount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxexemptionreasoncode": {
+                      "name": "TaxExemptionReasonCode",
+                      "type": "cbc:TaxExemptionReasonCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxexemptionreason": {
+                      "name": "TaxExemptionReason",
+                      "type": "cbc:TaxExemptionReason",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "tierrange": {
+                      "name": "TierRange",
+                      "type": "cbc:TierRange",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "tierratepercent": {
+                      "name": "TierRatePercent",
+                      "type": "cbc:TierRatePercent",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxscheme": {
+                      "name": "TaxScheme",
+                      "type": "cac:TaxScheme",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxtypecode": {
+                          "name": "TaxTypeCode",
+                          "type": "cbc:TaxTypeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "currencycode": {
+                          "name": "CurrencyCode",
+                          "type": "cbc:CurrencyCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "jurisdictionregionaddress": {
+                          "name": "JurisdictionRegionAddress",
+                          "type": "cac:JurisdictionRegionAddress",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "taxtotal": {
+                  "name": "TaxTotal",
+                  "type": "cac:TaxTotal",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "taxamount": {
+                      "name": "TaxAmount",
+                      "type": "cbc:TaxAmount",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "roundingamount": {
+                      "name": "RoundingAmount",
+                      "type": "cbc:RoundingAmount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxevidenceindicator": {
+                      "name": "TaxEvidenceIndicator",
+                      "type": "cbc:TaxEvidenceIndicator",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxincludedindicator": {
+                      "name": "TaxIncludedIndicator",
+                      "type": "cbc:TaxIncludedIndicator",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxsubtotal": {
+                      "name": "TaxSubtotal",
+                      "type": "cac:TaxSubtotal",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {
+                        "taxableamount": {
+                          "name": "TaxableAmount",
+                          "type": "cbc:TaxableAmount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxamount": {
+                          "name": "TaxAmount",
+                          "type": "cbc:TaxAmount",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "calculationsequencenumeric": {
+                          "name": "CalculationSequenceNumeric",
+                          "type": "cbc:CalculationSequenceNumeric",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "transactioncurrencytaxamount": {
+                          "name": "TransactionCurrencyTaxAmount",
+                          "type": "cbc:TransactionCurrencyTaxAmount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "percent": {
+                          "name": "Percent",
+                          "type": "cbc:Percent",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "baseunitmeasure": {
+                          "name": "BaseUnitMeasure",
+                          "type": "cbc:BaseUnitMeasure",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "perunitamount": {
+                          "name": "PerUnitAmount",
+                          "type": "cbc:PerUnitAmount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "tierrange": {
+                          "name": "TierRange",
+                          "type": "cbc:TierRange",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "tierratepercent": {
+                          "name": "TierRatePercent",
+                          "type": "cbc:TierRatePercent",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxcategory": {
+                          "name": "TaxCategory",
+                          "type": "cac:TaxCategory",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "name": {
+                              "name": "Name",
+                              "type": "cbc:Name",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "percent": {
+                              "name": "Percent",
+                              "type": "cbc:Percent",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "baseunitmeasure": {
+                              "name": "BaseUnitMeasure",
+                              "type": "cbc:BaseUnitMeasure",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "perunitamount": {
+                              "name": "PerUnitAmount",
+                              "type": "cbc:PerUnitAmount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "taxexemptionreasoncode": {
+                              "name": "TaxExemptionReasonCode",
+                              "type": "cbc:TaxExemptionReasonCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "taxexemptionreason": {
+                              "name": "TaxExemptionReason",
+                              "type": "cbc:TaxExemptionReason",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            },
+                            "tierrange": {
+                              "name": "TierRange",
+                              "type": "cbc:TierRange",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "tierratepercent": {
+                              "name": "TierRatePercent",
+                              "type": "cbc:TierRatePercent",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "taxscheme": {
+                              "name": "TaxScheme",
+                              "type": "cac:TaxScheme",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {
+                                "id": {
+                                  "name": "ID",
+                                  "type": "cbc:ID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "name": {
+                                  "name": "Name",
+                                  "type": "cbc:Name",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "taxtypecode": {
+                                  "name": "TaxTypeCode",
+                                  "type": "cbc:TaxTypeCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "currencycode": {
+                                  "name": "CurrencyCode",
+                                  "type": "cbc:CurrencyCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "jurisdictionregionaddress": {
+                                  "name": "JurisdictionRegionAddress",
+                                  "type": "cac:JurisdictionRegionAddress",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "unbounded",
+                                  "nested_elements": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "paymentmeans": {
+                  "name": "PaymentMeans",
+                  "type": "cac:PaymentMeans",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "paymentmeanscode": {
+                      "name": "PaymentMeansCode",
+                      "type": "cbc:PaymentMeansCode",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "paymentduedate": {
+                      "name": "PaymentDueDate",
+                      "type": "cbc:PaymentDueDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "paymentchannelcode": {
+                      "name": "PaymentChannelCode",
+                      "type": "cbc:PaymentChannelCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "instructionid": {
+                      "name": "InstructionID",
+                      "type": "cbc:InstructionID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "instructionnote": {
+                      "name": "InstructionNote",
+                      "type": "cbc:InstructionNote",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "paymentid": {
+                      "name": "PaymentID",
+                      "type": "cbc:PaymentID",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "cardaccount": {
+                      "name": "CardAccount",
+                      "type": "cac:CardAccount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "primaryaccountnumberid": {
+                          "name": "PrimaryAccountNumberID",
+                          "type": "cbc:PrimaryAccountNumberID",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "networkid": {
+                          "name": "NetworkID",
+                          "type": "cbc:NetworkID",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "cardtypecode": {
+                          "name": "CardTypeCode",
+                          "type": "cbc:CardTypeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "validitystartdate": {
+                          "name": "ValidityStartDate",
+                          "type": "cbc:ValidityStartDate",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "expirydate": {
+                          "name": "ExpiryDate",
+                          "type": "cbc:ExpiryDate",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "issuerid": {
+                          "name": "IssuerID",
+                          "type": "cbc:IssuerID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "issuenumberid": {
+                          "name": "IssueNumberID",
+                          "type": "cbc:IssueNumberID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "cv2id": {
+                          "name": "CV2ID",
+                          "type": "cbc:CV2ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "cardchipcode": {
+                          "name": "CardChipCode",
+                          "type": "cbc:CardChipCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "chipapplicationid": {
+                          "name": "ChipApplicationID",
+                          "type": "cbc:ChipApplicationID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "holdername": {
+                          "name": "HolderName",
+                          "type": "cbc:HolderName",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        }
+                      }
+                    },
+                    "payerfinancialaccount": {
+                      "name": "PayerFinancialAccount",
+                      "type": "cac:PayerFinancialAccount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "payeefinancialaccount": {
+                      "name": "PayeeFinancialAccount",
+                      "type": "cac:PayeeFinancialAccount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "creditaccount": {
+                      "name": "CreditAccount",
+                      "type": "cac:CreditAccount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "accountid": {
+                          "name": "AccountID",
+                          "type": "cbc:AccountID",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        }
+                      }
+                    },
+                    "paymentmandate": {
+                      "name": "PaymentMandate",
+                      "type": "cac:PaymentMandate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "mandatetypecode": {
+                          "name": "MandateTypeCode",
+                          "type": "cbc:MandateTypeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "maximumpaymentinstructionsnumeric": {
+                          "name": "MaximumPaymentInstructionsNumeric",
+                          "type": "cbc:MaximumPaymentInstructionsNumeric",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "maximumpaidamount": {
+                          "name": "MaximumPaidAmount",
+                          "type": "cbc:MaximumPaidAmount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "signatureid": {
+                          "name": "SignatureID",
+                          "type": "cbc:SignatureID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "payerparty": {
+                          "name": "PayerParty",
+                          "type": "cac:PayerParty",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "payerfinancialaccount": {
+                          "name": "PayerFinancialAccount",
+                          "type": "cac:PayerFinancialAccount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "validityperiod": {
+                          "name": "ValidityPeriod",
+                          "type": "cac:ValidityPeriod",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "paymentreversalperiod": {
+                          "name": "PaymentReversalPeriod",
+                          "type": "cac:PaymentReversalPeriod",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "clause": {
+                          "name": "Clause",
+                          "type": "cac:Clause",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "content": {
+                              "name": "Content",
+                              "type": "cbc:Content",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "tradefinancing": {
+                      "name": "TradeFinancing",
+                      "type": "cac:TradeFinancing",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "financinginstrumentcode": {
+                          "name": "FinancingInstrumentCode",
+                          "type": "cbc:FinancingInstrumentCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "contractdocumentreference": {
+                          "name": "ContractDocumentReference",
+                          "type": "cac:ContractDocumentReference",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "documentreference": {
+                          "name": "DocumentReference",
+                          "type": "cac:DocumentReference",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "copyindicator": {
+                              "name": "CopyIndicator",
+                              "type": "cbc:CopyIndicator",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "uuid": {
+                              "name": "UUID",
+                              "type": "cbc:UUID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "issuedate": {
+                              "name": "IssueDate",
+                              "type": "cbc:IssueDate",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "issuetime": {
+                              "name": "IssueTime",
+                              "type": "cbc:IssueTime",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "documenttypecode": {
+                              "name": "DocumentTypeCode",
+                              "type": "cbc:DocumentTypeCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "documenttype": {
+                              "name": "DocumentType",
+                              "type": "cbc:DocumentType",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "xpath": {
+                              "name": "XPath",
+                              "type": "cbc:XPath",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            },
+                            "languageid": {
+                              "name": "LanguageID",
+                              "type": "cbc:LanguageID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "localecode": {
+                              "name": "LocaleCode",
+                              "type": "cbc:LocaleCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "versionid": {
+                              "name": "VersionID",
+                              "type": "cbc:VersionID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "documentstatuscode": {
+                              "name": "DocumentStatusCode",
+                              "type": "cbc:DocumentStatusCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "documentdescription": {
+                              "name": "DocumentDescription",
+                              "type": "cbc:DocumentDescription",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            },
+                            "attachment": {
+                              "name": "Attachment",
+                              "type": "cac:Attachment",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {
+                                "embeddeddocumentbinaryobject": {
+                                  "name": "EmbeddedDocumentBinaryObject",
+                                  "type": "cbc:EmbeddedDocumentBinaryObject",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "externalreference": {
+                                  "name": "ExternalReference",
+                                  "type": "cac:ExternalReference",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {
+                                    "uri": {
+                                      "name": "URI",
+                                      "type": "cbc:URI",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "documenthash": {
+                                      "name": "DocumentHash",
+                                      "type": "cbc:DocumentHash",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "hashalgorithmmethod": {
+                                      "name": "HashAlgorithmMethod",
+                                      "type": "cbc:HashAlgorithmMethod",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "expirydate": {
+                                      "name": "ExpiryDate",
+                                      "type": "cbc:ExpiryDate",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "expirytime": {
+                                      "name": "ExpiryTime",
+                                      "type": "cbc:ExpiryTime",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "mimecode": {
+                                      "name": "MimeCode",
+                                      "type": "cbc:MimeCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "formatcode": {
+                                      "name": "FormatCode",
+                                      "type": "cbc:FormatCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "encodingcode": {
+                                      "name": "EncodingCode",
+                                      "type": "cbc:EncodingCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "charactersetcode": {
+                                      "name": "CharacterSetCode",
+                                      "type": "cbc:CharacterSetCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "filename": {
+                                      "name": "FileName",
+                                      "type": "cbc:FileName",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "description": {
+                                      "name": "Description",
+                                      "type": "cbc:Description",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "unbounded",
+                                      "nested_elements": {}
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "validityperiod": {
+                              "name": "ValidityPeriod",
+                              "type": "cac:ValidityPeriod",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "issuerparty": {
+                              "name": "IssuerParty",
+                              "type": "cac:IssuerParty",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "resultofverification": {
+                              "name": "ResultOfVerification",
+                              "type": "cac:ResultOfVerification",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {
+                                "validatorid": {
+                                  "name": "ValidatorID",
+                                  "type": "cbc:ValidatorID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "validationresultcode": {
+                                  "name": "ValidationResultCode",
+                                  "type": "cbc:ValidationResultCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "validationdate": {
+                                  "name": "ValidationDate",
+                                  "type": "cbc:ValidationDate",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "validationtime": {
+                                  "name": "ValidationTime",
+                                  "type": "cbc:ValidationTime",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "validateprocess": {
+                                  "name": "ValidateProcess",
+                                  "type": "cbc:ValidateProcess",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "validatetool": {
+                                  "name": "ValidateTool",
+                                  "type": "cbc:ValidateTool",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "validatetoolversion": {
+                                  "name": "ValidateToolVersion",
+                                  "type": "cbc:ValidateToolVersion",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "signatoryparty": {
+                                  "name": "SignatoryParty",
+                                  "type": "cac:SignatoryParty",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "financingparty": {
+                          "name": "FinancingParty",
+                          "type": "cac:FinancingParty",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "financingfinancialaccount": {
+                          "name": "FinancingFinancialAccount",
+                          "type": "cac:FinancingFinancialAccount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "clause": {
+                          "name": "Clause",
+                          "type": "cac:Clause",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "content": {
+                              "name": "Content",
+                              "type": "cbc:Content",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "additionaldocumentreference": {
       "name": "AdditionalDocumentReference",
       "type": "cac:AdditionalDocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "signature": {
       "name": "Signature",
       "type": "cac:Signature",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "note": {
+          "name": "Note",
+          "type": "cbc:Note",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "validationdate": {
+          "name": "ValidationDate",
+          "type": "cbc:ValidationDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validationtime": {
+          "name": "ValidationTime",
+          "type": "cbc:ValidationTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validatorid": {
+          "name": "ValidatorID",
+          "type": "cbc:ValidatorID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "canonicalizationmethod": {
+          "name": "CanonicalizationMethod",
+          "type": "cbc:CanonicalizationMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signaturemethod": {
+          "name": "SignatureMethod",
+          "type": "cbc:SignatureMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signatoryparty": {
+          "name": "SignatoryParty",
+          "type": "cac:SignatoryParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "digitalsignatureattachment": {
+          "name": "DigitalSignatureAttachment",
+          "type": "cac:DigitalSignatureAttachment",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "originaldocumentreference": {
+          "name": "OriginalDocumentReference",
+          "type": "cac:OriginalDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        }
+      }
     },
     "accountingcustomerparty": {
       "name": "AccountingCustomerParty",
       "type": "cac:AccountingCustomerParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "accountingsupplierparty": {
       "name": "AccountingSupplierParty",
       "type": "cac:AccountingSupplierParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "payeeparty": {
       "name": "PayeeParty",
       "type": "cac:PayeeParty",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "paymentmeans": {
       "name": "PaymentMeans",
       "type": "cac:PaymentMeans",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "paymentmeanscode": {
+          "name": "PaymentMeansCode",
+          "type": "cbc:PaymentMeansCode",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "paymentduedate": {
+          "name": "PaymentDueDate",
+          "type": "cbc:PaymentDueDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "paymentchannelcode": {
+          "name": "PaymentChannelCode",
+          "type": "cbc:PaymentChannelCode",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "instructionid": {
+          "name": "InstructionID",
+          "type": "cbc:InstructionID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "instructionnote": {
+          "name": "InstructionNote",
+          "type": "cbc:InstructionNote",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "paymentid": {
+          "name": "PaymentID",
+          "type": "cbc:PaymentID",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "cardaccount": {
+          "name": "CardAccount",
+          "type": "cac:CardAccount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "primaryaccountnumberid": {
+              "name": "PrimaryAccountNumberID",
+              "type": "cbc:PrimaryAccountNumberID",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "networkid": {
+              "name": "NetworkID",
+              "type": "cbc:NetworkID",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "cardtypecode": {
+              "name": "CardTypeCode",
+              "type": "cbc:CardTypeCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validitystartdate": {
+              "name": "ValidityStartDate",
+              "type": "cbc:ValidityStartDate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "expirydate": {
+              "name": "ExpiryDate",
+              "type": "cbc:ExpiryDate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuerid": {
+              "name": "IssuerID",
+              "type": "cbc:IssuerID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuenumberid": {
+              "name": "IssueNumberID",
+              "type": "cbc:IssueNumberID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "cv2id": {
+              "name": "CV2ID",
+              "type": "cbc:CV2ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "cardchipcode": {
+              "name": "CardChipCode",
+              "type": "cbc:CardChipCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "chipapplicationid": {
+              "name": "ChipApplicationID",
+              "type": "cbc:ChipApplicationID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "holdername": {
+              "name": "HolderName",
+              "type": "cbc:HolderName",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        },
+        "payerfinancialaccount": {
+          "name": "PayerFinancialAccount",
+          "type": "cac:PayerFinancialAccount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "payeefinancialaccount": {
+          "name": "PayeeFinancialAccount",
+          "type": "cac:PayeeFinancialAccount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "creditaccount": {
+          "name": "CreditAccount",
+          "type": "cac:CreditAccount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "accountid": {
+              "name": "AccountID",
+              "type": "cbc:AccountID",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        },
+        "paymentmandate": {
+          "name": "PaymentMandate",
+          "type": "cac:PaymentMandate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "mandatetypecode": {
+              "name": "MandateTypeCode",
+              "type": "cbc:MandateTypeCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "maximumpaymentinstructionsnumeric": {
+              "name": "MaximumPaymentInstructionsNumeric",
+              "type": "cbc:MaximumPaymentInstructionsNumeric",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "maximumpaidamount": {
+              "name": "MaximumPaidAmount",
+              "type": "cbc:MaximumPaidAmount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "signatureid": {
+              "name": "SignatureID",
+              "type": "cbc:SignatureID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "payerparty": {
+              "name": "PayerParty",
+              "type": "cac:PayerParty",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "payerfinancialaccount": {
+              "name": "PayerFinancialAccount",
+              "type": "cac:PayerFinancialAccount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validityperiod": {
+              "name": "ValidityPeriod",
+              "type": "cac:ValidityPeriod",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "paymentreversalperiod": {
+              "name": "PaymentReversalPeriod",
+              "type": "cac:PaymentReversalPeriod",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "clause": {
+              "name": "Clause",
+              "type": "cac:Clause",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "content": {
+                  "name": "Content",
+                  "type": "cbc:Content",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                }
+              }
+            }
+          }
+        },
+        "tradefinancing": {
+          "name": "TradeFinancing",
+          "type": "cac:TradeFinancing",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "financinginstrumentcode": {
+              "name": "FinancingInstrumentCode",
+              "type": "cbc:FinancingInstrumentCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "contractdocumentreference": {
+              "name": "ContractDocumentReference",
+              "type": "cac:ContractDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "documentreference": {
+              "name": "DocumentReference",
+              "type": "cac:DocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "copyindicator": {
+                  "name": "CopyIndicator",
+                  "type": "cbc:CopyIndicator",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "uuid": {
+                  "name": "UUID",
+                  "type": "cbc:UUID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "issuedate": {
+                  "name": "IssueDate",
+                  "type": "cbc:IssueDate",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "issuetime": {
+                  "name": "IssueTime",
+                  "type": "cbc:IssueTime",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "documenttypecode": {
+                  "name": "DocumentTypeCode",
+                  "type": "cbc:DocumentTypeCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "documenttype": {
+                  "name": "DocumentType",
+                  "type": "cbc:DocumentType",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "xpath": {
+                  "name": "XPath",
+                  "type": "cbc:XPath",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "languageid": {
+                  "name": "LanguageID",
+                  "type": "cbc:LanguageID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "localecode": {
+                  "name": "LocaleCode",
+                  "type": "cbc:LocaleCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "versionid": {
+                  "name": "VersionID",
+                  "type": "cbc:VersionID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "documentstatuscode": {
+                  "name": "DocumentStatusCode",
+                  "type": "cbc:DocumentStatusCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "documentdescription": {
+                  "name": "DocumentDescription",
+                  "type": "cbc:DocumentDescription",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "attachment": {
+                  "name": "Attachment",
+                  "type": "cac:Attachment",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "embeddeddocumentbinaryobject": {
+                      "name": "EmbeddedDocumentBinaryObject",
+                      "type": "cbc:EmbeddedDocumentBinaryObject",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "externalreference": {
+                      "name": "ExternalReference",
+                      "type": "cac:ExternalReference",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "uri": {
+                          "name": "URI",
+                          "type": "cbc:URI",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "documenthash": {
+                          "name": "DocumentHash",
+                          "type": "cbc:DocumentHash",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "hashalgorithmmethod": {
+                          "name": "HashAlgorithmMethod",
+                          "type": "cbc:HashAlgorithmMethod",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "expirydate": {
+                          "name": "ExpiryDate",
+                          "type": "cbc:ExpiryDate",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "expirytime": {
+                          "name": "ExpiryTime",
+                          "type": "cbc:ExpiryTime",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "mimecode": {
+                          "name": "MimeCode",
+                          "type": "cbc:MimeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "formatcode": {
+                          "name": "FormatCode",
+                          "type": "cbc:FormatCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "encodingcode": {
+                          "name": "EncodingCode",
+                          "type": "cbc:EncodingCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "charactersetcode": {
+                          "name": "CharacterSetCode",
+                          "type": "cbc:CharacterSetCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "filename": {
+                          "name": "FileName",
+                          "type": "cbc:FileName",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "description": {
+                          "name": "Description",
+                          "type": "cbc:Description",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "validityperiod": {
+                  "name": "ValidityPeriod",
+                  "type": "cac:ValidityPeriod",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "issuerparty": {
+                  "name": "IssuerParty",
+                  "type": "cac:IssuerParty",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "resultofverification": {
+                  "name": "ResultOfVerification",
+                  "type": "cac:ResultOfVerification",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "validatorid": {
+                      "name": "ValidatorID",
+                      "type": "cbc:ValidatorID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "validationresultcode": {
+                      "name": "ValidationResultCode",
+                      "type": "cbc:ValidationResultCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "validationdate": {
+                      "name": "ValidationDate",
+                      "type": "cbc:ValidationDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "validationtime": {
+                      "name": "ValidationTime",
+                      "type": "cbc:ValidationTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "validateprocess": {
+                      "name": "ValidateProcess",
+                      "type": "cbc:ValidateProcess",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "validatetool": {
+                      "name": "ValidateTool",
+                      "type": "cbc:ValidateTool",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "validatetoolversion": {
+                      "name": "ValidateToolVersion",
+                      "type": "cbc:ValidateToolVersion",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "signatoryparty": {
+                      "name": "SignatoryParty",
+                      "type": "cac:SignatoryParty",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                }
+              }
+            },
+            "financingparty": {
+              "name": "FinancingParty",
+              "type": "cac:FinancingParty",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "financingfinancialaccount": {
+              "name": "FinancingFinancialAccount",
+              "type": "cac:FinancingFinancialAccount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "clause": {
+              "name": "Clause",
+              "type": "cac:Clause",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "content": {
+                  "name": "Content",
+                  "type": "cbc:Content",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "taxtotal": {
       "name": "TaxTotal",
       "type": "cac:TaxTotal",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "taxamount": {
+          "name": "TaxAmount",
+          "type": "cbc:TaxAmount",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "roundingamount": {
+          "name": "RoundingAmount",
+          "type": "cbc:RoundingAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "taxevidenceindicator": {
+          "name": "TaxEvidenceIndicator",
+          "type": "cbc:TaxEvidenceIndicator",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "taxincludedindicator": {
+          "name": "TaxIncludedIndicator",
+          "type": "cbc:TaxIncludedIndicator",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "taxsubtotal": {
+          "name": "TaxSubtotal",
+          "type": "cac:TaxSubtotal",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "taxableamount": {
+              "name": "TaxableAmount",
+              "type": "cbc:TaxableAmount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "taxamount": {
+              "name": "TaxAmount",
+              "type": "cbc:TaxAmount",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "calculationsequencenumeric": {
+              "name": "CalculationSequenceNumeric",
+              "type": "cbc:CalculationSequenceNumeric",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "transactioncurrencytaxamount": {
+              "name": "TransactionCurrencyTaxAmount",
+              "type": "cbc:TransactionCurrencyTaxAmount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "percent": {
+              "name": "Percent",
+              "type": "cbc:Percent",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "baseunitmeasure": {
+              "name": "BaseUnitMeasure",
+              "type": "cbc:BaseUnitMeasure",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "perunitamount": {
+              "name": "PerUnitAmount",
+              "type": "cbc:PerUnitAmount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "tierrange": {
+              "name": "TierRange",
+              "type": "cbc:TierRange",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "tierratepercent": {
+              "name": "TierRatePercent",
+              "type": "cbc:TierRatePercent",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "taxcategory": {
+              "name": "TaxCategory",
+              "type": "cac:TaxCategory",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "name": {
+                  "name": "Name",
+                  "type": "cbc:Name",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "percent": {
+                  "name": "Percent",
+                  "type": "cbc:Percent",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "baseunitmeasure": {
+                  "name": "BaseUnitMeasure",
+                  "type": "cbc:BaseUnitMeasure",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "perunitamount": {
+                  "name": "PerUnitAmount",
+                  "type": "cbc:PerUnitAmount",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "taxexemptionreasoncode": {
+                  "name": "TaxExemptionReasonCode",
+                  "type": "cbc:TaxExemptionReasonCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "taxexemptionreason": {
+                  "name": "TaxExemptionReason",
+                  "type": "cbc:TaxExemptionReason",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "tierrange": {
+                  "name": "TierRange",
+                  "type": "cbc:TierRange",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "tierratepercent": {
+                  "name": "TierRatePercent",
+                  "type": "cbc:TierRatePercent",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "taxscheme": {
+                  "name": "TaxScheme",
+                  "type": "cac:TaxScheme",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "name": {
+                      "name": "Name",
+                      "type": "cbc:Name",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxtypecode": {
+                      "name": "TaxTypeCode",
+                      "type": "cbc:TaxTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "currencycode": {
+                      "name": "CurrencyCode",
+                      "type": "cbc:CurrencyCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "jurisdictionregionaddress": {
+                      "name": "JurisdictionRegionAddress",
+                      "type": "cac:JurisdictionRegionAddress",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "remittanceadviceline": {
       "name": "RemittanceAdviceLine",
       "type": "cac:RemittanceAdviceLine",
       "minOccurs": "1",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "note": {
+          "name": "Note",
+          "type": "cbc:Note",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "uuid": {
+          "name": "UUID",
+          "type": "cbc:UUID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "debitlineamount": {
+          "name": "DebitLineAmount",
+          "type": "cbc:DebitLineAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "creditlineamount": {
+          "name": "CreditLineAmount",
+          "type": "cbc:CreditLineAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "balanceamount": {
+          "name": "BalanceAmount",
+          "type": "cbc:BalanceAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "paymentpurposecode": {
+          "name": "PaymentPurposeCode",
+          "type": "cbc:PaymentPurposeCode",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "invoicingpartyreference": {
+          "name": "InvoicingPartyReference",
+          "type": "cbc:InvoicingPartyReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "accountingsupplierparty": {
+          "name": "AccountingSupplierParty",
+          "type": "cac:AccountingSupplierParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "accountingcustomerparty": {
+          "name": "AccountingCustomerParty",
+          "type": "cac:AccountingCustomerParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "buyercustomerparty": {
+          "name": "BuyerCustomerParty",
+          "type": "cac:BuyerCustomerParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "sellersupplierparty": {
+          "name": "SellerSupplierParty",
+          "type": "cac:SellerSupplierParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "originatorcustomerparty": {
+          "name": "OriginatorCustomerParty",
+          "type": "cac:OriginatorCustomerParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "payeeparty": {
+          "name": "PayeeParty",
+          "type": "cac:PayeeParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "invoiceperiod": {
+          "name": "InvoicePeriod",
+          "type": "cac:InvoicePeriod",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "billingreference": {
+          "name": "BillingReference",
+          "type": "cac:BillingReference",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "invoicedocumentreference": {
+              "name": "InvoiceDocumentReference",
+              "type": "cac:InvoiceDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "selfbilledinvoicedocumentreference": {
+              "name": "SelfBilledInvoiceDocumentReference",
+              "type": "cac:SelfBilledInvoiceDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "creditnotedocumentreference": {
+              "name": "CreditNoteDocumentReference",
+              "type": "cac:CreditNoteDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "selfbilledcreditnotedocumentreference": {
+              "name": "SelfBilledCreditNoteDocumentReference",
+              "type": "cac:SelfBilledCreditNoteDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "debitnotedocumentreference": {
+              "name": "DebitNoteDocumentReference",
+              "type": "cac:DebitNoteDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "reminderdocumentreference": {
+              "name": "ReminderDocumentReference",
+              "type": "cac:ReminderDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "additionaldocumentreference": {
+              "name": "AdditionalDocumentReference",
+              "type": "cac:AdditionalDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "billingreferenceline": {
+              "name": "BillingReferenceLine",
+              "type": "cac:BillingReferenceLine",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "amount": {
+                  "name": "Amount",
+                  "type": "cbc:Amount",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "allowancecharge": {
+                  "name": "AllowanceCharge",
+                  "type": "cac:AllowanceCharge",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "chargeindicator": {
+                      "name": "ChargeIndicator",
+                      "type": "cbc:ChargeIndicator",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "allowancechargereasoncode": {
+                      "name": "AllowanceChargeReasonCode",
+                      "type": "cbc:AllowanceChargeReasonCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "allowancechargereason": {
+                      "name": "AllowanceChargeReason",
+                      "type": "cbc:AllowanceChargeReason",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "multiplierfactornumeric": {
+                      "name": "MultiplierFactorNumeric",
+                      "type": "cbc:MultiplierFactorNumeric",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "prepaidindicator": {
+                      "name": "PrepaidIndicator",
+                      "type": "cbc:PrepaidIndicator",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "sequencenumeric": {
+                      "name": "SequenceNumeric",
+                      "type": "cbc:SequenceNumeric",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "amount": {
+                      "name": "Amount",
+                      "type": "cbc:Amount",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "baseamount": {
+                      "name": "BaseAmount",
+                      "type": "cbc:BaseAmount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "accountingcostcode": {
+                      "name": "AccountingCostCode",
+                      "type": "cbc:AccountingCostCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "accountingcost": {
+                      "name": "AccountingCost",
+                      "type": "cbc:AccountingCost",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "perunitamount": {
+                      "name": "PerUnitAmount",
+                      "type": "cbc:PerUnitAmount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxcategory": {
+                      "name": "TaxCategory",
+                      "type": "cac:TaxCategory",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "percent": {
+                          "name": "Percent",
+                          "type": "cbc:Percent",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "baseunitmeasure": {
+                          "name": "BaseUnitMeasure",
+                          "type": "cbc:BaseUnitMeasure",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "perunitamount": {
+                          "name": "PerUnitAmount",
+                          "type": "cbc:PerUnitAmount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxexemptionreasoncode": {
+                          "name": "TaxExemptionReasonCode",
+                          "type": "cbc:TaxExemptionReasonCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxexemptionreason": {
+                          "name": "TaxExemptionReason",
+                          "type": "cbc:TaxExemptionReason",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        },
+                        "tierrange": {
+                          "name": "TierRange",
+                          "type": "cbc:TierRange",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "tierratepercent": {
+                          "name": "TierRatePercent",
+                          "type": "cbc:TierRatePercent",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxscheme": {
+                          "name": "TaxScheme",
+                          "type": "cac:TaxScheme",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "name": {
+                              "name": "Name",
+                              "type": "cbc:Name",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "taxtypecode": {
+                              "name": "TaxTypeCode",
+                              "type": "cbc:TaxTypeCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "currencycode": {
+                              "name": "CurrencyCode",
+                              "type": "cbc:CurrencyCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "jurisdictionregionaddress": {
+                              "name": "JurisdictionRegionAddress",
+                              "type": "cac:JurisdictionRegionAddress",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "taxtotal": {
+                      "name": "TaxTotal",
+                      "type": "cac:TaxTotal",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "taxamount": {
+                          "name": "TaxAmount",
+                          "type": "cbc:TaxAmount",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "roundingamount": {
+                          "name": "RoundingAmount",
+                          "type": "cbc:RoundingAmount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxevidenceindicator": {
+                          "name": "TaxEvidenceIndicator",
+                          "type": "cbc:TaxEvidenceIndicator",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxincludedindicator": {
+                          "name": "TaxIncludedIndicator",
+                          "type": "cbc:TaxIncludedIndicator",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxsubtotal": {
+                          "name": "TaxSubtotal",
+                          "type": "cac:TaxSubtotal",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {
+                            "taxableamount": {
+                              "name": "TaxableAmount",
+                              "type": "cbc:TaxableAmount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "taxamount": {
+                              "name": "TaxAmount",
+                              "type": "cbc:TaxAmount",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "calculationsequencenumeric": {
+                              "name": "CalculationSequenceNumeric",
+                              "type": "cbc:CalculationSequenceNumeric",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "transactioncurrencytaxamount": {
+                              "name": "TransactionCurrencyTaxAmount",
+                              "type": "cbc:TransactionCurrencyTaxAmount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "percent": {
+                              "name": "Percent",
+                              "type": "cbc:Percent",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "baseunitmeasure": {
+                              "name": "BaseUnitMeasure",
+                              "type": "cbc:BaseUnitMeasure",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "perunitamount": {
+                              "name": "PerUnitAmount",
+                              "type": "cbc:PerUnitAmount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "tierrange": {
+                              "name": "TierRange",
+                              "type": "cbc:TierRange",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "tierratepercent": {
+                              "name": "TierRatePercent",
+                              "type": "cbc:TierRatePercent",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "taxcategory": {
+                              "name": "TaxCategory",
+                              "type": "cac:TaxCategory",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {
+                                "id": {
+                                  "name": "ID",
+                                  "type": "cbc:ID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "name": {
+                                  "name": "Name",
+                                  "type": "cbc:Name",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "percent": {
+                                  "name": "Percent",
+                                  "type": "cbc:Percent",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "baseunitmeasure": {
+                                  "name": "BaseUnitMeasure",
+                                  "type": "cbc:BaseUnitMeasure",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "perunitamount": {
+                                  "name": "PerUnitAmount",
+                                  "type": "cbc:PerUnitAmount",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "taxexemptionreasoncode": {
+                                  "name": "TaxExemptionReasonCode",
+                                  "type": "cbc:TaxExemptionReasonCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "taxexemptionreason": {
+                                  "name": "TaxExemptionReason",
+                                  "type": "cbc:TaxExemptionReason",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "unbounded",
+                                  "nested_elements": {}
+                                },
+                                "tierrange": {
+                                  "name": "TierRange",
+                                  "type": "cbc:TierRange",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "tierratepercent": {
+                                  "name": "TierRatePercent",
+                                  "type": "cbc:TierRatePercent",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "taxscheme": {
+                                  "name": "TaxScheme",
+                                  "type": "cac:TaxScheme",
+                                  "minOccurs": "1",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {
+                                    "id": {
+                                      "name": "ID",
+                                      "type": "cbc:ID",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "name": {
+                                      "name": "Name",
+                                      "type": "cbc:Name",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "taxtypecode": {
+                                      "name": "TaxTypeCode",
+                                      "type": "cbc:TaxTypeCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "currencycode": {
+                                      "name": "CurrencyCode",
+                                      "type": "cbc:CurrencyCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "jurisdictionregionaddress": {
+                                      "name": "JurisdictionRegionAddress",
+                                      "type": "cac:JurisdictionRegionAddress",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "unbounded",
+                                      "nested_elements": {}
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "paymentmeans": {
+                      "name": "PaymentMeans",
+                      "type": "cac:PaymentMeans",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "paymentmeanscode": {
+                          "name": "PaymentMeansCode",
+                          "type": "cbc:PaymentMeansCode",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "paymentduedate": {
+                          "name": "PaymentDueDate",
+                          "type": "cbc:PaymentDueDate",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "paymentchannelcode": {
+                          "name": "PaymentChannelCode",
+                          "type": "cbc:PaymentChannelCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "instructionid": {
+                          "name": "InstructionID",
+                          "type": "cbc:InstructionID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "instructionnote": {
+                          "name": "InstructionNote",
+                          "type": "cbc:InstructionNote",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        },
+                        "paymentid": {
+                          "name": "PaymentID",
+                          "type": "cbc:PaymentID",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        },
+                        "cardaccount": {
+                          "name": "CardAccount",
+                          "type": "cac:CardAccount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "primaryaccountnumberid": {
+                              "name": "PrimaryAccountNumberID",
+                              "type": "cbc:PrimaryAccountNumberID",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "networkid": {
+                              "name": "NetworkID",
+                              "type": "cbc:NetworkID",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "cardtypecode": {
+                              "name": "CardTypeCode",
+                              "type": "cbc:CardTypeCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "validitystartdate": {
+                              "name": "ValidityStartDate",
+                              "type": "cbc:ValidityStartDate",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "expirydate": {
+                              "name": "ExpiryDate",
+                              "type": "cbc:ExpiryDate",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "issuerid": {
+                              "name": "IssuerID",
+                              "type": "cbc:IssuerID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "issuenumberid": {
+                              "name": "IssueNumberID",
+                              "type": "cbc:IssueNumberID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "cv2id": {
+                              "name": "CV2ID",
+                              "type": "cbc:CV2ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "cardchipcode": {
+                              "name": "CardChipCode",
+                              "type": "cbc:CardChipCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "chipapplicationid": {
+                              "name": "ChipApplicationID",
+                              "type": "cbc:ChipApplicationID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "holdername": {
+                              "name": "HolderName",
+                              "type": "cbc:HolderName",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            }
+                          }
+                        },
+                        "payerfinancialaccount": {
+                          "name": "PayerFinancialAccount",
+                          "type": "cac:PayerFinancialAccount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "payeefinancialaccount": {
+                          "name": "PayeeFinancialAccount",
+                          "type": "cac:PayeeFinancialAccount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "creditaccount": {
+                          "name": "CreditAccount",
+                          "type": "cac:CreditAccount",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "accountid": {
+                              "name": "AccountID",
+                              "type": "cbc:AccountID",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            }
+                          }
+                        },
+                        "paymentmandate": {
+                          "name": "PaymentMandate",
+                          "type": "cac:PaymentMandate",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "mandatetypecode": {
+                              "name": "MandateTypeCode",
+                              "type": "cbc:MandateTypeCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "maximumpaymentinstructionsnumeric": {
+                              "name": "MaximumPaymentInstructionsNumeric",
+                              "type": "cbc:MaximumPaymentInstructionsNumeric",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "maximumpaidamount": {
+                              "name": "MaximumPaidAmount",
+                              "type": "cbc:MaximumPaidAmount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "signatureid": {
+                              "name": "SignatureID",
+                              "type": "cbc:SignatureID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "payerparty": {
+                              "name": "PayerParty",
+                              "type": "cac:PayerParty",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "payerfinancialaccount": {
+                              "name": "PayerFinancialAccount",
+                              "type": "cac:PayerFinancialAccount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "validityperiod": {
+                              "name": "ValidityPeriod",
+                              "type": "cac:ValidityPeriod",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "paymentreversalperiod": {
+                              "name": "PaymentReversalPeriod",
+                              "type": "cac:PaymentReversalPeriod",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "clause": {
+                              "name": "Clause",
+                              "type": "cac:Clause",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {
+                                "id": {
+                                  "name": "ID",
+                                  "type": "cbc:ID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "content": {
+                                  "name": "Content",
+                                  "type": "cbc:Content",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "unbounded",
+                                  "nested_elements": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "tradefinancing": {
+                          "name": "TradeFinancing",
+                          "type": "cac:TradeFinancing",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "id": {
+                              "name": "ID",
+                              "type": "cbc:ID",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "financinginstrumentcode": {
+                              "name": "FinancingInstrumentCode",
+                              "type": "cbc:FinancingInstrumentCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "contractdocumentreference": {
+                              "name": "ContractDocumentReference",
+                              "type": "cac:ContractDocumentReference",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "documentreference": {
+                              "name": "DocumentReference",
+                              "type": "cac:DocumentReference",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {
+                                "id": {
+                                  "name": "ID",
+                                  "type": "cbc:ID",
+                                  "minOccurs": "1",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "copyindicator": {
+                                  "name": "CopyIndicator",
+                                  "type": "cbc:CopyIndicator",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "uuid": {
+                                  "name": "UUID",
+                                  "type": "cbc:UUID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "issuedate": {
+                                  "name": "IssueDate",
+                                  "type": "cbc:IssueDate",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "issuetime": {
+                                  "name": "IssueTime",
+                                  "type": "cbc:IssueTime",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "documenttypecode": {
+                                  "name": "DocumentTypeCode",
+                                  "type": "cbc:DocumentTypeCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "documenttype": {
+                                  "name": "DocumentType",
+                                  "type": "cbc:DocumentType",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "xpath": {
+                                  "name": "XPath",
+                                  "type": "cbc:XPath",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "unbounded",
+                                  "nested_elements": {}
+                                },
+                                "languageid": {
+                                  "name": "LanguageID",
+                                  "type": "cbc:LanguageID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "localecode": {
+                                  "name": "LocaleCode",
+                                  "type": "cbc:LocaleCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "versionid": {
+                                  "name": "VersionID",
+                                  "type": "cbc:VersionID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "documentstatuscode": {
+                                  "name": "DocumentStatusCode",
+                                  "type": "cbc:DocumentStatusCode",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "documentdescription": {
+                                  "name": "DocumentDescription",
+                                  "type": "cbc:DocumentDescription",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "unbounded",
+                                  "nested_elements": {}
+                                },
+                                "attachment": {
+                                  "name": "Attachment",
+                                  "type": "cac:Attachment",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {
+                                    "embeddeddocumentbinaryobject": {
+                                      "name": "EmbeddedDocumentBinaryObject",
+                                      "type": "cbc:EmbeddedDocumentBinaryObject",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "externalreference": {
+                                      "name": "ExternalReference",
+                                      "type": "cac:ExternalReference",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {
+                                        "uri": {
+                                          "name": "URI",
+                                          "type": "cbc:URI",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "documenthash": {
+                                          "name": "DocumentHash",
+                                          "type": "cbc:DocumentHash",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "hashalgorithmmethod": {
+                                          "name": "HashAlgorithmMethod",
+                                          "type": "cbc:HashAlgorithmMethod",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "expirydate": {
+                                          "name": "ExpiryDate",
+                                          "type": "cbc:ExpiryDate",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "expirytime": {
+                                          "name": "ExpiryTime",
+                                          "type": "cbc:ExpiryTime",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "mimecode": {
+                                          "name": "MimeCode",
+                                          "type": "cbc:MimeCode",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "formatcode": {
+                                          "name": "FormatCode",
+                                          "type": "cbc:FormatCode",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "encodingcode": {
+                                          "name": "EncodingCode",
+                                          "type": "cbc:EncodingCode",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "charactersetcode": {
+                                          "name": "CharacterSetCode",
+                                          "type": "cbc:CharacterSetCode",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "filename": {
+                                          "name": "FileName",
+                                          "type": "cbc:FileName",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "1",
+                                          "nested_elements": {}
+                                        },
+                                        "description": {
+                                          "name": "Description",
+                                          "type": "cbc:Description",
+                                          "minOccurs": "0",
+                                          "maxOccurs": "unbounded",
+                                          "nested_elements": {}
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "validityperiod": {
+                                  "name": "ValidityPeriod",
+                                  "type": "cac:ValidityPeriod",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "issuerparty": {
+                                  "name": "IssuerParty",
+                                  "type": "cac:IssuerParty",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "resultofverification": {
+                                  "name": "ResultOfVerification",
+                                  "type": "cac:ResultOfVerification",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {
+                                    "validatorid": {
+                                      "name": "ValidatorID",
+                                      "type": "cbc:ValidatorID",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "validationresultcode": {
+                                      "name": "ValidationResultCode",
+                                      "type": "cbc:ValidationResultCode",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "validationdate": {
+                                      "name": "ValidationDate",
+                                      "type": "cbc:ValidationDate",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "validationtime": {
+                                      "name": "ValidationTime",
+                                      "type": "cbc:ValidationTime",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "validateprocess": {
+                                      "name": "ValidateProcess",
+                                      "type": "cbc:ValidateProcess",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "validatetool": {
+                                      "name": "ValidateTool",
+                                      "type": "cbc:ValidateTool",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "validatetoolversion": {
+                                      "name": "ValidateToolVersion",
+                                      "type": "cbc:ValidateToolVersion",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    },
+                                    "signatoryparty": {
+                                      "name": "SignatoryParty",
+                                      "type": "cac:SignatoryParty",
+                                      "minOccurs": "0",
+                                      "maxOccurs": "1",
+                                      "nested_elements": {}
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "financingparty": {
+                              "name": "FinancingParty",
+                              "type": "cac:FinancingParty",
+                              "minOccurs": "1",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "financingfinancialaccount": {
+                              "name": "FinancingFinancialAccount",
+                              "type": "cac:FinancingFinancialAccount",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "clause": {
+                              "name": "Clause",
+                              "type": "cac:Clause",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {
+                                "id": {
+                                  "name": "ID",
+                                  "type": "cbc:ID",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "1",
+                                  "nested_elements": {}
+                                },
+                                "content": {
+                                  "name": "Content",
+                                  "type": "cbc:Content",
+                                  "minOccurs": "0",
+                                  "maxOccurs": "unbounded",
+                                  "nested_elements": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "documentreference": {
+          "name": "DocumentReference",
+          "type": "cac:DocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "copyindicator": {
+              "name": "CopyIndicator",
+              "type": "cbc:CopyIndicator",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "uuid": {
+              "name": "UUID",
+              "type": "cbc:UUID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuedate": {
+              "name": "IssueDate",
+              "type": "cbc:IssueDate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuetime": {
+              "name": "IssueTime",
+              "type": "cbc:IssueTime",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "documenttypecode": {
+              "name": "DocumentTypeCode",
+              "type": "cbc:DocumentTypeCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "documenttype": {
+              "name": "DocumentType",
+              "type": "cbc:DocumentType",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "xpath": {
+              "name": "XPath",
+              "type": "cbc:XPath",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {}
+            },
+            "languageid": {
+              "name": "LanguageID",
+              "type": "cbc:LanguageID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "localecode": {
+              "name": "LocaleCode",
+              "type": "cbc:LocaleCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "versionid": {
+              "name": "VersionID",
+              "type": "cbc:VersionID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "documentstatuscode": {
+              "name": "DocumentStatusCode",
+              "type": "cbc:DocumentStatusCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "documentdescription": {
+              "name": "DocumentDescription",
+              "type": "cbc:DocumentDescription",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {}
+            },
+            "attachment": {
+              "name": "Attachment",
+              "type": "cac:Attachment",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {
+                "embeddeddocumentbinaryobject": {
+                  "name": "EmbeddedDocumentBinaryObject",
+                  "type": "cbc:EmbeddedDocumentBinaryObject",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "externalreference": {
+                  "name": "ExternalReference",
+                  "type": "cac:ExternalReference",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "uri": {
+                      "name": "URI",
+                      "type": "cbc:URI",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "documenthash": {
+                      "name": "DocumentHash",
+                      "type": "cbc:DocumentHash",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "hashalgorithmmethod": {
+                      "name": "HashAlgorithmMethod",
+                      "type": "cbc:HashAlgorithmMethod",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "expirydate": {
+                      "name": "ExpiryDate",
+                      "type": "cbc:ExpiryDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "expirytime": {
+                      "name": "ExpiryTime",
+                      "type": "cbc:ExpiryTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "mimecode": {
+                      "name": "MimeCode",
+                      "type": "cbc:MimeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "formatcode": {
+                      "name": "FormatCode",
+                      "type": "cbc:FormatCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "encodingcode": {
+                      "name": "EncodingCode",
+                      "type": "cbc:EncodingCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "charactersetcode": {
+                      "name": "CharacterSetCode",
+                      "type": "cbc:CharacterSetCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "filename": {
+                      "name": "FileName",
+                      "type": "cbc:FileName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "description": {
+                      "name": "Description",
+                      "type": "cbc:Description",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    }
+                  }
+                }
+              }
+            },
+            "validityperiod": {
+              "name": "ValidityPeriod",
+              "type": "cac:ValidityPeriod",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuerparty": {
+              "name": "IssuerParty",
+              "type": "cac:IssuerParty",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "resultofverification": {
+              "name": "ResultOfVerification",
+              "type": "cac:ResultOfVerification",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {
+                "validatorid": {
+                  "name": "ValidatorID",
+                  "type": "cbc:ValidatorID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "validationresultcode": {
+                  "name": "ValidationResultCode",
+                  "type": "cbc:ValidationResultCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "validationdate": {
+                  "name": "ValidationDate",
+                  "type": "cbc:ValidationDate",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "validationtime": {
+                  "name": "ValidationTime",
+                  "type": "cbc:ValidationTime",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "validateprocess": {
+                  "name": "ValidateProcess",
+                  "type": "cbc:ValidateProcess",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "validatetool": {
+                  "name": "ValidateTool",
+                  "type": "cbc:ValidateTool",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "validatetoolversion": {
+                  "name": "ValidateToolVersion",
+                  "type": "cbc:ValidateToolVersion",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "signatoryparty": {
+                  "name": "SignatoryParty",
+                  "type": "cac:SignatoryParty",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                }
+              }
+            }
+          }
+        },
+        "exchangerate": {
+          "name": "ExchangeRate",
+          "type": "cac:ExchangeRate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "sourcecurrencycode": {
+              "name": "SourceCurrencyCode",
+              "type": "cbc:SourceCurrencyCode",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "sourcecurrencybaserate": {
+              "name": "SourceCurrencyBaseRate",
+              "type": "cbc:SourceCurrencyBaseRate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "targetcurrencycode": {
+              "name": "TargetCurrencyCode",
+              "type": "cbc:TargetCurrencyCode",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "targetcurrencybaserate": {
+              "name": "TargetCurrencyBaseRate",
+              "type": "cbc:TargetCurrencyBaseRate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "exchangemarketid": {
+              "name": "ExchangeMarketID",
+              "type": "cbc:ExchangeMarketID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "calculationrate": {
+              "name": "CalculationRate",
+              "type": "cbc:CalculationRate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "mathematicoperatorcode": {
+              "name": "MathematicOperatorCode",
+              "type": "cbc:MathematicOperatorCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "date": {
+              "name": "Date",
+              "type": "cbc:Date",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "foreignexchangecontract": {
+              "name": "ForeignExchangeContract",
+              "type": "cac:ForeignExchangeContract",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     }
   }
 }

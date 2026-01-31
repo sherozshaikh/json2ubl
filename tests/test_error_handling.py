@@ -1,6 +1,10 @@
 """Error handling and validation tests."""
 
-from json2ubl import json_dict_to_ubl_xml, json_file_to_ubl_xml_dict, json_file_to_ubl_xml_files
+from json2ubl import (
+    json_dict_to_ubl_xml,
+    json_file_to_ubl_xml_dict,
+    json_file_to_ubl_xml_files,
+)
 
 
 class TestDocumentTypeValidation:

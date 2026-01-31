@@ -50,6 +50,8 @@ class XmlSerializer:
         self._nsmap_cache: OrderedDict = OrderedDict()  # Use OrderedDict for LRU eviction
         self._namespace_cache: Dict[str, str] = {}  # Cache computed namespaces
         self._max_cache_size = 100  # Limit namespace cache to 100 entries
+        # Build global element name lookup (lowercase -> correct_name) for all cached elements
+        self._element_name_lookup: Dict[str, str] = self._build_element_name_lookup()
 
     def serialize(self, doc: Dict[str, Any]) -> etree._Element:
         """
@@ -129,8 +131,10 @@ class XmlSerializer:
                 data_value = data_dict[data_key_orig]
                 if data_value is None:
                     continue
-                # Use proper UBL casing from schema or capitalize
-                element_name = self._capitalize_element_name(data_key_lower)
+                # Use proper UBL casing from schema lookup table or capitalize
+                element_name = self._element_name_lookup.get(
+                    data_key_lower
+                ) or self._capitalize_element_name(data_key_lower)
                 if isinstance(data_value, dict):
                     child_elem = self._create_element(parent, element_name, parent_ns)
                     self._serialize_recursive(child_elem, data_value, {}, parent_ns, depth + 1)
@@ -316,8 +320,10 @@ class XmlSerializer:
         Determine namespace for element based on tag name conventions.
 
         UBL convention:
-        - CommonBasicComponents for simple elements (usually IDs, codes, amounts, etc.)
-        - CommonAggregateComponents for complex elements (objects with children)
+        - CommonBasicComponents (cbc) for simple elements (Code, Amount, Date, ID, etc.)
+        - CommonAggregateComponents (cac) for complex elements (objects with children)
+
+        Checks schema first, falls back to naming heuristics.
 
         Args:
             tag: Element tag name
@@ -325,8 +331,33 @@ class XmlSerializer:
         Returns:
             Namespace URI for the element
         """
-        # Check if element appears to be aggregate (plural or compound names)
-        # This is a heuristic based on common UBL naming patterns
+        # Simple/basic type indicators (CommonBasicComponents)
+        basic_indicators = [
+            "Code",
+            "Amount",
+            "Date",
+            "Identifier",
+            "ID",
+            "Quantity",
+            "Percentage",
+            "Measure",
+            "Indicator",
+            "URI",
+            "Rate",
+            "Numeric",
+            "Name",
+            "Text",
+            "String",
+            "Time",
+            "Currency",
+        ]
+
+        for indicator in basic_indicators:
+            if indicator in tag:
+                return NS_CBC
+
+        # Complex/aggregate type indicators (CommonAggregateComponents)
+        # These end in "Type" and have child elements, not scalar values
         aggregate_indicators = [
             "Party",
             "Address",
@@ -343,15 +374,25 @@ class XmlSerializer:
             "Charge",
             "Allowance",
             "Delivery",
-            "Payment",
             "Period",
+            "Document",
+            "Financial",
+            "Location",
+            "Transport",
+            "Classification",
+            "Extension",
+            "Means",  # PaymentMeans, etc.
+            "Terms",  # PaymentTerms, etc.
+            "Information",
+            "Details",
+            "Specification",
         ]
 
         for indicator in aggregate_indicators:
             if indicator in tag:
                 return NS_CAC
 
-        # Default to BasicComponents
+        # Default to BasicComponents (most elements are basic)
         return NS_CBC
 
     def _capitalize_element_name(self, lowercase_name: str) -> str:
@@ -392,6 +433,33 @@ class XmlSerializer:
 
         # Capitalize first letter of each word
         return "".join(word.capitalize() for word in words if word)
+
+    def _build_element_name_lookup(self) -> Dict[str, str]:
+        """
+        Build global lookup table: lowercase_key -> correct_element_name.
+
+        Recursively traverses schema cache to find all element names with correct casing.
+        Used for fallback when serializing elements not in schema_spec.
+
+        Returns:
+            Dict mapping lowercase keys to correct UBL element names
+        """
+        lookup: Dict[str, str] = {}
+        all_elements = self.schema_cache.get("elements", {})
+
+        def extract_names(spec: Dict[str, Any]) -> None:
+            for key, info in spec.items():
+                if not key.startswith("_"):
+                    correct_name = info.get("name")
+                    if correct_name:
+                        lookup[key] = correct_name
+                    # Recursively extract from nested_elements
+                    nested = info.get("nested_elements", {})
+                    if nested:
+                        extract_names(nested)
+
+        extract_names(all_elements)
+        return lookup
 
     def _get_nsmap(self, root_namespace: str) -> dict:
         """

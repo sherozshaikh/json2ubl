@@ -73,109 +73,547 @@
       "name": "UBLExtensions",
       "type": "ext:UBLExtensions",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "name": "UBLExtension",
+          "type": "UBLExtension",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "name": {
+              "name": "Name",
+              "type": "cbc:Name",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyid": {
+              "name": "ExtensionAgencyID",
+              "type": "ExtensionAgencyID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyname": {
+              "name": "ExtensionAgencyName",
+              "type": "ExtensionAgencyName",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionversionid": {
+              "name": "ExtensionVersionID",
+              "type": "ExtensionVersionID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyuri": {
+              "name": "ExtensionAgencyURI",
+              "type": "ExtensionAgencyURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionuri": {
+              "name": "ExtensionURI",
+              "type": "ExtensionURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreasoncode": {
+              "name": "ExtensionReasonCode",
+              "type": "ExtensionReasonCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreason": {
+              "name": "ExtensionReason",
+              "type": "ExtensionReason",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensioncontent": {
+              "name": "ExtensionContent",
+              "type": "ExtensionContent",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     },
     "ublversionid": {
       "name": "UBLVersionID",
       "type": "cbc:UBLVersionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "customizationid": {
       "name": "CustomizationID",
       "type": "cbc:CustomizationID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileid": {
       "name": "ProfileID",
       "type": "cbc:ProfileID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileexecutionid": {
       "name": "ProfileExecutionID",
       "type": "cbc:ProfileExecutionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "id": {
       "name": "ID",
       "type": "cbc:ID",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "copyindicator": {
       "name": "CopyIndicator",
       "type": "cbc:CopyIndicator",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "uuid": {
       "name": "UUID",
       "type": "cbc:UUID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuedate": {
       "name": "IssueDate",
       "type": "cbc:IssueDate",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuetime": {
       "name": "IssueTime",
       "type": "cbc:IssueTime",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "note": {
       "name": "Note",
       "type": "cbc:Note",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "documentcurrencycode": {
       "name": "DocumentCurrencyCode",
       "type": "cbc:DocumentCurrencyCode",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "activityperiod": {
       "name": "ActivityPeriod",
       "type": "cac:ActivityPeriod",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "documentreference": {
       "name": "DocumentReference",
       "type": "cac:DocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "copyindicator": {
+          "name": "CopyIndicator",
+          "type": "cbc:CopyIndicator",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "uuid": {
+          "name": "UUID",
+          "type": "cbc:UUID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "issuedate": {
+          "name": "IssueDate",
+          "type": "cbc:IssueDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "issuetime": {
+          "name": "IssueTime",
+          "type": "cbc:IssueTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "documenttypecode": {
+          "name": "DocumentTypeCode",
+          "type": "cbc:DocumentTypeCode",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "documenttype": {
+          "name": "DocumentType",
+          "type": "cbc:DocumentType",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "xpath": {
+          "name": "XPath",
+          "type": "cbc:XPath",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "languageid": {
+          "name": "LanguageID",
+          "type": "cbc:LanguageID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "localecode": {
+          "name": "LocaleCode",
+          "type": "cbc:LocaleCode",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "versionid": {
+          "name": "VersionID",
+          "type": "cbc:VersionID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "documentstatuscode": {
+          "name": "DocumentStatusCode",
+          "type": "cbc:DocumentStatusCode",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "documentdescription": {
+          "name": "DocumentDescription",
+          "type": "cbc:DocumentDescription",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "attachment": {
+          "name": "Attachment",
+          "type": "cac:Attachment",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "embeddeddocumentbinaryobject": {
+              "name": "EmbeddedDocumentBinaryObject",
+              "type": "cbc:EmbeddedDocumentBinaryObject",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "externalreference": {
+              "name": "ExternalReference",
+              "type": "cac:ExternalReference",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {
+                "uri": {
+                  "name": "URI",
+                  "type": "cbc:URI",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "documenthash": {
+                  "name": "DocumentHash",
+                  "type": "cbc:DocumentHash",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "hashalgorithmmethod": {
+                  "name": "HashAlgorithmMethod",
+                  "type": "cbc:HashAlgorithmMethod",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "expirydate": {
+                  "name": "ExpiryDate",
+                  "type": "cbc:ExpiryDate",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "expirytime": {
+                  "name": "ExpiryTime",
+                  "type": "cbc:ExpiryTime",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "mimecode": {
+                  "name": "MimeCode",
+                  "type": "cbc:MimeCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "formatcode": {
+                  "name": "FormatCode",
+                  "type": "cbc:FormatCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "encodingcode": {
+                  "name": "EncodingCode",
+                  "type": "cbc:EncodingCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "charactersetcode": {
+                  "name": "CharacterSetCode",
+                  "type": "cbc:CharacterSetCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "filename": {
+                  "name": "FileName",
+                  "type": "cbc:FileName",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "description": {
+                  "name": "Description",
+                  "type": "cbc:Description",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                }
+              }
+            }
+          }
+        },
+        "validityperiod": {
+          "name": "ValidityPeriod",
+          "type": "cac:ValidityPeriod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "issuerparty": {
+          "name": "IssuerParty",
+          "type": "cac:IssuerParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "resultofverification": {
+          "name": "ResultOfVerification",
+          "type": "cac:ResultOfVerification",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "validatorid": {
+              "name": "ValidatorID",
+              "type": "cbc:ValidatorID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validationresultcode": {
+              "name": "ValidationResultCode",
+              "type": "cbc:ValidationResultCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validationdate": {
+              "name": "ValidationDate",
+              "type": "cbc:ValidationDate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validationtime": {
+              "name": "ValidationTime",
+              "type": "cbc:ValidationTime",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validateprocess": {
+              "name": "ValidateProcess",
+              "type": "cbc:ValidateProcess",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validatetool": {
+              "name": "ValidateTool",
+              "type": "cbc:ValidateTool",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "validatetoolversion": {
+              "name": "ValidateToolVersion",
+              "type": "cbc:ValidateToolVersion",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "signatoryparty": {
+              "name": "SignatoryParty",
+              "type": "cac:SignatoryParty",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     },
     "signature": {
       "name": "Signature",
       "type": "cac:Signature",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "note": {
+          "name": "Note",
+          "type": "cbc:Note",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "validationdate": {
+          "name": "ValidationDate",
+          "type": "cbc:ValidationDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validationtime": {
+          "name": "ValidationTime",
+          "type": "cbc:ValidationTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validatorid": {
+          "name": "ValidatorID",
+          "type": "cbc:ValidatorID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "canonicalizationmethod": {
+          "name": "CanonicalizationMethod",
+          "type": "cbc:CanonicalizationMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signaturemethod": {
+          "name": "SignatureMethod",
+          "type": "cbc:SignatureMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signatoryparty": {
+          "name": "SignatoryParty",
+          "type": "cac:SignatoryParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "digitalsignatureattachment": {
+          "name": "DigitalSignatureAttachment",
+          "type": "cac:DigitalSignatureAttachment",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "originaldocumentreference": {
+          "name": "OriginalDocumentReference",
+          "type": "cac:OriginalDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        }
+      }
     },
     "senderparty": {
       "name": "SenderParty",
       "type": "cac:SenderParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "receiverparty": {
       "name": "ReceiverParty",
       "type": "cac:ReceiverParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "supplychainactivitydataline": {
       "name": "SupplyChainActivityDataLine",
       "type": "cac:SupplyChainActivityDataLine",
       "minOccurs": "1",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     }
   }
 }

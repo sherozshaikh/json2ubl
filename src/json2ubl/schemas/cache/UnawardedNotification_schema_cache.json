@@ -73,121 +73,1575 @@
       "name": "UBLExtensions",
       "type": "ext:UBLExtensions",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "name": "UBLExtension",
+          "type": "UBLExtension",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "name": {
+              "name": "Name",
+              "type": "cbc:Name",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyid": {
+              "name": "ExtensionAgencyID",
+              "type": "ExtensionAgencyID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyname": {
+              "name": "ExtensionAgencyName",
+              "type": "ExtensionAgencyName",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionversionid": {
+              "name": "ExtensionVersionID",
+              "type": "ExtensionVersionID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyuri": {
+              "name": "ExtensionAgencyURI",
+              "type": "ExtensionAgencyURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionuri": {
+              "name": "ExtensionURI",
+              "type": "ExtensionURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreasoncode": {
+              "name": "ExtensionReasonCode",
+              "type": "ExtensionReasonCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreason": {
+              "name": "ExtensionReason",
+              "type": "ExtensionReason",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensioncontent": {
+              "name": "ExtensionContent",
+              "type": "ExtensionContent",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     },
     "ublversionid": {
       "name": "UBLVersionID",
       "type": "cbc:UBLVersionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "customizationid": {
       "name": "CustomizationID",
       "type": "cbc:CustomizationID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileid": {
       "name": "ProfileID",
       "type": "cbc:ProfileID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileexecutionid": {
       "name": "ProfileExecutionID",
       "type": "cbc:ProfileExecutionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "id": {
       "name": "ID",
       "type": "cbc:ID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "copyindicator": {
       "name": "CopyIndicator",
       "type": "cbc:CopyIndicator",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "uuid": {
       "name": "UUID",
       "type": "cbc:UUID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "contractfolderid": {
       "name": "ContractFolderID",
       "type": "cbc:ContractFolderID",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuedate": {
       "name": "IssueDate",
       "type": "cbc:IssueDate",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuetime": {
       "name": "IssueTime",
       "type": "cbc:IssueTime",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "contractname": {
       "name": "ContractName",
       "type": "cbc:ContractName",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "note": {
       "name": "Note",
       "type": "cbc:Note",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "signature": {
       "name": "Signature",
       "type": "cac:Signature",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "note": {
+          "name": "Note",
+          "type": "cbc:Note",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "validationdate": {
+          "name": "ValidationDate",
+          "type": "cbc:ValidationDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validationtime": {
+          "name": "ValidationTime",
+          "type": "cbc:ValidationTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validatorid": {
+          "name": "ValidatorID",
+          "type": "cbc:ValidatorID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "canonicalizationmethod": {
+          "name": "CanonicalizationMethod",
+          "type": "cbc:CanonicalizationMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signaturemethod": {
+          "name": "SignatureMethod",
+          "type": "cbc:SignatureMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signatoryparty": {
+          "name": "SignatoryParty",
+          "type": "cac:SignatoryParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "digitalsignatureattachment": {
+          "name": "DigitalSignatureAttachment",
+          "type": "cac:DigitalSignatureAttachment",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "originaldocumentreference": {
+          "name": "OriginalDocumentReference",
+          "type": "cac:OriginalDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        }
+      }
     },
     "senderparty": {
       "name": "SenderParty",
       "type": "cac:SenderParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "receiverparty": {
       "name": "ReceiverParty",
       "type": "cac:ReceiverParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "minutesdocumentreference": {
       "name": "MinutesDocumentReference",
       "type": "cac:MinutesDocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "additionaldocumentreference": {
       "name": "AdditionalDocumentReference",
       "type": "cac:AdditionalDocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "tenderresult": {
       "name": "TenderResult",
       "type": "cac:TenderResult",
       "minOccurs": "1",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "tenderresultcode": {
+          "name": "TenderResultCode",
+          "type": "cbc:TenderResultCode",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "description": {
+          "name": "Description",
+          "type": "cbc:Description",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "advertisementamount": {
+          "name": "AdvertisementAmount",
+          "type": "cbc:AdvertisementAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "awarddate": {
+          "name": "AwardDate",
+          "type": "cbc:AwardDate",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "awardtime": {
+          "name": "AwardTime",
+          "type": "cbc:AwardTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "receivedtenderquantity": {
+          "name": "ReceivedTenderQuantity",
+          "type": "cbc:ReceivedTenderQuantity",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "lowertenderamount": {
+          "name": "LowerTenderAmount",
+          "type": "cbc:LowerTenderAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "highertenderamount": {
+          "name": "HigherTenderAmount",
+          "type": "cbc:HigherTenderAmount",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "startdate": {
+          "name": "StartDate",
+          "type": "cbc:StartDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "receivedelectronictenderquantity": {
+          "name": "ReceivedElectronicTenderQuantity",
+          "type": "cbc:ReceivedElectronicTenderQuantity",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "receivedforeigntenderquantity": {
+          "name": "ReceivedForeignTenderQuantity",
+          "type": "cbc:ReceivedForeignTenderQuantity",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "contract": {
+          "name": "Contract",
+          "type": "cac:Contract",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuedate": {
+              "name": "IssueDate",
+              "type": "cbc:IssueDate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "issuetime": {
+              "name": "IssueTime",
+              "type": "cbc:IssueTime",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "nominationdate": {
+              "name": "NominationDate",
+              "type": "cbc:NominationDate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "nominationtime": {
+              "name": "NominationTime",
+              "type": "cbc:NominationTime",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "contracttypecode": {
+              "name": "ContractTypeCode",
+              "type": "cbc:ContractTypeCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "contracttype": {
+              "name": "ContractType",
+              "type": "cbc:ContractType",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {
+                "id": {
+                  "name": "ID",
+                  "type": "cbc:ID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "issuedate": {
+                  "name": "IssueDate",
+                  "type": "cbc:IssueDate",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "issuetime": {
+                  "name": "IssueTime",
+                  "type": "cbc:IssueTime",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "nominationdate": {
+                  "name": "NominationDate",
+                  "type": "cbc:NominationDate",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "nominationtime": {
+                  "name": "NominationTime",
+                  "type": "cbc:NominationTime",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "contracttypecode": {
+                  "name": "ContractTypeCode",
+                  "type": "cbc:ContractTypeCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "contracttype": {
+                  "name": "ContractType",
+                  "type": "cbc:ContractType",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "note": {
+                  "name": "Note",
+                  "type": "cbc:Note",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "versionid": {
+                  "name": "VersionID",
+                  "type": "cbc:VersionID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "description": {
+                  "name": "Description",
+                  "type": "cbc:Description",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "validityperiod": {
+                  "name": "ValidityPeriod",
+                  "type": "cac:ValidityPeriod",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "contractdocumentreference": {
+                  "name": "ContractDocumentReference",
+                  "type": "cac:ContractDocumentReference",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {}
+                },
+                "nominationperiod": {
+                  "name": "NominationPeriod",
+                  "type": "cac:NominationPeriod",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "contractualdelivery": {
+                  "name": "ContractualDelivery",
+                  "type": "cac:ContractualDelivery",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                }
+              }
+            },
+            "note": {
+              "name": "Note",
+              "type": "cbc:Note",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {}
+            },
+            "versionid": {
+              "name": "VersionID",
+              "type": "cbc:VersionID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "description": {
+              "name": "Description",
+              "type": "cbc:Description",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {}
+            },
+            "validityperiod": {
+              "name": "ValidityPeriod",
+              "type": "cac:ValidityPeriod",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "contractdocumentreference": {
+              "name": "ContractDocumentReference",
+              "type": "cac:ContractDocumentReference",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {}
+            },
+            "nominationperiod": {
+              "name": "NominationPeriod",
+              "type": "cac:NominationPeriod",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "contractualdelivery": {
+              "name": "ContractualDelivery",
+              "type": "cac:ContractualDelivery",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        },
+        "awardedtenderedproject": {
+          "name": "AwardedTenderedProject",
+          "type": "cac:AwardedTenderedProject",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "contractformalizationperiod": {
+          "name": "ContractFormalizationPeriod",
+          "type": "cac:ContractFormalizationPeriod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "subcontractterms": {
+          "name": "SubcontractTerms",
+          "type": "cac:SubcontractTerms",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "rate": {
+              "name": "Rate",
+              "type": "cbc:Rate",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "unknownpriceindicator": {
+              "name": "UnknownPriceIndicator",
+              "type": "cbc:UnknownPriceIndicator",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "description": {
+              "name": "Description",
+              "type": "cbc:Description",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {}
+            },
+            "amount": {
+              "name": "Amount",
+              "type": "cbc:Amount",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "subcontractingconditionscode": {
+              "name": "SubcontractingConditionsCode",
+              "type": "cbc:SubcontractingConditionsCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "maximumpercent": {
+              "name": "MaximumPercent",
+              "type": "cbc:MaximumPercent",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "minimumpercent": {
+              "name": "MinimumPercent",
+              "type": "cbc:MinimumPercent",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        },
+        "winningparty": {
+          "name": "WinningParty",
+          "type": "cac:WinningParty",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "rank": {
+              "name": "Rank",
+              "type": "cbc:Rank",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "party": {
+              "name": "Party",
+              "type": "cac:Party",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {
+                "markcareindicator": {
+                  "name": "MarkCareIndicator",
+                  "type": "cbc:MarkCareIndicator",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "markattentionindicator": {
+                  "name": "MarkAttentionIndicator",
+                  "type": "cbc:MarkAttentionIndicator",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "websiteuri": {
+                  "name": "WebsiteURI",
+                  "type": "cbc:WebsiteURI",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "logoreferenceid": {
+                  "name": "LogoReferenceID",
+                  "type": "cbc:LogoReferenceID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "endpointid": {
+                  "name": "EndpointID",
+                  "type": "cbc:EndpointID",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "industryclassificationcode": {
+                  "name": "IndustryClassificationCode",
+                  "type": "cbc:IndustryClassificationCode",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "partyidentification": {
+                  "name": "PartyIdentification",
+                  "type": "cac:PartyIdentification",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "partyname": {
+                  "name": "PartyName",
+                  "type": "cac:PartyName",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "name": {
+                      "name": "Name",
+                      "type": "cbc:Name",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "language": {
+                  "name": "Language",
+                  "type": "cac:Language",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "name": {
+                      "name": "Name",
+                      "type": "cbc:Name",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "localecode": {
+                      "name": "LocaleCode",
+                      "type": "cbc:LocaleCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "postaladdress": {
+                  "name": "PostalAddress",
+                  "type": "cac:PostalAddress",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "physicallocation": {
+                  "name": "PhysicalLocation",
+                  "type": "cac:PhysicalLocation",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "partytaxscheme": {
+                  "name": "PartyTaxScheme",
+                  "type": "cac:PartyTaxScheme",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "registrationname": {
+                      "name": "RegistrationName",
+                      "type": "cbc:RegistrationName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "companyid": {
+                      "name": "CompanyID",
+                      "type": "cbc:CompanyID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxlevelcode": {
+                      "name": "TaxLevelCode",
+                      "type": "cbc:TaxLevelCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "exemptionreasoncode": {
+                      "name": "ExemptionReasonCode",
+                      "type": "cbc:ExemptionReasonCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "exemptionreason": {
+                      "name": "ExemptionReason",
+                      "type": "cbc:ExemptionReason",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "registrationaddress": {
+                      "name": "RegistrationAddress",
+                      "type": "cac:RegistrationAddress",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "taxscheme": {
+                      "name": "TaxScheme",
+                      "type": "cac:TaxScheme",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "taxtypecode": {
+                          "name": "TaxTypeCode",
+                          "type": "cbc:TaxTypeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "currencycode": {
+                          "name": "CurrencyCode",
+                          "type": "cbc:CurrencyCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "jurisdictionregionaddress": {
+                          "name": "JurisdictionRegionAddress",
+                          "type": "cac:JurisdictionRegionAddress",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "partylegalentity": {
+                  "name": "PartyLegalEntity",
+                  "type": "cac:PartyLegalEntity",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "registrationname": {
+                      "name": "RegistrationName",
+                      "type": "cbc:RegistrationName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "companyid": {
+                      "name": "CompanyID",
+                      "type": "cbc:CompanyID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "registrationdate": {
+                      "name": "RegistrationDate",
+                      "type": "cbc:RegistrationDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "registrationexpirationdate": {
+                      "name": "RegistrationExpirationDate",
+                      "type": "cbc:RegistrationExpirationDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "companylegalformcode": {
+                      "name": "CompanyLegalFormCode",
+                      "type": "cbc:CompanyLegalFormCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "companylegalform": {
+                      "name": "CompanyLegalForm",
+                      "type": "cbc:CompanyLegalForm",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "soleproprietorshipindicator": {
+                      "name": "SoleProprietorshipIndicator",
+                      "type": "cbc:SoleProprietorshipIndicator",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "companyliquidationstatuscode": {
+                      "name": "CompanyLiquidationStatusCode",
+                      "type": "cbc:CompanyLiquidationStatusCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "corporatestockamount": {
+                      "name": "CorporateStockAmount",
+                      "type": "cbc:CorporateStockAmount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "fullypaidsharesindicator": {
+                      "name": "FullyPaidSharesIndicator",
+                      "type": "cbc:FullyPaidSharesIndicator",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "registrationaddress": {
+                      "name": "RegistrationAddress",
+                      "type": "cac:RegistrationAddress",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "corporateregistrationscheme": {
+                      "name": "CorporateRegistrationScheme",
+                      "type": "cac:CorporateRegistrationScheme",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "corporateregistrationtypecode": {
+                          "name": "CorporateRegistrationTypeCode",
+                          "type": "cbc:CorporateRegistrationTypeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "jurisdictionregionaddress": {
+                          "name": "JurisdictionRegionAddress",
+                          "type": "cac:JurisdictionRegionAddress",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        }
+                      }
+                    },
+                    "headofficeparty": {
+                      "name": "HeadOfficeParty",
+                      "type": "cac:HeadOfficeParty",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "shareholderparty": {
+                      "name": "ShareholderParty",
+                      "type": "cac:ShareholderParty",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {
+                        "partecipationpercent": {
+                          "name": "PartecipationPercent",
+                          "type": "cbc:PartecipationPercent",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "party": {
+                          "name": "Party",
+                          "type": "cac:Party",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "contact": {
+                  "name": "Contact",
+                  "type": "cac:Contact",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "name": {
+                      "name": "Name",
+                      "type": "cbc:Name",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "telephone": {
+                      "name": "Telephone",
+                      "type": "cbc:Telephone",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "telefax": {
+                      "name": "Telefax",
+                      "type": "cbc:Telefax",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "electronicmail": {
+                      "name": "ElectronicMail",
+                      "type": "cbc:ElectronicMail",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "note": {
+                      "name": "Note",
+                      "type": "cbc:Note",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "othercommunication": {
+                      "name": "OtherCommunication",
+                      "type": "cac:OtherCommunication",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "person": {
+                  "name": "Person",
+                  "type": "cac:Person",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "firstname": {
+                      "name": "FirstName",
+                      "type": "cbc:FirstName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "familyname": {
+                      "name": "FamilyName",
+                      "type": "cbc:FamilyName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "title": {
+                      "name": "Title",
+                      "type": "cbc:Title",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "middlename": {
+                      "name": "MiddleName",
+                      "type": "cbc:MiddleName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "othername": {
+                      "name": "OtherName",
+                      "type": "cbc:OtherName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "namesuffix": {
+                      "name": "NameSuffix",
+                      "type": "cbc:NameSuffix",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "jobtitle": {
+                      "name": "JobTitle",
+                      "type": "cbc:JobTitle",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "nationalityid": {
+                      "name": "NationalityID",
+                      "type": "cbc:NationalityID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "gendercode": {
+                      "name": "GenderCode",
+                      "type": "cbc:GenderCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "birthdate": {
+                      "name": "BirthDate",
+                      "type": "cbc:BirthDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "birthplacename": {
+                      "name": "BirthplaceName",
+                      "type": "cbc:BirthplaceName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "organizationdepartment": {
+                      "name": "OrganizationDepartment",
+                      "type": "cbc:OrganizationDepartment",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "contact": {
+                      "name": "Contact",
+                      "type": "cac:Contact",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "telephone": {
+                          "name": "Telephone",
+                          "type": "cbc:Telephone",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "telefax": {
+                          "name": "Telefax",
+                          "type": "cbc:Telefax",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "electronicmail": {
+                          "name": "ElectronicMail",
+                          "type": "cbc:ElectronicMail",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "note": {
+                          "name": "Note",
+                          "type": "cbc:Note",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        },
+                        "othercommunication": {
+                          "name": "OtherCommunication",
+                          "type": "cac:OtherCommunication",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        }
+                      }
+                    },
+                    "financialaccount": {
+                      "name": "FinancialAccount",
+                      "type": "cac:FinancialAccount",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "id": {
+                          "name": "ID",
+                          "type": "cbc:ID",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "aliasname": {
+                          "name": "AliasName",
+                          "type": "cbc:AliasName",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "accounttypecode": {
+                          "name": "AccountTypeCode",
+                          "type": "cbc:AccountTypeCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "accountformatcode": {
+                          "name": "AccountFormatCode",
+                          "type": "cbc:AccountFormatCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "currencycode": {
+                          "name": "CurrencyCode",
+                          "type": "cbc:CurrencyCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "paymentnote": {
+                          "name": "PaymentNote",
+                          "type": "cbc:PaymentNote",
+                          "minOccurs": "0",
+                          "maxOccurs": "unbounded",
+                          "nested_elements": {}
+                        },
+                        "financialinstitutionbranch": {
+                          "name": "FinancialInstitutionBranch",
+                          "type": "cac:FinancialInstitutionBranch",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "country": {
+                          "name": "Country",
+                          "type": "cac:Country",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "identificationcode": {
+                              "name": "IdentificationCode",
+                              "type": "cbc:IdentificationCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "name": {
+                              "name": "Name",
+                              "type": "cbc:Name",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "identitydocumentreference": {
+                      "name": "IdentityDocumentReference",
+                      "type": "cac:IdentityDocumentReference",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "residenceaddress": {
+                      "name": "ResidenceAddress",
+                      "type": "cac:ResidenceAddress",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "agentparty": {
+                  "name": "AgentParty",
+                  "type": "cac:AgentParty",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "serviceproviderparty": {
+                  "name": "ServiceProviderParty",
+                  "type": "cac:ServiceProviderParty",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "servicetypecode": {
+                      "name": "ServiceTypeCode",
+                      "type": "cbc:ServiceTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "servicetype": {
+                      "name": "ServiceType",
+                      "type": "cbc:ServiceType",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "party": {
+                      "name": "Party",
+                      "type": "cac:Party",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "sellercontact": {
+                      "name": "SellerContact",
+                      "type": "cac:SellerContact",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "powerofattorney": {
+                  "name": "PowerOfAttorney",
+                  "type": "cac:PowerOfAttorney",
+                  "minOccurs": "0",
+                  "maxOccurs": "unbounded",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "issuedate": {
+                      "name": "IssueDate",
+                      "type": "cbc:IssueDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "issuetime": {
+                      "name": "IssueTime",
+                      "type": "cbc:IssueTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "description": {
+                      "name": "Description",
+                      "type": "cbc:Description",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "notaryparty": {
+                      "name": "NotaryParty",
+                      "type": "cac:NotaryParty",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "agentparty": {
+                      "name": "AgentParty",
+                      "type": "cac:AgentParty",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "witnessparty": {
+                      "name": "WitnessParty",
+                      "type": "cac:WitnessParty",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "mandatedocumentreference": {
+                      "name": "MandateDocumentReference",
+                      "type": "cac:MandateDocumentReference",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "financialaccount": {
+                  "name": "FinancialAccount",
+                  "type": "cac:FinancialAccount",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "id": {
+                      "name": "ID",
+                      "type": "cbc:ID",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "name": {
+                      "name": "Name",
+                      "type": "cbc:Name",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "aliasname": {
+                      "name": "AliasName",
+                      "type": "cbc:AliasName",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "accounttypecode": {
+                      "name": "AccountTypeCode",
+                      "type": "cbc:AccountTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "accountformatcode": {
+                      "name": "AccountFormatCode",
+                      "type": "cbc:AccountFormatCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "currencycode": {
+                      "name": "CurrencyCode",
+                      "type": "cbc:CurrencyCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "paymentnote": {
+                      "name": "PaymentNote",
+                      "type": "cbc:PaymentNote",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "financialinstitutionbranch": {
+                      "name": "FinancialInstitutionBranch",
+                      "type": "cac:FinancialInstitutionBranch",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "country": {
+                      "name": "Country",
+                      "type": "cac:Country",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {
+                        "identificationcode": {
+                          "name": "IdentificationCode",
+                          "type": "cbc:IdentificationCode",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "name": {
+                          "name": "Name",
+                          "type": "cbc:Name",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "appealterms": {
       "name": "AppealTerms",
       "type": "cac:AppealTerms",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "description": {
+          "name": "Description",
+          "type": "cbc:Description",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "presentationperiod": {
+          "name": "PresentationPeriod",
+          "type": "cac:PresentationPeriod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "appealinformationparty": {
+          "name": "AppealInformationParty",
+          "type": "cac:AppealInformationParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "appealreceiverparty": {
+          "name": "AppealReceiverParty",
+          "type": "cac:AppealReceiverParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "mediationparty": {
+          "name": "MediationParty",
+          "type": "cac:MediationParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        }
+      }
     }
   }
 }

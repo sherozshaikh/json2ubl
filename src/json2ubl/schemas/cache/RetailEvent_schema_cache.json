@@ -73,157 +73,817 @@
       "name": "UBLExtensions",
       "type": "ext:UBLExtensions",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "ublextension": {
+          "name": "UBLExtension",
+          "type": "UBLExtension",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "id": {
+              "name": "ID",
+              "type": "cbc:ID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "name": {
+              "name": "Name",
+              "type": "cbc:Name",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyid": {
+              "name": "ExtensionAgencyID",
+              "type": "ExtensionAgencyID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyname": {
+              "name": "ExtensionAgencyName",
+              "type": "ExtensionAgencyName",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionversionid": {
+              "name": "ExtensionVersionID",
+              "type": "ExtensionVersionID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionagencyuri": {
+              "name": "ExtensionAgencyURI",
+              "type": "ExtensionAgencyURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionuri": {
+              "name": "ExtensionURI",
+              "type": "ExtensionURI",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreasoncode": {
+              "name": "ExtensionReasonCode",
+              "type": "ExtensionReasonCode",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensionreason": {
+              "name": "ExtensionReason",
+              "type": "ExtensionReason",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "extensioncontent": {
+              "name": "ExtensionContent",
+              "type": "ExtensionContent",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     },
     "ublversionid": {
       "name": "UBLVersionID",
       "type": "cbc:UBLVersionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "customizationid": {
       "name": "CustomizationID",
       "type": "cbc:CustomizationID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileid": {
       "name": "ProfileID",
       "type": "cbc:ProfileID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "profileexecutionid": {
       "name": "ProfileExecutionID",
       "type": "cbc:ProfileExecutionID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "id": {
       "name": "ID",
       "type": "cbc:ID",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "copyindicator": {
       "name": "CopyIndicator",
       "type": "cbc:CopyIndicator",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "uuid": {
       "name": "UUID",
       "type": "cbc:UUID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuedate": {
       "name": "IssueDate",
       "type": "cbc:IssueDate",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "issuetime": {
       "name": "IssueTime",
       "type": "cbc:IssueTime",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "note": {
       "name": "Note",
       "type": "cbc:Note",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "retaileventname": {
       "name": "RetailEventName",
       "type": "cbc:RetailEventName",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "retaileventstatuscode": {
       "name": "RetailEventStatusCode",
       "type": "cbc:RetailEventStatusCode",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "sellereventid": {
       "name": "SellerEventID",
       "type": "cbc:SellerEventID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "buyereventid": {
       "name": "BuyerEventID",
       "type": "cbc:BuyerEventID",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "description": {
       "name": "Description",
       "type": "cbc:Description",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "period": {
       "name": "Period",
       "type": "cac:Period",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "startdate": {
+          "name": "StartDate",
+          "type": "cbc:StartDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "starttime": {
+          "name": "StartTime",
+          "type": "cbc:StartTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "enddate": {
+          "name": "EndDate",
+          "type": "cbc:EndDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "endtime": {
+          "name": "EndTime",
+          "type": "cbc:EndTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "durationmeasure": {
+          "name": "DurationMeasure",
+          "type": "cbc:DurationMeasure",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "descriptioncode": {
+          "name": "DescriptionCode",
+          "type": "cbc:DescriptionCode",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "description": {
+          "name": "Description",
+          "type": "cbc:Description",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        }
+      }
     },
     "originaldocumentreference": {
       "name": "OriginalDocumentReference",
       "type": "cac:OriginalDocumentReference",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {}
     },
     "signature": {
       "name": "Signature",
       "type": "cac:Signature",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "id": {
+          "name": "ID",
+          "type": "cbc:ID",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "note": {
+          "name": "Note",
+          "type": "cbc:Note",
+          "minOccurs": "0",
+          "maxOccurs": "unbounded",
+          "nested_elements": {}
+        },
+        "validationdate": {
+          "name": "ValidationDate",
+          "type": "cbc:ValidationDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validationtime": {
+          "name": "ValidationTime",
+          "type": "cbc:ValidationTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "validatorid": {
+          "name": "ValidatorID",
+          "type": "cbc:ValidatorID",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "canonicalizationmethod": {
+          "name": "CanonicalizationMethod",
+          "type": "cbc:CanonicalizationMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signaturemethod": {
+          "name": "SignatureMethod",
+          "type": "cbc:SignatureMethod",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "signatoryparty": {
+          "name": "SignatoryParty",
+          "type": "cac:SignatoryParty",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "digitalsignatureattachment": {
+          "name": "DigitalSignatureAttachment",
+          "type": "cac:DigitalSignatureAttachment",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "originaldocumentreference": {
+          "name": "OriginalDocumentReference",
+          "type": "cac:OriginalDocumentReference",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        }
+      }
     },
     "senderparty": {
       "name": "SenderParty",
       "type": "cac:SenderParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "receiverparty": {
       "name": "ReceiverParty",
       "type": "cac:ReceiverParty",
       "minOccurs": "1",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "buyercustomerparty": {
       "name": "BuyerCustomerParty",
       "type": "cac:BuyerCustomerParty",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "sellersupplierparty": {
       "name": "SellerSupplierParty",
       "type": "cac:SellerSupplierParty",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {}
     },
     "eventcomment": {
       "name": "EventComment",
       "type": "cac:EventComment",
       "minOccurs": "0",
-      "maxOccurs": "unbounded"
+      "maxOccurs": "unbounded",
+      "nested_elements": {
+        "comment": {
+          "name": "Comment",
+          "type": "cbc:Comment",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "issuedate": {
+          "name": "IssueDate",
+          "type": "cbc:IssueDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "issuetime": {
+          "name": "IssueTime",
+          "type": "cbc:IssueTime",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        }
+      }
     },
     "promotionalevent": {
       "name": "PromotionalEvent",
       "type": "cac:PromotionalEvent",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "promotionaleventtypecode": {
+          "name": "PromotionalEventTypeCode",
+          "type": "cbc:PromotionalEventTypeCode",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "submissiondate": {
+          "name": "SubmissionDate",
+          "type": "cbc:SubmissionDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "firstshipmentavailibilitydate": {
+          "name": "FirstShipmentAvailibilityDate",
+          "type": "cbc:FirstShipmentAvailibilityDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "latestproposalacceptancedate": {
+          "name": "LatestProposalAcceptanceDate",
+          "type": "cbc:LatestProposalAcceptanceDate",
+          "minOccurs": "0",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "promotionalspecification": {
+          "name": "PromotionalSpecification",
+          "type": "cac:PromotionalSpecification",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "specificationid": {
+              "name": "SpecificationID",
+              "type": "cbc:SpecificationID",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "promotionaleventlineitem": {
+              "name": "PromotionalEventLineItem",
+              "type": "cac:PromotionalEventLineItem",
+              "minOccurs": "1",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "amount": {
+                  "name": "Amount",
+                  "type": "cbc:Amount",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "eventlineitem": {
+                  "name": "EventLineItem",
+                  "type": "cac:EventLineItem",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "linenumbernumeric": {
+                      "name": "LineNumberNumeric",
+                      "type": "cbc:LineNumberNumeric",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "participatinglocationslocation": {
+                      "name": "ParticipatingLocationsLocation",
+                      "type": "cac:ParticipatingLocationsLocation",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "retailplannedimpact": {
+                      "name": "RetailPlannedImpact",
+                      "type": "cac:RetailPlannedImpact",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {
+                        "amount": {
+                          "name": "Amount",
+                          "type": "cbc:Amount",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "forecastpurposecode": {
+                          "name": "ForecastPurposeCode",
+                          "type": "cbc:ForecastPurposeCode",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "forecasttypecode": {
+                          "name": "ForecastTypeCode",
+                          "type": "cbc:ForecastTypeCode",
+                          "minOccurs": "1",
+                          "maxOccurs": "1",
+                          "nested_elements": {}
+                        },
+                        "period": {
+                          "name": "Period",
+                          "type": "cac:Period",
+                          "minOccurs": "0",
+                          "maxOccurs": "1",
+                          "nested_elements": {
+                            "startdate": {
+                              "name": "StartDate",
+                              "type": "cbc:StartDate",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "starttime": {
+                              "name": "StartTime",
+                              "type": "cbc:StartTime",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "enddate": {
+                              "name": "EndDate",
+                              "type": "cbc:EndDate",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "endtime": {
+                              "name": "EndTime",
+                              "type": "cbc:EndTime",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "durationmeasure": {
+                              "name": "DurationMeasure",
+                              "type": "cbc:DurationMeasure",
+                              "minOccurs": "0",
+                              "maxOccurs": "1",
+                              "nested_elements": {}
+                            },
+                            "descriptioncode": {
+                              "name": "DescriptionCode",
+                              "type": "cbc:DescriptionCode",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            },
+                            "description": {
+                              "name": "Description",
+                              "type": "cbc:Description",
+                              "minOccurs": "0",
+                              "maxOccurs": "unbounded",
+                              "nested_elements": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "supplyitem": {
+                      "name": "SupplyItem",
+                      "type": "cac:SupplyItem",
+                      "minOccurs": "1",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                }
+              }
+            },
+            "eventtactic": {
+              "name": "EventTactic",
+              "type": "cac:EventTactic",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "comment": {
+                  "name": "Comment",
+                  "type": "cbc:Comment",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "quantity": {
+                  "name": "Quantity",
+                  "type": "cbc:Quantity",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "eventtacticenumeration": {
+                  "name": "EventTacticEnumeration",
+                  "type": "cac:EventTacticEnumeration",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "consumerincentivetactictypecode": {
+                      "name": "ConsumerIncentiveTacticTypeCode",
+                      "type": "cbc:ConsumerIncentiveTacticTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "displaytactictypecode": {
+                      "name": "DisplayTacticTypeCode",
+                      "type": "cbc:DisplayTacticTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "featuretactictypecode": {
+                      "name": "FeatureTacticTypeCode",
+                      "type": "cbc:FeatureTacticTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "tradeitempackinglabelingtypecode": {
+                      "name": "TradeItemPackingLabelingTypeCode",
+                      "type": "cbc:TradeItemPackingLabelingTypeCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    }
+                  }
+                },
+                "period": {
+                  "name": "Period",
+                  "type": "cac:Period",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "startdate": {
+                      "name": "StartDate",
+                      "type": "cbc:StartDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "starttime": {
+                      "name": "StartTime",
+                      "type": "cbc:StartTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "enddate": {
+                      "name": "EndDate",
+                      "type": "cbc:EndDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "endtime": {
+                      "name": "EndTime",
+                      "type": "cbc:EndTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "durationmeasure": {
+                      "name": "DurationMeasure",
+                      "type": "cbc:DurationMeasure",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "descriptioncode": {
+                      "name": "DescriptionCode",
+                      "type": "cbc:DescriptionCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "description": {
+                      "name": "Description",
+                      "type": "cbc:Description",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "miscellaneousevent": {
       "name": "MiscellaneousEvent",
       "type": "cac:MiscellaneousEvent",
       "minOccurs": "0",
-      "maxOccurs": "1"
+      "maxOccurs": "1",
+      "nested_elements": {
+        "miscellaneouseventtypecode": {
+          "name": "MiscellaneousEventTypeCode",
+          "type": "cbc:MiscellaneousEventTypeCode",
+          "minOccurs": "1",
+          "maxOccurs": "1",
+          "nested_elements": {}
+        },
+        "eventlineitem": {
+          "name": "EventLineItem",
+          "type": "cac:EventLineItem",
+          "minOccurs": "1",
+          "maxOccurs": "unbounded",
+          "nested_elements": {
+            "linenumbernumeric": {
+              "name": "LineNumberNumeric",
+              "type": "cbc:LineNumberNumeric",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "participatinglocationslocation": {
+              "name": "ParticipatingLocationsLocation",
+              "type": "cac:ParticipatingLocationsLocation",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            },
+            "retailplannedimpact": {
+              "name": "RetailPlannedImpact",
+              "type": "cac:RetailPlannedImpact",
+              "minOccurs": "0",
+              "maxOccurs": "unbounded",
+              "nested_elements": {
+                "amount": {
+                  "name": "Amount",
+                  "type": "cbc:Amount",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "forecastpurposecode": {
+                  "name": "ForecastPurposeCode",
+                  "type": "cbc:ForecastPurposeCode",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "forecasttypecode": {
+                  "name": "ForecastTypeCode",
+                  "type": "cbc:ForecastTypeCode",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "nested_elements": {}
+                },
+                "period": {
+                  "name": "Period",
+                  "type": "cac:Period",
+                  "minOccurs": "0",
+                  "maxOccurs": "1",
+                  "nested_elements": {
+                    "startdate": {
+                      "name": "StartDate",
+                      "type": "cbc:StartDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "starttime": {
+                      "name": "StartTime",
+                      "type": "cbc:StartTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "enddate": {
+                      "name": "EndDate",
+                      "type": "cbc:EndDate",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "endtime": {
+                      "name": "EndTime",
+                      "type": "cbc:EndTime",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "durationmeasure": {
+                      "name": "DurationMeasure",
+                      "type": "cbc:DurationMeasure",
+                      "minOccurs": "0",
+                      "maxOccurs": "1",
+                      "nested_elements": {}
+                    },
+                    "descriptioncode": {
+                      "name": "DescriptionCode",
+                      "type": "cbc:DescriptionCode",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    },
+                    "description": {
+                      "name": "Description",
+                      "type": "cbc:Description",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded",
+                      "nested_elements": {}
+                    }
+                  }
+                }
+              }
+            },
+            "supplyitem": {
+              "name": "SupplyItem",
+              "type": "cac:SupplyItem",
+              "minOccurs": "1",
+              "maxOccurs": "1",
+              "nested_elements": {}
+            }
+          }
+        }
+      }
     }
   }
 }
