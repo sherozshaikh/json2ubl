@@ -217,6 +217,35 @@ class XmlSerializer:
             else:
                 # Single element
                 if isinstance(data_value, dict):
+                    # Check if dict is attributes + text value (e.g., {"unitCode": "EA", "value": 2.0})
+                    # vs nested complex structure
+                    if "value" in data_value and not nested_elements:
+                        # Attributes + value pattern for simple types with attributes
+                        attrib = {k: str(v) for k, v in data_value.items() if k != "value"}
+                        text_value = str(data_value["value"])
+                        self._create_element(
+                            parent, element_name, parent_ns, text=text_value, attrib=attrib
+                        )
+                    else:
+                        # Complex nested element - recurse even if nested_elements empty
+                        child_elem = self._create_element(parent, element_name, parent_ns)
+                        self._serialize_recursive(
+                            child_elem, data_value, nested_elements, parent_ns, depth + 1
+                        )
+                elif isinstance(data_value, list) and data_value:
+                    # Take first if list provided for non-array field
+                    first = data_value[0]
+                    if isinstance(first, dict):
+                        child_elem = self._create_element(parent, element_name, parent_ns)
+                        self._serialize_recursive(
+                            child_elem, first, nested_elements, parent_ns, depth + 1
+                        )
+                    else:
+                        text_value = self._extract_value_for_field(first, element_type)
+                        self._create_element(parent, element_name, parent_ns, text=text_value)
+            else:
+                # Single element
+                if isinstance(data_value, dict):
                     # Complex nested element - recurse even if nested_elements empty
                     child_elem = self._create_element(parent, element_name, parent_ns)
                     self._serialize_recursive(

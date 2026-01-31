@@ -1,3 +1,5 @@
+import sys
+from io import StringIO
 from pathlib import Path
 from typing import Dict
 
@@ -93,7 +95,15 @@ class XmlValidator:
             )
             return True
 
-        if not schema.validate(root):
+        # Suppress stderr during validation (lxml writes errors to stderr)
+        old_stderr = sys.stderr
+        sys.stderr = StringIO()
+        try:
+            is_valid = schema.validate(root)
+        finally:
+            sys.stderr = old_stderr
+
+        if not is_valid:
             error_log = "\n".join(str(e) for e in schema.error_log)
             logger.error(f"XML validation failed for {document_type}:\n{error_log}")
             raise Json2UblValidationError(f"XML validation failed: {error_log}")
