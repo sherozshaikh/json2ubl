@@ -11,7 +11,7 @@ class TestIntegration:
 
     @pytest.fixture
     def test_files_dir(self):
-        return Path(__file__).parent.parent / "test_files"
+        return Path(__file__).parent / "test_files"
 
     def load_test_file(self, test_files_dir: Path, filename: str):
         """Load test file as list of dicts."""
