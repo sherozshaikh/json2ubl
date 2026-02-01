@@ -175,6 +175,8 @@ Convert JSON file and write XML files to disk.
 - Rolls back on partial failure
 - Atomic file operations with temp file staging
 
+**For detailed API documentation with input/output examples and error handling, see [API.md](docs/API.md)**
+
 ---
 
 ## 🛡️ Error Handling
