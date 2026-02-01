@@ -1,0 +1,6 @@
+src/json2ubl/schemas/cache/FreightInvoice_schema_cache.json filter=lfs diff=lfs merge=lfs -text
+src/json2ubl/schemas/cache/SelfBilledCreditNote_schema_cache.json filter=lfs diff=lfs merge=lfs -text
+src/json2ubl/schemas/cache/SelfBilledInvoice_schema_cache.json filter=lfs diff=lfs merge=lfs -text
+src/json2ubl/schemas/cache/DebitNote_schema_cache.json filter=lfs diff=lfs merge=lfs -text
+src/json2ubl/schemas/cache/CreditNote_schema_cache.json filter=lfs diff=lfs merge=lfs -text
+src/json2ubl/schemas/cache/Invoice_schema_cache.json filter=lfs diff=lfs merge=lfs -text
