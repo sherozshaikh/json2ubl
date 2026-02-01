@@ -1,11 +1,3 @@
-"""
-Generic, schema-driven UBL document serializer.
-
-Converts UBL document dicts to XML recursively following schema structure.
-No hardcoded element mappings, no document-type-specific logic.
-Works with any UBL 2.1 document type (60+ types).
-"""
-
 from collections import OrderedDict
 from typing import Any, Dict
 
@@ -15,13 +7,12 @@ from ..config import get_logger
 
 logger = get_logger(__name__)
 
-# Standard UBL namespace constants
+
 NS_CBC = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
 NS_CAC = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
 NS_EXT = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
 
 
-# Element name normalization mapping (case-insensitive to proper XML names)
 ELEMENT_NAME_MAPPING = {
     "streetname": "StreetName",
     "additionalstreetname": "AdditionalStreetName",
@@ -99,7 +90,6 @@ class XmlSerializer:
             nsmap = self._get_nsmap(root_namespace)
             root = etree.Element(f"{{{root_namespace}}}{root_element}", nsmap=nsmap)
 
-            # Extract document-level currency code for attribute population
             document_currency = doc.get("documentcurrencycode") or doc.get("documentCurrencyCode")
 
             schema_elements = self.schema_cache.get("elements", {})
@@ -152,13 +142,9 @@ class XmlSerializer:
         if not isinstance(data_dict, dict):
             return
 
-        # Normalize data dict keys to lowercase for lookup
         data_keys_lower = {k.lower(): k for k in data_dict.keys()}
 
         if not schema_spec:
-            # If schema spec is empty at depth > 1, it means we've gone deeper than
-            # the cached schema. This is OK - just skip this level and don't recurse.
-            # The data will still be there but won't be nested in the XML.
             if depth > 1:
                 logger.warning(
                     f"Schema spec is empty at depth={depth} - may have incomplete nesting"
@@ -167,14 +153,11 @@ class XmlSerializer:
             else:
                 raise ValueError("Schema spec is empty at root level - schema cache is broken")
 
-        # Process schema elements in order (schema defines the sequence)
         for schema_key_lower, schema_info in schema_spec.items():
-            # Skip metadata fields
             if schema_key_lower.startswith("_"):
                 continue
 
             try:
-                # Look for matching data key (case-insensitive)
                 data_key = data_keys_lower.get(schema_key_lower)
                 if data_key is None:
                     continue
@@ -185,36 +168,29 @@ class XmlSerializer:
 
                 data_value = data_dict[data_key]
 
-                # Get element info from schema EARLY so we can determine namespace
                 element_type = schema_info.get("type", "")
                 element_attributes = schema_info.get("_attributes", {})
 
-                # Determine correct namespace for this element based on its type
                 elem_ns = self._get_element_namespace(element_type, parent_ns)
 
-                # Get proper XML element name from schema cache (has correct UBL casing)
                 element_name = schema_info.get("name") or self._capitalize_element_name(
                     schema_key_lower
                 )
 
                 if data_value is None:
-                    # Preserve null fields as empty elements per A5 requirement
                     min_occurs = schema_info.get("minOccurs", "0")
                     if min_occurs == "1" or min_occurs == "true":
                         self._create_element(parent, element_name, elem_ns, text="")
                     continue
 
-                # Get remaining element info from schema
                 max_occurs = schema_info.get("maxOccurs", "1")
                 is_array = max_occurs == "unbounded"
                 nested_elements = schema_info.get("nested_elements", {})
 
                 if is_array:
-                    # Array: create multiple elements
                     if isinstance(data_value, list):
                         for item in data_value:
                             if element_attributes and isinstance(item, dict):
-                                # Simple type with attributes
                                 attribs = self._extract_attributes_from_data(
                                     item, element_attributes, document_currency
                                 )
@@ -227,7 +203,6 @@ class XmlSerializer:
                                     attrib=attribs,
                                 )
                             elif isinstance(item, dict):
-                                # Complex nested element - recurse even if nested_elements empty
                                 child_elem = self._create_element(parent, element_name, elem_ns)
                                 self._serialize_recursive(
                                     child_elem,
@@ -238,13 +213,10 @@ class XmlSerializer:
                                     document_currency=document_currency,
                                 )
                             else:
-                                # Simple element with text
                                 text_value = self._extract_value_for_field(item, element_type)
                                 self._create_element(parent, element_name, elem_ns, text=text_value)
                     else:
-                        # Single item, create one element
                         if element_attributes and isinstance(data_value, dict):
-                            # Simple type with attributes
                             attribs = self._extract_attributes_from_data(
                                 data_value, element_attributes, document_currency
                             )
@@ -270,9 +242,7 @@ class XmlSerializer:
                             text_value = self._extract_value_for_field(data_value, element_type)
                             self._create_element(parent, element_name, elem_ns, text=text_value)
                 else:
-                    # Single element
                     if element_attributes and isinstance(data_value, dict):
-                        # Simple type with attributes
                         attribs = self._extract_attributes_from_data(
                             data_value, element_attributes, document_currency
                         )
@@ -285,7 +255,6 @@ class XmlSerializer:
                             attrib=attribs,
                         )
                     elif isinstance(data_value, dict):
-                        # Complex nested element - recurse even if nested_elements empty
                         child_elem = self._create_element(parent, element_name, elem_ns)
                         self._serialize_recursive(
                             child_elem,
@@ -296,10 +265,8 @@ class XmlSerializer:
                             document_currency=document_currency,
                         )
                     elif isinstance(data_value, list) and data_value:
-                        # Take first if list provided for non-array field
                         first = data_value[0]
                         if element_attributes and isinstance(first, dict):
-                            # Simple type with attributes
                             attribs = self._extract_attributes_from_data(
                                 first, element_attributes, document_currency
                             )
@@ -325,10 +292,7 @@ class XmlSerializer:
                             text_value = self._extract_value_for_field(first, element_type)
                             self._create_element(parent, element_name, elem_ns, text=text_value)
                     else:
-                        # Simple scalar element
-                        # If the schema defines attributes, apply them even for scalar values
                         if element_attributes:
-                            # Create empty dict for attribute extraction (will use schema defaults)
                             attribs = self._extract_attributes_from_data(
                                 {}, element_attributes, document_currency
                             )
@@ -345,7 +309,6 @@ class XmlSerializer:
                             self._create_element(parent, element_name, elem_ns, text=text_value)
 
             except Exception as e:
-                # Type mismatch or serialization error - log warning and skip field
                 element_name = schema_info.get("name") or self._capitalize_element_name(
                     schema_key_lower
                 )
@@ -369,7 +332,6 @@ class XmlSerializer:
         for attr_name_lower, attr_info in schema_attributes.items():
             attr_value = data_dict.get(attr_name_lower)
 
-            # Fallback to document currency for currencyID if not in data
             if attr_value is None and attr_name_lower == "currencyid" and document_currency:
                 attr_value = document_currency
 
@@ -389,10 +351,8 @@ class XmlSerializer:
             logger.debug("_get_element_namespace: No element_type, returning parent_ns")
             return parent_ns
 
-        # Extract prefix (e.g., 'cbc' from 'cbc:UBLVersionID')
         prefix = element_type.split(":")[0] if ":" in element_type else None
 
-        # Map prefixes to full namespaces
         namespace_map = {
             "cbc": NS_CBC,
             "cac": NS_CAC,
@@ -400,9 +360,7 @@ class XmlSerializer:
         }
 
         result_ns = namespace_map.get(prefix, parent_ns)
-        # logger.debug(
-        #     f"_get_element_namespace: element_type={element_type}, prefix={prefix}, result_ns ends with={result_ns.split('/')[-1] if result_ns else 'NONE'}"
-        # )
+
         return result_ns
 
     def _extract_value_for_field(self, value: Any, element_type: str) -> str:

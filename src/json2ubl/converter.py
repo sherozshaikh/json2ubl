@@ -24,15 +24,10 @@ class Json2UblConverter:
 
     def __init__(self, config: UblConfig):
         self.config = config
-        # Cache for loaded schema caches per document type
         self._schema_caches: Dict[str, Dict[str, Any]] = {}
-        # Lock for thread-safe schema cache access
         self._schema_cache_lock = Lock()
-        # Cache for output directory write permissions (path -> is_writable)
         self._output_dir_cache: Dict[str, bool] = {}
-        # Lock for thread-safe output directory cache access
         self._output_dir_cache_lock = Lock()
-        # Persistent write permission cache file (in logs folder)
         logs_dir = Path("logs")
         logs_dir.mkdir(parents=True, exist_ok=True)
         self._permission_cache_file = logs_dir / "dir_permissions.json"
@@ -66,21 +61,16 @@ class Json2UblConverter:
         Uses cache for O(1) lookup, writes temp file for new directories.
         """
         path_str = str(output_path.resolve())
-
-        # Check cache without lock first (fast path)
         if path_str in self._output_dir_cache:
             return self._output_dir_cache[path_str]
 
-        # New path: test write permission with single lock acquisition
         try:
             output_path.mkdir(parents=True, exist_ok=True)
             temp_test_file = output_path / ".json2ubl_write_test"
             temp_test_file.write_text("")
             temp_test_file.unlink()
-            # Verify file was deleted
             if temp_test_file.exists():
                 raise OSError(f"Failed to delete temp test file: {temp_test_file}")
-            # Update cache with SINGLE lock (no nested locks)
             with self._output_dir_cache_lock:
                 self._output_dir_cache[path_str] = True
                 self._save_permission_cache()
@@ -88,7 +78,6 @@ class Json2UblConverter:
             return True
         except (IOError, OSError, FileNotFoundError) as err:
             logger.error(f"Directory not writable: {output_path}: {err}")
-            # Update cache with SINGLE lock (no nested locks)
             with self._output_dir_cache_lock:
                 self._output_dir_cache[path_str] = False
                 self._save_permission_cache()
@@ -120,28 +109,22 @@ class Json2UblConverter:
             FileNotFoundError: If cache file not found
             json.JSONDecodeError: If cache file invalid
         """
-        # Check cache without lock first (fast path)
         if document_type in self._schema_caches:
             logger.debug(f"Using cached schema for {document_type}")
             return self._schema_caches[document_type]
 
-        # Acquire lock for loading
         with self._schema_cache_lock:
-            # Double-check in case another thread loaded it while we waited
             if document_type in self._schema_caches:
                 logger.debug(f"Using cached schema for {document_type} (loaded by another thread)")
                 return self._schema_caches[document_type]
 
-            # Ensure schema_root is absolute
             schema_root = Path(self.config.schema_root)
             if not schema_root.is_absolute():
-                # Find project root by going up to find the actual src directory
-                src_dir = Path(__file__).parent.parent.parent  # Go up to json2ubl package root
+                src_dir = Path(__file__).parent.parent.parent
                 schema_root = src_dir / self.config.schema_root
 
             cache_file = schema_root.parent / "cache" / f"{document_type}_schema_cache.json"
 
-            # Lazy loading: Build cache if it doesn't exist
             if not cache_file.exists():
                 logger.info(f"Cache not found for {document_type}. Building on-demand...")
                 try:
@@ -194,7 +177,6 @@ class Json2UblConverter:
             }
         """
         try:
-            # Validate input is dict
             if not isinstance(document_dict, dict):
                 error_msg = f"Expected dict, got {type(document_dict).__name__}"
                 logger.error(f"Validation failed: {error_msg}")
@@ -212,7 +194,6 @@ class Json2UblConverter:
             doc_id = normalized_dict.get("id", "UNKNOWN")
             doc_type_raw = normalized_dict.get("document_type")
 
-            # Validate document_type is present and valid
             if not doc_type_raw:
                 exc = DocumentTypeError(
                     "Missing required field: document_type",
@@ -230,10 +211,8 @@ class Json2UblConverter:
                     "error_response": exc.to_dict(),
                 }
 
-            # Convert numeric type code to document type name
             document_type = NUMERIC_TYPE_TO_DOCUMENT_TYPE.get(str(doc_type_raw))
             if not document_type:
-                # Get first 5 codes without full sort (O(n) instead of O(n log n))
                 sample_codes = list(NUMERIC_TYPE_TO_DOCUMENT_TYPE.keys())[:5]
                 valid_codes = ", ".join(sample_codes) + "..."
                 exc = DocumentTypeError(
@@ -258,41 +237,33 @@ class Json2UblConverter:
 
             logger.info(f"Processing {document_type}: {doc_id}")
 
-            # Load schema cache for this document type
             schema_cache = self._load_schema_cache(document_type)
             if not schema_cache:
                 logger.warning(f"No schema cache for {document_type}, using generic mode")
                 schema_cache = {}
 
-            # Map JSON to document dict using schema
             mapper = JsonMapper(schema_cache)
             doc, dropped_fields = mapper.map_json_to_document(normalized_dict, document_type)
 
-            # Log dropped fields at middleware point (batch into single log)
             if dropped_fields:
                 fields_str = ", ".join(dropped_fields)
                 logger.warning(
                     f"Dropped fields from input JSON (not in UBL-{document_type}-2.1.xsd): {fields_str}"
                 )
 
-            # Serialize to XML using schema
             serializer = XmlSerializer(schema_cache)
             root = serializer.serialize(doc)
 
-            # Validate XML against schema
             validation_errors = []
             try:
                 validator = XmlValidator(self.config.schema_root)
                 validator.validate(root, document_type)
                 logger.debug(f"XML validation passed for {doc_id}")
             except Exception as e:
-                # Log validation failure but continue with file writing
-                # Extract just the first line of the error message to avoid console clutter
                 error_msg = str(e).split("\n")[0] if "\n" in str(e) else str(e)
                 logger.warning(f"XML validation failed for {doc_id}: {error_msg}")
                 validation_errors.append(error_msg)
 
-                # DEBUG: Log detailed errors
                 try:
                     schema_doc = etree.parse(
                         str(
@@ -308,14 +279,12 @@ class Json2UblConverter:
                 except Exception as debug_err:
                     logger.debug(f"Failed to get detailed validation errors: {debug_err}")
 
-            # Convert to string with XML declaration
             xml_string = etree.tostring(
                 root, encoding="utf-8", pretty_print=True, xml_declaration=True
             ).decode("utf-8")
 
             logger.info(f"Successfully processed {document_type}: {doc_id}")
 
-            # Return structured response (include XML even if validation failed)
             return {
                 "documents": [
                     {
@@ -384,7 +353,6 @@ class Json2UblConverter:
 
             logger.info(f"Found {len(data)} documents in file")
 
-            # Normalize keys once for all pages
             data = [self._normalize_keys_recursive(page) for page in data]
 
             grouped: Dict[str, List[Dict[str, Any]]] = {}
@@ -403,19 +371,15 @@ class Json2UblConverter:
 
             documents = []
             document_types: Dict[str, int] = {}
-            first_error_response = None  # Track first error to return if all docs fail
+            first_error_response = None
 
             for doc_id, pages in grouped.items():
                 try:
-                    # Merge multi-page documents
                     merged = self._merge_pages(pages)
 
-                    # Convert using Method 1
                     response = self.convert_json_dict_to_xml_dict(merged)
 
-                    # Check for errors in response
                     if response.get("error_response"):
-                        # Log error and capture first error, then continue processing remaining documents
                         if first_error_response is None:
                             first_error_response = response.get("error_response")
                         logger.error(
@@ -423,19 +387,16 @@ class Json2UblConverter:
                         )
                         continue
 
-                    # Validate documents list is non-empty
                     if not response.get("documents") or len(response["documents"]) == 0:
                         logger.error(f"No valid documents in response for {doc_id}")
                         continue
 
-                    # Extract and validate document info
                     doc_info = response["documents"][0]
                     if not isinstance(doc_info, dict):
                         logger.error(f"Invalid document info format for {doc_id}")
                         continue
                     documents.append(doc_info)
 
-                    # Track document type
                     doc_type = response["summary"]["document_types"]
                     for dtype, count in doc_type.items():
                         document_types[dtype] = document_types.get(dtype, 0) + count
@@ -448,7 +409,6 @@ class Json2UblConverter:
 
             logger.info(f"Converted {len(documents)} documents successfully")
 
-            # If no documents were successfully converted, return the first error that occurred
             if not documents and first_error_response:
                 return {
                     "documents": [],
@@ -514,7 +474,6 @@ class Json2UblConverter:
             f"DEBUG: convert_json_file_to_xml_files() START - json_file={json_file_path}, output={output_dir}"
         )
         try:
-            # Check output directory write permissions early
             if not self._check_output_dir_writable(Path(output_dir)):
                 error_msg = f"Cannot write to output directory: {output_dir}"
                 logger.error(error_msg)
@@ -528,26 +487,22 @@ class Json2UblConverter:
                     "error_response": error_msg,
                 }
 
-            # Use Method 2 to get XML strings with metadata
             response = self.convert_json_file_to_xml_dict(json_file_path)
 
-            # Check for errors from Method 2
             if response.get("error_response"):
                 return response
 
-            # Write to files
             output_path = Path(output_dir)
             output_path.mkdir(parents=True, exist_ok=True)
 
             json_name = Path(json_file_path).stem
             files_created = 0
             documents = []
-            created_files = []  # Track files for rollback on failure
+            created_files = []
 
             for doc_info in response["documents"]:
                 doc_id = "UNKNOWN"
                 try:
-                    # Validate required fields exist
                     if not isinstance(doc_info, dict) or "id" not in doc_info:
                         raise ValueError(f"Missing 'id' in document: {doc_info}")
                     if "xml" not in doc_info:
@@ -561,7 +516,6 @@ class Json2UblConverter:
                     xml_string = doc_info["xml"]
                     unmapped_fields = doc_info["unmapped_fields"]
 
-                    # Validate XML string before writing to disk
                     try:
                         root = etree.fromstring(xml_string.encode("utf-8"))
                         doc_type = root.tag.split("}")[-1]
@@ -576,14 +530,12 @@ class Json2UblConverter:
                     filename = f"{json_name}_{doc_id}_{doc_type}.xml"
                     file_path = output_path / filename
 
-                    # Write to temp file first, then move to final location
                     temp_file_path = file_path.with_suffix(".tmp")
                     try:
                         with open(temp_file_path, "w", encoding="utf-8") as f:
                             f.write(xml_string)
                             logger.debug(f"Wrote temp file {temp_file_path.name}")
 
-                        # Atomic rename with overwrite check (atomic on Unix, check errors on Windows)
                         if file_path.exists():
                             logger.warning(f"Output file exists, overwriting: {file_path}")
                         try:
@@ -592,7 +544,7 @@ class Json2UblConverter:
                             logger.error(f"Failed to move temp file to {file_path}: {replace_err}")
                             raise
                         logger.debug(f"Moved {temp_file_path.name} to {file_path.name}")
-                        created_files.append(file_path)  # Track for rollback
+                        created_files.append(file_path)
                     except IOError as io_err:
                         logger.error(f"File write failed for {doc_id}: {io_err}")
                         if temp_file_path.exists():
@@ -606,7 +558,6 @@ class Json2UblConverter:
                     files_created += 1
                     logger.info(f"Wrote {filename}")
 
-                    # Add to documents list without xml content
                     documents.append(
                         {
                             "id": doc_id,
@@ -615,7 +566,7 @@ class Json2UblConverter:
                     )
                 except Exception as e:
                     logger.error(f"Failed to write XML file for {doc_id}: {e}")
-                    # Rollback: delete all previously created files
+
                     logger.warning(f"Rolling back: deleting {files_created} created files")
                     for created_file in created_files:
                         try:
@@ -655,7 +606,6 @@ class Json2UblConverter:
 
         merged = deepcopy(pages[0])
 
-        # List fields to merge
         list_fields = {
             "invoiceLines",
             "additionalDocumentReferences",
@@ -668,8 +618,6 @@ class Json2UblConverter:
                 if field in page and page[field]:
                     merged.setdefault(field, []).extend(page[field])
 
-            # For scalar fields, use LAST non-null value strategy
-            # (for multi-page docs, later pages override earlier ones e.g., due_date, payment_terms)
             for key, value in page.items():
                 if key not in list_fields and value is not None:
                     merged[key] = value

@@ -1,5 +1,3 @@
-"""End-to-end pipeline tests for all 6 document types."""
-
 from pathlib import Path
 
 from json2ubl import (

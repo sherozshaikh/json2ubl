@@ -1,6 +1,3 @@
-"""Custom exception classes for json2ubl converter."""
-
-
 class Json2UblException(Exception):
     """Base exception for json2ubl errors."""
 

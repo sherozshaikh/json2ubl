@@ -1,5 +1,3 @@
-"""Integration tests using test_files."""
-
 import json
 from pathlib import Path
 
@@ -65,16 +63,12 @@ class TestIntegration:
         """Test handling of invalid document type."""
         documents = self.load_test_file(test_files_dir, "invoice_invalid_doctype.json")
         response = json_dict_to_ubl_xml(documents)
-
-        # Should handle gracefully
         assert response is not None
 
     def test_missing_doctype(self, test_files_dir: Path):
         """Test handling of missing document type."""
         documents = self.load_test_file(test_files_dir, "invoice_missing_doctype.json")
         response = json_dict_to_ubl_xml(documents)
-
-        # Should handle gracefully
         assert response is not None
 
     def test_xml_output_valid(self, test_files_dir: Path):

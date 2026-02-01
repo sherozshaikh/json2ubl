@@ -1,5 +1,3 @@
-"""Test fixtures and configuration."""
-
 import json
 from pathlib import Path
 
@@ -17,7 +15,6 @@ def invoice_dict():
     """Load invoice test data."""
     test_files_path = Path(__file__).parent.parent / "test_files" / "invoice.json"
     data = json.loads(test_files_path.read_text())
-    # Handle both list and dict formats
     return data[0] if isinstance(data, list) else data
 
 

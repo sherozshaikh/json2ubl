@@ -1,11 +1,3 @@
-"""
-Constants for UBL conversion.
-
-Central location for all constant definitions used across the codebase.
-"""
-
-# Map UBL numeric type codes to document type strings
-# Per UBL 2.1 spec - UNCL 1001 Invoice Type Code
 NUMERIC_TYPE_TO_DOCUMENT_TYPE = {
     "1": "Catalogue",
     "10": "ContractNotice",

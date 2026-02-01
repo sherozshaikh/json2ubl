@@ -1,5 +1,3 @@
-"""JSON to UBL 2.1 XML converter with schema-driven validation."""
-
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -20,7 +18,6 @@ def _ensure_schema_cache_exists() -> None:
     cache_dir = PACKAGE_DIR / "schemas" / "cache"
 
     try:
-        # Create cache directory if it doesn't exist
         cache_dir.mkdir(parents=True, exist_ok=True)
         logger.debug("Schema cache directory ready for lazy loading")
     except Exception as e:
@@ -28,7 +25,6 @@ def _ensure_schema_cache_exists() -> None:
         raise
 
 
-# Initialize schema cache at module import
 _ensure_schema_cache_exists()
 
 
@@ -37,12 +33,10 @@ def _load_config(config_path: str | None = None) -> UblConfig:
     if config_path:
         return UblConfig.from_yaml(config_path)
 
-    # Try to load from package default config
     default_config = PACKAGE_DIR / "config" / "ubl_converter.yaml"
     if default_config.exists():
         return UblConfig.from_yaml(str(default_config))
 
-    # Fallback to bundled schemas
     schema_root = str(PACKAGE_DIR / "schemas" / "ubl-2.1")
     return UblConfig(schema_root=schema_root)
 
@@ -89,16 +83,13 @@ def json_dict_to_ubl_xml(
     documents = []
     document_types: Dict[str, int] = {}
 
-    # Process sequentially - fail on first error
     for doc_dict in list_of_dicts:
         response = converter.convert_json_dict_to_xml_dict(doc_dict)
 
-        # Early fail on error
         if response.get("error_response"):
             logger.error(f"Conversion failed: {response['error_response']}")
             return response
 
-        # Validate documents list is non-empty
         if not response.get("documents") or len(response["documents"]) == 0:
             error_msg = "No valid documents in conversion response"
             logger.error(error_msg)
@@ -128,7 +119,6 @@ def json_dict_to_ubl_xml(
 
         documents.append(doc_info)
 
-        # Track document types
         doc_type = response["summary"]["document_types"]
         for dtype, count in doc_type.items():
             document_types[dtype] = document_types.get(dtype, 0) + count
@@ -185,7 +175,6 @@ def json_file_to_ubl_xml_dict(
     converter = Json2UblConverter(config)
     response = converter.convert_json_file_to_xml_dict(json_file_path)
 
-    # Ensure error_response field exists
     if "error_response" not in response:
         response["error_response"] = None
 
@@ -234,7 +223,6 @@ def json_file_to_ubl_xml_files(
     converter = Json2UblConverter(config)
     response = converter.convert_json_file_to_xml_files(json_file_path, output_dir)
 
-    # Ensure error_response field exists
     if "error_response" not in response:
         response["error_response"] = None
 

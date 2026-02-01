@@ -1,5 +1,3 @@
-"""Example usage of benchmark utilities."""
-
 import json
 from pathlib import Path
 
@@ -9,7 +7,7 @@ from json2ubl.benchmark import Benchmark
 
 def benchmark_invoice_conversion():
     """Benchmark invoice conversion performance."""
-    # Load test invoice
+
     test_file = Path(__file__).parent.parent.parent / "test_files" / "invoice.json"
     if not test_file.exists():
         print(f"Test file not found: {test_file}")
@@ -18,7 +16,6 @@ def benchmark_invoice_conversion():
     with open(test_file, "r") as f:
         documents = json.load(f)
 
-    # Single run benchmark
     def convert():
         return json_dict_to_ubl_xml(documents)
 
@@ -50,7 +47,6 @@ def benchmark_batch_invoices():
     def convert():
         return json_dict_to_ubl_xml(documents)
 
-    # Multiple runs for better stats
     result = Benchmark.run_multiple(
         name="Batch Invoices (2 docs)",
         func=convert,

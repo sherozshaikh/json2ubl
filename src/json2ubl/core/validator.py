@@ -97,31 +97,26 @@ class XmlValidator:
             )
             return True
 
-        # Suppress lxml's console output by redirecting stderr file descriptor
-        # lxml writes validation errors to C-level stderr which cannot be caught by Python's sys.stderr
         old_stderr = sys.stderr
-        old_stderr_fd = os.dup(2)  # Duplicate stderr file descriptor (2)
+        old_stderr_fd = os.dup(2)
         try:
-            # Redirect Python stderr
             sys.stderr = StringIO()
-            # Redirect C-level stderr to /dev/null to suppress lxml output
+
             devnull = os.open(os.devnull, os.O_WRONLY)
             os.dup2(devnull, 2)
             os.close(devnull)
 
             is_valid = schema.validate(root)
         finally:
-            # Restore stderr file descriptor
             os.dup2(old_stderr_fd, 2)
             os.close(old_stderr_fd)
-            # Restore Python stderr
+
             sys.stderr = old_stderr
 
         if not is_valid:
             error_log = "\n".join(str(e) for e in schema.error_log)
             num_errors = len(schema.error_log)
-            # Note: Full validation error details are stored in exception details dict
-            # and available in log files, but not printed to console to avoid clutter
+
             raise Json2UblValidationError(
                 f"XML validation failed for {document_type}: {num_errors} error(s)",
                 details={"error_log": error_log},

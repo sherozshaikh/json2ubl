@@ -1,10 +1,3 @@
-"""
-Setup script with post-install hook for schema cache generation.
-
-This script ensures that schema cache files are generated during package
-installation, so they're available at runtime without delays.
-"""
-
 from setuptools import setup
 from setuptools.command.develop import develop
 from setuptools.command.install import install
@@ -13,7 +6,6 @@ from setuptools.command.install import install
 def generate_schema_cache():
     """Generate schema cache from XSD files."""
     try:
-        # Import here to avoid issues if json2ubl isn't fully installed yet
         from json2ubl.core.schema_cache_builder import SchemaCacheBuilder
 
         builder = SchemaCacheBuilder()

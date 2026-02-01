@@ -112,25 +112,6 @@ print(f"Generated {response['summary']['files_created']} XML files")
 
 ---
 
-## 📋 Configuration
-
-Configure via `UblConfig`:
-
-```python
-from json2ubl import UblConfig, convert_json_dict_to_xml
-
-config = UblConfig(
-    schema_dir="./schemas",
-    max_recursion_depth=20,
-    enable_logging=True,
-    log_file="converter.log"
-)
-
-response = convert_json_dict_to_xml(my_document, config)
-```
-
----
-
 ## 📊 Document Types
 
 Supported UBL 2.1 document types (numeric codes):
@@ -217,24 +198,6 @@ else:
 - Invalid `document_type` code → Lists valid codes
 - Null input fields → Preserved as empty XML elements
 - Multi-page documents → Automatically merged (with configurable strategy)
-
----
-
-## 📝 Logging
-
-Enable detailed logging:
-
-```python
-import logging
-from json2ubl import get_logger
-
-logger = get_logger("json2ubl")
-logger.setLevel(logging.DEBUG)
-```
-
-Logs are written to:
-- Console (DEBUG+)
-- `converter.log` file (INFO+, if enabled)
 
 ---
 

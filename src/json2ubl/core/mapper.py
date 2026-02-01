@@ -1,10 +1,3 @@
-"""
-Generic, schema-driven JSON to UBL document mapper.
-
-This mapper is 100% schema-driven and works with any UBL 2.1 document type.
-No hardcoded field names, no Pydantic models. Pure recursive schema-based processing.
-"""
-
 from typing import Any, Dict, List
 
 from ..config import get_logger
@@ -32,7 +25,7 @@ class JsonMapper:
         self.schema_cache = schema_cache or {}
         self._schema_elements = self.schema_cache.get("elements", {})
         self._dropped_fields: List[str] = []
-        self._key_cache: Dict[str, Dict[str, str]] = {}  # Cache normalized key mappings
+        self._key_cache: Dict[str, Dict[str, str]] = {}
 
     def map_json_to_document(
         self, raw: Dict[str, Any], document_type: str | None = None
@@ -59,7 +52,6 @@ class JsonMapper:
             MappingError: If critical schema elements missing
         """
         try:
-            # Determine document type
             if document_type is None:
                 doc_type_raw = raw.get("document_type")
                 if not doc_type_raw:
@@ -73,9 +65,7 @@ class JsonMapper:
 
             doc = self._process_json_recursive(raw, self._schema_elements, depth=0)
             doc["document_type"] = document_type
-            # Preserve None values to allow empty XML elements (don't filter None)
 
-            # Filter out system fields and known annotations
             filtered_dropped = [
                 f
                 for f in self._dropped_fields
@@ -120,7 +110,6 @@ class JsonMapper:
         result = {}
         json_keys_lower = {k.lower(): k for k in json_obj.keys()}
 
-        # Process each field in schema
         for schema_key_lower, schema_info in schema_spec.items():
             json_key = json_keys_lower.get(schema_key_lower)
 
@@ -140,7 +129,6 @@ class JsonMapper:
             element_attributes = schema_info.get("_attributes", {})
 
             if is_array:
-                # Array field
                 if not isinstance(json_value, list):
                     json_value = [json_value]
 
@@ -154,7 +142,6 @@ class JsonMapper:
                         for item in json_value
                     ]
                 except Exception as e:
-                    # Type mismatch in array field - skip and mark as unmapped
                     logger.warning(
                         f"Type mismatch for array field '{json_key}': {e}. "
                         f"Expected dict but got {type(json_value[0]).__name__}. Skipping field."
@@ -162,33 +149,27 @@ class JsonMapper:
                     if json_key not in self._dropped_fields:
                         self._dropped_fields.append(json_key)
             else:
-                # Single element
                 try:
                     if isinstance(json_value, dict) and nested_elements and not element_attributes:
-                        # Only recurse if no attributes (attributes should be preserved as-is)
                         result[schema_key_lower] = self._process_json_recursive(
                             json_value, nested_elements, depth + 1
                         )
                     elif isinstance(json_value, list) and json_value:
-                        # Take first element if list provided for non-array field
                         result[schema_key_lower] = json_value[0]
                     else:
                         result[schema_key_lower] = json_value
                 except Exception as e:
-                    # Type mismatch in single element field - skip and mark as unmapped
                     logger.warning(f"Type mismatch for field '{json_key}': {e}. Skipping field.")
                     if json_key not in self._dropped_fields:
                         self._dropped_fields.append(json_key)
 
-        # Track dropped fields (JSON keys not in schema)
-        # EXCEPT "document_type" which is a system field, not a schema validation issue
         schema_keys_lower = set(schema_spec.keys())
         json_keys_set = set(json_keys_lower.keys())
-        dropped_keys = json_keys_set - schema_keys_lower  # Use set difference instead of loop
+        dropped_keys = json_keys_set - schema_keys_lower
 
         for json_key_lower in dropped_keys:
             original_key = json_keys_lower[json_key_lower]
-            # Skip "document_type" as it's required for processing, not a mapping error
+
             if original_key.lower() != "document_type" and original_key not in self._dropped_fields:
                 self._dropped_fields.append(original_key)
 

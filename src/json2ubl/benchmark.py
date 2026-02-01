@@ -1,5 +1,3 @@
-"""Performance benchmarking utilities."""
-
 import time
 from dataclasses import asdict, dataclass
 from typing import Any, Callable, Dict
@@ -15,7 +13,7 @@ class BenchmarkResult:
     avg_time_ms: float
     min_time_ms: float
     max_time_ms: float
-    throughput: float  # items per second
+    throughput: float
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -44,7 +42,7 @@ class Benchmark:
             total_time_ms=round(elapsed_ms, 2),
             item_count=item_count,
             avg_time_ms=round(avg_time, 2),
-            min_time_ms=0.0,  # Single run
+            min_time_ms=0.0,
             max_time_ms=round(elapsed_ms, 2),
             throughput=(round(item_count / (elapsed_ms / 1000), 2) if elapsed_ms > 0 else 0),
         )

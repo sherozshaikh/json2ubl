@@ -1,5 +1,3 @@
-"""Core modules for JSON to UBL conversion."""
-
 from .mapper import JsonMapper
 from .schema_cache_builder import SchemaCacheBuilder
 from .serializer import XmlSerializer

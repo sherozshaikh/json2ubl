@@ -1,5 +1,3 @@
-"""Component-level unit tests for mapper, serializer, validator."""
-
 import pytest
 
 from json2ubl.config import UblConfig
@@ -108,7 +106,7 @@ class TestSchemaCacheLoading:
         """Test that loaded schema caches are reused."""
         cache1 = converter._load_schema_cache("Invoice")
         cache2 = converter._load_schema_cache("Invoice")
-        assert cache1 is cache2  # Same object reference
+        assert cache1 is cache2
 
 
 class TestConversionResponseStructure:
