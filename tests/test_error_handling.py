@@ -117,7 +117,9 @@ class TestResponseStructure:
         result = json_dict_to_ubl_xml([missing_doctype_dict])
         assert "error_response" in result
         assert result["error_response"] is not None
-        assert isinstance(result["error_response"], str)
+        assert isinstance(result["error_response"], dict)
+        assert "error_code" in result["error_response"]
+        assert "message" in result["error_response"]
 
     def test_response_has_documents_key(self, invoice_dict):
         """Verify response has documents key."""

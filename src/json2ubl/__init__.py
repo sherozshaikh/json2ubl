@@ -1,6 +1,5 @@
 """JSON to UBL 2.1 XML converter with schema-driven validation."""
 
-import json
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -13,70 +12,20 @@ PACKAGE_DIR = Path(__file__).parent
 
 def _ensure_schema_cache_exists() -> None:
     """
-    Check if schema cache exists and is valid; regenerate if missing or corrupted.
+    Ensure schema cache directory exists for lazy loading.
 
-    Called at module import to ensure caches are always available for
-    schema-based field validation. If cache is missing, invalid, or has empty
-    elements, it will be regenerated from XSD files.
+    With lazy loading, individual document caches are built on first use.
+    This function only ensures the cache directory structure is ready.
     """
     cache_dir = PACKAGE_DIR / "schemas" / "cache"
 
     try:
-        # Check if cache directory exists and has cache files
-        if not cache_dir.exists() or not any(cache_dir.glob("*_schema_cache.json")):
-            logger.warning("Schema cache not found. Generating from XSD files...")
-            from .core.schema_cache_builder import SchemaCacheBuilder
-
-            builder = SchemaCacheBuilder()
-            builder.build_all_caches()
-            logger.info("Schema cache generated successfully")
-            return
-
-        # Check if cache files are valid (have non-empty elements)
-        cache_files = list(cache_dir.glob("*_schema_cache.json"))
-        invalid_files = []
-
-        for cache_file in cache_files:
-            try:
-                with open(cache_file, "r", encoding="utf-8") as f:
-                    cache_data = json.load(f)
-                    if not cache_data.get("elements"):
-                        logger.warning(f"Schema cache {cache_file.name} has empty elements")
-                        invalid_files.append(cache_file.name)
-            except Exception as e:
-                logger.warning(f"Error reading cache file {cache_file.name}: {e}")
-                invalid_files.append(cache_file.name)
-
-        # If any invalid files found, regenerate ALL caches once
-        if invalid_files:
-            logger.warning(
-                f"Regenerating cache due to {len(invalid_files)} invalid files: {invalid_files}"
-            )
-            try:
-                from .core.schema_cache_builder import SchemaCacheBuilder
-
-                builder = SchemaCacheBuilder()
-                builder.build_all_caches()
-                logger.info("Schema cache regenerated successfully")
-            except Exception as regen_err:
-                logger.error(f"Failed to regenerate cache: {regen_err}")
-                raise
-            return
-
+        # Create cache directory if it doesn't exist
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        logger.debug("Schema cache directory ready for lazy loading")
     except Exception as e:
-        logger.warning(f"Schema cache initialization failed: {e}. Attempting to regenerate...")
-        try:
-            from .core.schema_cache_builder import SchemaCacheBuilder
-
-            builder = SchemaCacheBuilder()
-            builder.build_all_caches()
-            logger.info("Schema cache regenerated successfully")
-        except Exception as regen_error:
-            logger.error(f"Failed to regenerate schema cache: {regen_error}")
-            logger.warning(
-                "Continuing without schema cache - converter will fail if XSD files unavailable"
-            )
-            # Don't raise - allow module to load, converter will fail gracefully at runtime
+        logger.error(f"Failed to create schema cache directory: {e}")
+        raise
 
 
 # Initialize schema cache at module import

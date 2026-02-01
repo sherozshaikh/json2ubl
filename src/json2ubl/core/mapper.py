@@ -137,31 +137,48 @@ class JsonMapper:
             max_occurs = schema_info.get("maxOccurs", "1")
             is_array = max_occurs == "unbounded"
             nested_elements = schema_info.get("nested_elements", {})
+            element_attributes = schema_info.get("_attributes", {})
 
             if is_array:
                 # Array field
                 if not isinstance(json_value, list):
                     json_value = [json_value]
 
-                result[schema_key_lower] = [
-                    (
-                        self._process_json_recursive(item, nested_elements, depth + 1)
-                        if isinstance(item, dict) and nested_elements
-                        else item
+                try:
+                    result[schema_key_lower] = [
+                        (
+                            self._process_json_recursive(item, nested_elements, depth + 1)
+                            if isinstance(item, dict) and nested_elements and not element_attributes
+                            else item
+                        )
+                        for item in json_value
+                    ]
+                except Exception as e:
+                    # Type mismatch in array field - skip and mark as unmapped
+                    logger.warning(
+                        f"Type mismatch for array field '{json_key}': {e}. "
+                        f"Expected dict but got {type(json_value[0]).__name__}. Skipping field."
                     )
-                    for item in json_value
-                ]
+                    if json_key not in self._dropped_fields:
+                        self._dropped_fields.append(json_key)
             else:
                 # Single element
-                if isinstance(json_value, dict) and nested_elements:
-                    result[schema_key_lower] = self._process_json_recursive(
-                        json_value, nested_elements, depth + 1
-                    )
-                elif isinstance(json_value, list) and json_value:
-                    # Take first element if list provided for non-array field
-                    result[schema_key_lower] = json_value[0]
-                else:
-                    result[schema_key_lower] = json_value
+                try:
+                    if isinstance(json_value, dict) and nested_elements and not element_attributes:
+                        # Only recurse if no attributes (attributes should be preserved as-is)
+                        result[schema_key_lower] = self._process_json_recursive(
+                            json_value, nested_elements, depth + 1
+                        )
+                    elif isinstance(json_value, list) and json_value:
+                        # Take first element if list provided for non-array field
+                        result[schema_key_lower] = json_value[0]
+                    else:
+                        result[schema_key_lower] = json_value
+                except Exception as e:
+                    # Type mismatch in single element field - skip and mark as unmapped
+                    logger.warning(f"Type mismatch for field '{json_key}': {e}. Skipping field.")
+                    if json_key not in self._dropped_fields:
+                        self._dropped_fields.append(json_key)
 
         # Track dropped fields (JSON keys not in schema)
         # EXCEPT "document_type" which is a system field, not a schema validation issue

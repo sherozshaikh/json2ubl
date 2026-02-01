@@ -1,5 +1,5 @@
 schema_root: "json2ubl/src/json2ubl/schemas/ubl-2.1"
-log_level: "DEBUG"
+log_level: "INFO"
 log_file: "logs/json2ubl.log"
 log_format: "text"
 cache_dir: ".json2ubl_cache"

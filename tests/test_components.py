@@ -149,7 +149,8 @@ class TestConversionResponseStructure:
         """Test error response structure."""
         result = converter.convert_json_dict_to_xml_dict(missing_doctype_dict)
         assert result["error_response"] is not None
-        assert isinstance(result["error_response"], str)
+        assert isinstance(result["error_response"], dict)
+        assert "error_code" in result["error_response"]
         assert result["summary"]["total_inputs"] == 0
         assert len(result["documents"]) == 0
 

@@ -132,16 +132,27 @@ class Json2UblConverter:
                 logger.debug(f"Using cached schema for {document_type} (loaded by another thread)")
                 return self._schema_caches[document_type]
 
-            cache_file = (
-                Path(self.config.schema_root).parent
-                / "cache"
-                / f"{document_type}_schema_cache.json"
-            )
+            # Ensure schema_root is absolute
+            schema_root = Path(self.config.schema_root)
+            if not schema_root.is_absolute():
+                # Find project root by going up to find the actual src directory
+                src_dir = Path(__file__).parent.parent.parent  # Go up to json2ubl package root
+                schema_root = src_dir / self.config.schema_root
+
+            cache_file = schema_root.parent / "cache" / f"{document_type}_schema_cache.json"
+
+            # Lazy loading: Build cache if it doesn't exist
             if not cache_file.exists():
-                logger.error(f"Schema cache missing for {document_type} at {cache_file}")
-                raise FileNotFoundError(
-                    f"Schema cache not found for {document_type} at {cache_file}"
-                )
+                logger.info(f"Cache not found for {document_type}. Building on-demand...")
+                try:
+                    from .core.schema_cache_builder import SchemaCacheBuilder
+
+                    builder = SchemaCacheBuilder(str(schema_root))
+                    builder.build_cache_for_document(document_type)
+                    logger.info(f"Built cache for {document_type}")
+                except Exception as e:
+                    logger.error(f"Failed to build cache for {document_type}: {e}")
+                    raise
 
             try:
                 with open(cache_file, "r", encoding="utf-8") as f:
@@ -269,22 +280,33 @@ class Json2UblConverter:
             root = serializer.serialize(doc)
 
             # Validate XML against schema
+            validation_errors = []
             try:
                 validator = XmlValidator(self.config.schema_root)
                 validator.validate(root, document_type)
                 logger.debug(f"XML validation passed for {doc_id}")
             except Exception as e:
-                # Log validation failure but include in error_response field
-                logger.error(f"XML validation failed for {doc_id}: {e}")
-                return {
-                    "documents": [],
-                    "summary": {
-                        "total_inputs": 0,
-                        "files_created": 0,
-                        "document_types": {},
-                    },
-                    "error_response": f"XML validation failed: {str(e)}",
-                }
+                # Log validation failure but continue with file writing
+                # Extract just the first line of the error message to avoid console clutter
+                error_msg = str(e).split("\n")[0] if "\n" in str(e) else str(e)
+                logger.warning(f"XML validation failed for {doc_id}: {error_msg}")
+                validation_errors.append(error_msg)
+
+                # DEBUG: Log detailed errors
+                try:
+                    schema_doc = etree.parse(
+                        str(
+                            Path(self.config.schema_root)
+                            / "maindoc"
+                            / f"UBL-{document_type}-2.1.xsd"
+                        )
+                    )
+                    schema = etree.XMLSchema(schema_doc)
+                    schema.validate(root)
+                    for i, err in enumerate(schema.error_log[:10]):
+                        logger.debug(f"  Error {i + 1}: {err}")
+                except Exception as debug_err:
+                    logger.debug(f"Failed to get detailed validation errors: {debug_err}")
 
             # Convert to string with XML declaration
             xml_string = etree.tostring(
@@ -293,13 +315,14 @@ class Json2UblConverter:
 
             logger.info(f"Successfully processed {document_type}: {doc_id}")
 
-            # Return structured response
+            # Return structured response (include XML even if validation failed)
             return {
                 "documents": [
                     {
                         "id": doc_id,
                         "xml": xml_string,
                         "unmapped_fields": dropped_fields,
+                        "validation_errors": (validation_errors if validation_errors else None),
                     }
                 ],
                 "summary": {
@@ -380,6 +403,7 @@ class Json2UblConverter:
 
             documents = []
             document_types: Dict[str, int] = {}
+            first_error_response = None  # Track first error to return if all docs fail
 
             for doc_id, pages in grouped.items():
                 try:
@@ -391,7 +415,9 @@ class Json2UblConverter:
 
                     # Check for errors in response
                     if response.get("error_response"):
-                        # Log error but continue processing remaining documents instead of aborting
+                        # Log error and capture first error, then continue processing remaining documents
+                        if first_error_response is None:
+                            first_error_response = response.get("error_response")
                         logger.error(
                             f"Failed to convert document {doc_id}: {response.get('error_response')}"
                         )
@@ -416,9 +442,23 @@ class Json2UblConverter:
 
                 except Exception as e:
                     logger.error(f"Failed to convert document {doc_id}: {e}")
+                    if first_error_response is None:
+                        first_error_response = str(e)
                     continue
 
             logger.info(f"Converted {len(documents)} documents successfully")
+
+            # If no documents were successfully converted, return the first error that occurred
+            if not documents and first_error_response:
+                return {
+                    "documents": [],
+                    "summary": {
+                        "total_inputs": 0,
+                        "files_created": 0,
+                        "document_types": {},
+                    },
+                    "error_response": first_error_response,
+                }
 
             return {
                 "documents": documents,
