@@ -4,6 +4,8 @@ from typing import Any, Dict, List
 from .config import UblConfig, get_logger
 from .converter import Json2UblConverter
 
+__version__ = "1.0.1"
+
 logger = get_logger(__name__)
 PACKAGE_DIR = Path(__file__).parent
 
