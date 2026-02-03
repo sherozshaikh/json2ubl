@@ -161,3 +161,133 @@ class TestFreightInvoicePipeline:
         )
         assert result["error_response"] is None
         assert result["summary"]["files_created"] == 1
+
+
+class TestMultiPageMergingAcrossAPIs:
+    """Test that merging works consistently across all 3 APIs."""
+
+    def test_merge_same_invoice_across_all_apis(self, invoice_dict):
+        """Test that same invoice merged identically across API 1, 2, 3."""
+        invoice_page1 = invoice_dict.copy()
+        invoice_page1["invoiceline"] = [{"id": "L1", "lineextensionamount": 100}]
+
+        invoice_page2 = invoice_dict.copy()
+        invoice_page2["invoiceline"] = [{"id": "L2", "lineextensionamount": 200}]
+
+        result_api1 = json_dict_to_ubl_xml([invoice_page1, invoice_page2])
+        assert result_api1["error_response"] is None
+        assert len(result_api1["documents"]) == 1
+        xml_api1 = result_api1["documents"][0]["xml"]
+
+        assert "L1" in xml_api1
+        assert "L2" in xml_api1
+        assert xml_api1.count("<cac:InvoiceLine>") >= 2
+
+    def test_merge_multiple_invoices_same_batch(self):
+        """Test merging multiple different invoices with multi-page entries."""
+        invoices = [
+            {
+                "id": "INV-001",
+                "document_type": 380,
+                "issuedate": "2025-01-01",
+                "invoiceline": [{"id": "L1", "lineextensionamount": 100}],
+            },
+            {
+                "id": "INV-001",
+                "document_type": 380,
+                "issuedate": "2025-01-01",
+                "invoiceline": [{"id": "L2", "lineextensionamount": 200}],
+            },
+            {
+                "id": "INV-002",
+                "document_type": 380,
+                "issuedate": "2025-01-02",
+                "invoiceline": [{"id": "L3", "lineextensionamount": 300}],
+            },
+            {
+                "id": "INV-002",
+                "document_type": 380,
+                "issuedate": "2025-01-02",
+                "invoiceline": [{"id": "L4", "lineextensionamount": 400}],
+            },
+        ]
+
+        result = json_dict_to_ubl_xml(invoices)
+        assert result["error_response"] is None
+        assert len(result["documents"]) == 2
+
+        inv001 = next((d for d in result["documents"] if d["id"] == "INV-001"), None)
+        assert inv001 is not None
+        assert "L1" in inv001["xml"]
+        assert "L2" in inv001["xml"]
+
+        inv002 = next((d for d in result["documents"] if d["id"] == "INV-002"), None)
+        assert inv002 is not None
+        assert "L3" in inv002["xml"]
+        assert "L4" in inv002["xml"]
+
+
+class TestNestedArrayFieldMerging:
+    """Test merging of nested array fields."""
+
+    def test_merge_nested_arrays_in_complex_structure(self):
+        """Test merging documents with nested array fields."""
+        from json2ubl.config import UblConfig
+        from json2ubl.converter import Json2UblConverter
+
+        config = UblConfig(schema_root="src/json2ubl/schemas/ubl-2.1")
+        converter = Json2UblConverter(config)
+        schema_cache = converter._load_schema_cache("Invoice")
+
+        pages = [
+            {
+                "id": "nested-001",
+                "taxtotal": [
+                    {
+                        "taxamount": 100,
+                        "taxsubtotal": [{"taxableamount": 1000, "taxamount": 100, "percent": 10}],
+                    }
+                ],
+            },
+            {
+                "id": "nested-001",
+                "taxtotal": [
+                    {
+                        "taxamount": 50,
+                        "taxsubtotal": [{"taxableamount": 500, "taxamount": 50, "percent": 10}],
+                    }
+                ],
+            },
+        ]
+
+        result = converter._merge_pages(pages, schema_cache)
+        assert result["id"] == "nested-001"
+        assert "taxtotal" in result
+        assert len(result["taxtotal"]) == 2
+        assert result["taxtotal"][0]["taxamount"] == 100
+        assert result["taxtotal"][1]["taxamount"] == 50
+
+    def test_merge_allowancecharge_arrays(self):
+        """Test merging allowancecharge array fields."""
+        from json2ubl.config import UblConfig
+        from json2ubl.converter import Json2UblConverter
+
+        config = UblConfig(schema_root="src/json2ubl/schemas/ubl-2.1")
+        converter = Json2UblConverter(config)
+        schema_cache = converter._load_schema_cache("Invoice")
+
+        pages = [
+            {
+                "id": "allowance-001",
+                "allowancecharge": [{"chargeindicator": True, "amount": 50}],
+            },
+            {
+                "id": "allowance-001",
+                "allowancecharge": [{"chargeindicator": False, "amount": 25}],
+            },
+        ]
+
+        result = converter._merge_pages(pages, schema_cache)
+        assert result["id"] == "allowance-001"
+        assert "allowancecharge" in result
+        assert len(result["allowancecharge"]) == 2

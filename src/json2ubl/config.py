@@ -33,7 +33,7 @@ class UblConfig:
         logs_dir = Path("logs")
         logs_dir.mkdir(parents=True, exist_ok=True)
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y%m%d")
         log_filename = f"json2ubl_{timestamp}.log"
         log_path = logs_dir / log_filename
 

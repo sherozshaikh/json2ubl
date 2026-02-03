@@ -80,42 +80,35 @@ def json_dict_to_ubl_xml(
     config.setup_logging()
 
     converter = Json2UblConverter(config)
+    merged_dicts = converter._group_and_merge_documents(list_of_dicts)
+
     documents = []
     document_types: Dict[str, int] = {}
+    first_error_response = None
 
-    for doc_dict in list_of_dicts:
+    for doc_dict in merged_dicts:
         response = converter.convert_json_dict_to_xml_dict(doc_dict)
 
         if response.get("error_response"):
+            if first_error_response is None:
+                first_error_response = response["error_response"]
             logger.error(f"Conversion failed: {response['error_response']}")
-            return response
+            continue
 
         if not response.get("documents") or len(response["documents"]) == 0:
             error_msg = "No valid documents in conversion response"
+            if first_error_response is None:
+                first_error_response = error_msg
             logger.error(error_msg)
-            return {
-                "documents": [],
-                "summary": {
-                    "total_inputs": len(list_of_dicts),
-                    "files_created": 0,
-                    "document_types": {},
-                },
-                "error_response": error_msg,
-            }
+            continue
 
         doc_info = response["documents"][0]
         if not isinstance(doc_info, dict):
             error_msg = "Invalid document info format"
+            if first_error_response is None:
+                first_error_response = error_msg
             logger.error(error_msg)
-            return {
-                "documents": [],
-                "summary": {
-                    "total_inputs": len(list_of_dicts),
-                    "files_created": 0,
-                    "document_types": {},
-                },
-                "error_response": error_msg,
-            }
+            continue
 
         documents.append(doc_info)
 
@@ -123,10 +116,21 @@ def json_dict_to_ubl_xml(
         for dtype, count in doc_type.items():
             document_types[dtype] = document_types.get(dtype, 0) + count
 
+    if not documents and first_error_response:
+        return {
+            "documents": [],
+            "summary": {
+                "total_inputs": len(list_of_dicts),
+                "files_created": 0,
+                "document_types": {},
+            },
+            "error_response": first_error_response,
+        }
+
     return {
         "documents": documents,
         "summary": {
-            "total_inputs": len(list_of_dicts),
+            "total_inputs": len(merged_dicts),
             "files_created": 0,
             "document_types": document_types,
         },

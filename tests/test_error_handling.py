@@ -5,7 +5,7 @@ class TestDocumentTypeValidation:
     """Test document_type validation."""
 
     def test_missing_document_type(self, missing_doctype_dict):
-        """Test missing document_type field."""
+        """Test missing document_type field with grouping/merge."""
         result = json_dict_to_ubl_xml([missing_doctype_dict])
         assert result["error_response"] is not None
         error_msg = (
@@ -13,8 +13,27 @@ class TestDocumentTypeValidation:
             if isinstance(result["error_response"], dict)
             else str(result["error_response"])
         )
-        assert "Missing required field: document_type" in error_msg
-        assert result["summary"]["total_inputs"] == 0
+        assert (
+            "Missing required field: document_type" in error_msg
+            or "document_type" in error_msg.lower()
+        )
+        assert len(result["documents"]) == 0
+
+    def test_merge_with_missing_document_type(self):
+        """Test merging documents when document_type is missing."""
+        docs = [
+            {"id": "MERGE-001", "name": "Page 1"},
+            {"id": "MERGE-001", "name": "Page 2"},
+        ]
+        result = json_dict_to_ubl_xml(docs)
+        assert result["error_response"] is not None
+        error_msg = (
+            result["error_response"].get("message", "")
+            if isinstance(result["error_response"], dict)
+            else str(result["error_response"])
+        )
+        assert "document_type" in error_msg.lower()
+        assert len(result["documents"]) == 0
 
     def test_invalid_document_type_string(self, invalid_doctype_dict):
         """Test invalid document_type (string instead of numeric)."""

@@ -353,30 +353,16 @@ class Json2UblConverter:
 
             logger.info(f"Found {len(data)} documents in file")
 
-            data = [self._normalize_keys_recursive(page) for page in data]
-
-            grouped: Dict[str, List[Dict[str, Any]]] = {}
-            skipped_count = 0
-            for page in data:
-                doc_id = page.get("id")
-                if not doc_id:
-                    logger.warning("Skipping page without 'id' field")
-                    skipped_count += 1
-                    continue
-                grouped.setdefault(doc_id, []).append(page)
-
-            logger.info(
-                f"Grouped into {len(grouped)} unique documents (skipped {skipped_count} without id)"
-            )
+            merged_docs = self._group_and_merge_documents(data)
+            logger.info(f"Grouped into {len(merged_docs)} unique documents")
 
             documents = []
             document_types: Dict[str, int] = {}
             first_error_response = None
 
-            for doc_id, pages in grouped.items():
+            for merged in merged_docs:
                 try:
-                    merged = self._merge_pages(pages)
-
+                    doc_id = merged.get("id", "UNKNOWN")
                     response = self.convert_json_dict_to_xml_dict(merged)
 
                     if response.get("error_response"):
@@ -598,28 +584,95 @@ class Json2UblConverter:
                 "error_response": error_msg,
             }
 
+    def _group_and_merge_documents(self, documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Group documents by ID and merge pages with same ID.
+
+        Args:
+            documents: List of document dictionaries (potentially with duplicate IDs)
+
+        Returns:
+            List of merged documents (one per unique ID)
+        """
+        if not documents:
+            return []
+
+        documents = [self._normalize_keys_recursive(doc) for doc in documents]
+
+        grouped: Dict[str, List[Dict[str, Any]]] = {}
+        for doc in documents:
+            doc_id = doc.get("id")
+            if not doc_id:
+                logger.warning("Skipping document without 'id' field")
+                continue
+            grouped.setdefault(doc_id, []).append(doc)
+
+        merged_documents = []
+        for doc_id, pages in grouped.items():
+            try:
+                doc_type_raw = pages[0].get("document_type")
+                document_type = NUMERIC_TYPE_TO_DOCUMENT_TYPE.get(str(doc_type_raw))
+
+                schema_cache = {}
+                if document_type:
+                    schema_cache = self._load_schema_cache(document_type)
+
+                merged = self._merge_pages(pages, schema_cache)
+                merged_documents.append(merged)
+            except Exception as e:
+                logger.error(f"Failed to merge document {doc_id}: {e}")
+                continue
+
+        return merged_documents
+
     @staticmethod
-    def _merge_pages(pages: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Merge multi-page invoice into single object."""
+    def _merge_pages(
+        pages: List[Dict[str, Any]], schema_cache: Dict[str, Any] | None = None
+    ) -> Dict[str, Any]:
+        """Merge multi-page invoice into single object.
+
+        Args:
+            pages: List of document pages (dictionaries)
+            schema_cache: Schema cache to identify array fields dynamically
+
+        Returns:
+            Merged document dictionary
+        """
         if not pages:
             return {}
 
         merged = deepcopy(pages[0])
 
-        list_fields = {
-            "invoiceLines",
-            "additionalDocumentReferences",
-            "globalAllowanceCharges",
-            "taxTotal",
-        }
+        array_fields = set()
+        if schema_cache and "elements" in schema_cache:
+            for field_lower, field_info in schema_cache["elements"].items():
+                if isinstance(field_info, dict) and field_info.get("maxOccurs") == "unbounded":
+                    array_fields.add(field_lower)
 
         for page in pages[1:]:
-            for field in list_fields:
-                if field in page and page[field]:
-                    merged.setdefault(field, []).extend(page[field])
+            page_keys_lower = {k.lower(): k for k in page.keys()}
+
+            for field_lower in array_fields:
+                original_key = page_keys_lower.get(field_lower)
+                if original_key and page.get(original_key):
+                    merged_keys_lower = {k.lower(): k for k in merged.keys()}
+                    merged_key_original = merged_keys_lower.get(field_lower)
+
+                    if merged_key_original:
+                        if not isinstance(merged[merged_key_original], list):
+                            merged[merged_key_original] = [merged[merged_key_original]]
+                        if isinstance(page[original_key], list):
+                            merged[merged_key_original].extend(page[original_key])
+                        else:
+                            merged[merged_key_original].append(page[original_key])
+                    else:
+                        if isinstance(page[original_key], list):
+                            merged[original_key] = page[original_key]
+                        else:
+                            merged[original_key] = [page[original_key]]
 
             for key, value in page.items():
-                if key not in list_fields and value is not None:
+                key_lower = key.lower()
+                if key_lower not in array_fields and value is not None:
                     merged[key] = value
 
         return merged

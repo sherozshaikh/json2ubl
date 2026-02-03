@@ -169,11 +169,74 @@ class TestBatchConversion:
         assert result["name"] == "Test"
 
     def test_merge_pages_multiple_pages(self, converter):
-        """Test merging multiple pages with list fields."""
+        """Test merging multiple pages with schema-driven array detection."""
+        schema_cache = converter._load_schema_cache("Invoice")
         pages = [
-            {"id": "123", "invoiceLines": [{"id": "L1", "amount": 100}]},
-            {"id": "123", "invoiceLines": [{"id": "L2", "amount": 200}]},
+            {"id": "123", "invoiceline": [{"id": "L1", "amount": 100}]},
+            {"id": "123", "invoiceline": [{"id": "L2", "amount": 200}]},
         ]
-        result = converter._merge_pages(pages)
+        result = converter._merge_pages(pages, schema_cache)
         assert result["id"] == "123"
-        assert len(result["invoiceLines"]) == 2
+        assert len(result["invoiceline"]) == 2
+        assert result["invoiceline"][0]["id"] == "L1"
+        assert result["invoiceline"][1]["id"] == "L2"
+
+    def test_merge_pages_mixed_case_field_names(self, converter):
+        """Test merging with mixed case field names (case-insensitive)."""
+        schema_cache = converter._load_schema_cache("Invoice")
+        pages = [
+            {"id": "456", "invoiceline": [{"id": "L1", "amount": 100}]},
+            {"id": "456", "InvoiceLine": [{"id": "L2", "amount": 200}]},
+        ]
+        result = converter._merge_pages(pages, schema_cache)
+        assert result["id"] == "456"
+        assert "invoiceline" in result or "InvoiceLine" in result
+        merged_lines = result.get("invoiceline") or result.get("InvoiceLine")
+        assert len(merged_lines) == 2
+
+    def test_group_and_merge_documents_standalone(self, converter):
+        """Test _group_and_merge_documents helper method."""
+        docs = [
+            {
+                "id": "DOC001",
+                "document_type": 380,
+                "invoiceline": [{"id": "L1", "amount": 100}],
+            },
+            {
+                "id": "DOC001",
+                "document_type": 380,
+                "invoiceline": [{"id": "L2", "amount": 200}],
+            },
+            {
+                "id": "DOC002",
+                "document_type": 380,
+                "invoiceline": [{"id": "L3", "amount": 300}],
+            },
+        ]
+        result = converter._group_and_merge_documents(docs)
+        assert len(result) == 2
+        doc001 = next((d for d in result if d.get("id") == "DOC001"), None)
+        assert doc001 is not None
+        assert len(doc001.get("invoiceline", [])) == 2
+
+    def test_group_and_merge_documents_skips_no_id(self, converter):
+        """Test that documents without ID are skipped during merge."""
+        docs = [
+            {"id": "DOC001", "document_type": 380, "name": "Valid"},
+            {"document_type": 380, "name": "No ID"},
+            {"id": "DOC001", "document_type": 380, "name": "Another page"},
+        ]
+        result = converter._group_and_merge_documents(docs)
+        assert len(result) == 1
+        assert result[0]["id"] == "DOC001"
+
+    def test_merge_pages_schema_driven_different_doc_types(self, converter):
+        """Test schema-driven merging with different document types."""
+        schema_cache_cn = converter._load_schema_cache("CreditNote")
+        pages = [
+            {"id": "CN001", "creditnoteline": [{"id": "L1", "amount": 50}]},
+            {"id": "CN001", "creditnoteline": [{"id": "L2", "amount": 75}]},
+        ]
+        result = converter._merge_pages(pages, schema_cache_cn)
+        assert result["id"] == "CN001"
+        assert len(result.get("creditnoteline", [])) == 2

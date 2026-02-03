@@ -5,6 +5,7 @@
 [![PyPI version](https://badge.fury.io/py/json2ubl.svg)](https://badge.fury.io/py/json2ubl)
 [![Python Versions](https://img.shields.io/pypi/pyversions/json2ubl.svg)](https://pypi.org/project/json2ubl/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 [json2ubl](https://pypi.org/project/json2ubl/) is a production-ready converter that transforms JSON documents into UBL 2.1-compliant XML. It works with all 60+ UBL document types using automatic schema-driven mapping—no hardcoded field definitions required.
 
